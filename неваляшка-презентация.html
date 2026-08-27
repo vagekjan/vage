@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Неваляшка · вебинарная презентация</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<meta name="theme-color" content="#0c0c0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0c0c0d; --panel:#121214; --ink:#f2efeb; --muted:#8a857f; --faint:#6a6560;
+  --accent:#7c5cff; --line:#26262a; --sidew:236px;
+}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Instrument Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* боковое меню */
+.side{position:fixed;left:0;top:0;bottom:0;width:var(--sidew);z-index:30;background:var(--panel);
+  border-right:1px solid var(--line);display:flex;flex-direction:column;padding:22px 20px 0}
+.side .back{display:inline-flex;align-items:center;gap:8px;font-size:10.5px;letter-spacing:1.6px;
+  text-transform:uppercase;font-weight:700;color:var(--accent);margin-bottom:24px;transition:gap .2s}
+.side .back:hover{gap:13px}
+.side .st{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;line-height:1.14;letter-spacing:-.01em}
+.side .sd{font-size:11.5px;color:var(--muted);margin-top:7px;line-height:1.45}
+.side .sc{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--faint)}
+.side .sc b{color:var(--ink);font-weight:700;font-size:14px;letter-spacing:0}
+.navwrap{flex:1;overflow-y:auto;margin:16px -6px 0;padding:0 6px 22px;scrollbar-width:thin}
+.navwrap::-webkit-scrollbar{width:5px}
+.navwrap::-webkit-scrollbar-thumb{background:#2e2e33;border-radius:9px}
+.nav{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.nav a{display:flex;align-items:center;justify-content:center;height:30px;border-radius:6px;
+  font-size:11.5px;color:var(--faint);background:#171719;border:1px solid transparent;
+  transition:background .15s,color .15s}
+.nav a:hover{background:#1f1f23;color:var(--ink)}
+.nav a.on{background:var(--accent);color:#fff;font-weight:700;border-color:var(--accent)}
+.side .hint{padding:14px 0 18px;border-top:1px solid var(--line);font-size:11px;color:var(--faint);line-height:1.5}
+.side .hint b{color:var(--muted);font-weight:600}
+
+.sidebtn{display:none;position:fixed;left:14px;top:14px;z-index:40;background:rgba(18,18,20,.92);
+  border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:10px 16px;font:inherit;
+  font-size:11px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;cursor:pointer;backdrop-filter:blur(10px)}
+
+/* слайды сменяются на месте */
+.track{position:fixed;top:0;bottom:0;left:var(--sidew);right:0;overflow:hidden}
+.pane{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:clamp(18px,3vh,42px) clamp(20px,3.4vw,64px);
+  opacity:0;visibility:hidden;transition:opacity .16s linear,visibility 0s linear .16s}
+.pane.on{opacity:1;visibility:visible;transition:opacity .16s linear,visibility 0s}
+.pane img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;
+  border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.55);background:#000}
+
+/* обложка: только текст */
+.pane.cover{padding:clamp(40px,7vh,90px) clamp(28px,6vw,110px);flex-direction:column;
+  align-items:flex-start;justify-content:center;
+  background:radial-gradient(110% 80% at 18% 40%,#1a1730 0%,#0c0c0d 62%)}
+.cover-in{max-width:min(40ch,90%)}
+.cover-kick{font-size:11px;letter-spacing:2.8px;text-transform:uppercase;color:var(--accent);
+  font-weight:700;margin-bottom:24px}
+.pane.cover h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8.5vw,132px);font-weight:600;
+  line-height:.94;letter-spacing:-.035em;margin:0 0 34px}
+.cover-sub{font-size:clamp(16px,1.5vw,22px);line-height:1.55;color:#cfcac4;max-width:40ch;text-wrap:balance}
+.cover-rule{width:78px;height:2px;background:var(--accent);margin:38px 0 24px;border-radius:2px}
+.cover-meta{display:flex;text-wrap:balance;flex-wrap:wrap;gap:10px 26px;font-size:11px;letter-spacing:2.2px;
+  text-transform:uppercase;color:var(--muted);font-weight:700}
+.cover-num{position:absolute;left:clamp(28px,6vw,110px);bottom:clamp(26px,4vh,46px);
+  font-size:13px;letter-spacing:1.6px;color:#5d5852}
+
+/* стрелки и счётчик */
+.pager{position:fixed;right:22px;bottom:22px;z-index:36;display:flex;gap:10px}
+.pager button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(24,24,27,.92);
+  color:var(--ink);font-size:17px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(10px);transition:background .18s,color .18s,opacity .18s}
+.pager button:hover{background:#fff;color:#141013}
+.pager button[disabled]{opacity:.32;cursor:default}
+.pager button[disabled]:hover{background:rgba(24,24,27,.92);color:var(--ink)}
+.mini{position:fixed;left:calc(var(--sidew) + 22px);bottom:26px;z-index:35;font-size:12px;
+  letter-spacing:1.4px;color:var(--faint)}
+.mini b{color:var(--ink)}
+@media(min-width:1101px){.mini{display:none}}
+
+@media(max-width:1100px){
+  .side{transform:translateX(-100%);transition:transform .28s ease;box-shadow:0 0 60px rgba(0,0,0,.6)}
+  body.nav-open .side{transform:none}
+  .track{left:0}
+  .sidebtn{display:block}
+  .mini{left:20px}
+}
+@media(max-width:820px){
+  .cover-num{display:none}
+  .pane{padding:56px 16px 78px}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<button class="sidebtn" id="sidebtn" type="button">Слайды</button>
+
+<aside class="side" id="side">
+  <a class="back" href="index.html">← К упаковке</a>
+  <div class="st">Неваляшка</div>
+  <div class="sd">Вебинар Марины Горской · структура и сценарий Вагэ Хачатрян</div>
+  <div class="sc">Слайд <b id="cur">1</b> из <span id="tot">200</span></div>
+  <div class="navwrap"><div class="nav" id="nav"></div></div>
+  <div class="hint"><b>← →</b> листать слайды<br><b>Колесо мыши</b> и свайп тоже листают</div>
+</aside>
+
+<div class="track" id="track">
+  <section class="pane cover on">
+    <div class="cover-in">
+      <div class="cover-kick">Вебинарная презентация</div>
+      <h1>Неваляшка</h1>
+      <p class="cover-sub">Вебинар Марины Горской: как за один год заработать 200 млн с нуля на запусках.</p>
+      <div class="cover-rule"></div>
+      <div class="cover-meta"><span id="kick">200 слайдов</span><span>Структура и сценарий Вагэ Хачатрян</span></div>
+    </div>
+    <div class="cover-num">01</div>
+  </section>
+</div>
+
+<div class="mini">Слайд <b id="cur2">1</b> / <span id="tot2">200</span></div>
+
+<div class="pager">
+  <button id="prev" type="button" aria-label="Предыдущий слайд">‹</button>
+  <button id="next" type="button" aria-label="Следующий слайд">›</button>
+</div>
+
+<script>
+(function(){
+  // сколько слайдов лежит в папке slides-nevalyashka/p1
+  var TOTAL = 200;
+
+  var track=document.getElementById('track'), nav=document.getElementById('nav');
+  var cur=document.getElementById('cur'), cur2=document.getElementById('cur2');
+  var prevB=document.getElementById('prev'), nextB=document.getElementById('next');
+  document.getElementById('tot').textContent=TOTAL;
+  document.getElementById('tot2').textContent=TOTAL;
+  document.getElementById('kick').textContent=TOTAL+' слайдов';
+
+  var html='';
+  for (var i=1;i<=TOTAL;i++){
+    var n=String(i).padStart(3,'0');
+    html+='<section class="pane"><img data-src="slides-nevalyashka/p1/s'+n+'.jpg" alt="Слайд '+i+'" decoding="async"></section>';
+  }
+  track.insertAdjacentHTML('beforeend', html);
+
+  var nh='';
+  for (var j=1;j<=TOTAL;j++) nh+='<a href="#" data-n="'+j+'">'+j+'</a>';
+  nav.innerHTML=nh;
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var panes=[].slice.call(track.querySelectorAll('.pane'));
+  var LAST=panes.length-1, idx=0;
+
+  function preload(i){
+    for (var k=i-2;k<=i+2;k++){
+      if(k<0||k>LAST) continue;
+      var img=panes[k].querySelector('img');
+      if(img && !img.src && img.dataset.src) img.src=img.dataset.src;
+    }
+  }
+  function paint(){
+    var no=Math.min(Math.max(idx,1),TOTAL);
+    cur.textContent=no; cur2.textContent=no;
+    links.forEach(function(a){ a.classList.toggle('on', +a.dataset.n===idx); });
+    prevB.disabled=idx<=0; nextB.disabled=idx>=LAST;
+    var on=nav.querySelector('a.on');
+    if(on){
+      var wrap=on.parentNode.parentNode, top=on.offsetTop, h=wrap.clientHeight;
+      if(top<wrap.scrollTop || top>wrap.scrollTop+h-40) wrap.scrollTop=top-h/2;
+    }
+  }
+  function go(n){
+    n=Math.max(0,Math.min(LAST,n));
+    if(n===idx){ preload(n); return; }
+    panes[idx].classList.remove('on');
+    idx=n; preload(idx);
+    panes[idx].classList.add('on');
+    paint();
+  }
+
+  var lock=false;
+  track.addEventListener('wheel', function(e){
+    if(e.ctrlKey) return;
+    var d=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX;
+    if(Math.abs(d)<6) return;
+    e.preventDefault();
+    if(lock) return; lock=true;
+    go(idx+(d>0?1:-1));
+    setTimeout(function(){lock=false;},260);
+  },{passive:false});
+
+  document.addEventListener('keydown', function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey) return;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); go(idx+1); }
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){ e.preventDefault(); go(idx-1); }
+    else if(e.key==='Home'){ e.preventDefault(); go(0); }
+    else if(e.key==='End'){ e.preventDefault(); go(LAST); }
+  });
+
+  var x0=null;
+  track.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+  track.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>44) go(idx+(dx<0?1:-1));
+  },{passive:true});
+
+  prevB.addEventListener('click',function(){ go(idx-1); });
+  nextB.addEventListener('click',function(){ go(idx+1); });
+  nav.addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a) return;
+    e.preventDefault(); go(+a.dataset.n);
+    document.body.classList.remove('nav-open');
+  });
+
+  var btn=document.getElementById('sidebtn'), side=document.getElementById('side');
+  if(btn){
+    btn.addEventListener('click',function(){ document.body.classList.toggle('nav-open'); });
+    document.addEventListener('click',function(e){
+      if(!document.body.classList.contains('nav-open')) return;
+      if(side.contains(e.target)||btn.contains(e.target)) return;
+      document.body.classList.remove('nav-open');
+    });
+  }
+
+  preload(0); paint();
+})();
+</script>
+</body>
+</html>

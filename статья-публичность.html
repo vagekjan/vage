@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Медийные трущобы · Вагэ Хачатрян</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<meta name="theme-color" content="#0c0c0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f3efe9; --surface:#fff; --text:#171310; --muted:#6b6158; --faint:#6f665c;
+  --line:#e6e1da; --border-light:#e4dcd0; --accent:#b67454; --accent-ink:#9c5c3d; --accent-soft:#d9b8a4;
+  --green:#1f2d27; --green-ink:#f4efe4; --green-muted:#a7b1a3; --green-body:#bcc4b7;
+}
+body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:break-word;text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+::selection{background:var(--accent-soft)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  padding:15px clamp(18px,4vw,44px);background:rgba(243,239,233,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav a.back{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:10px 0;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;color:var(--accent-ink);transition:gap .2s}
+.nav a.back:hover{gap:13px}
+.nav .brand{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600}
+
+/* hero: editorial masthead */
+.hero{background:var(--bg);min-height:100svh;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,4vw,64px);
+  align-items:center;max-width:1200px;margin:0 auto;text-align:left;padding:88px clamp(20px,5vw,48px) 72px;border-bottom:1px solid var(--line)}
+.hero-copy{min-width:0}
+.hero .kicker{margin-left:0}
+.hero h1{margin:0}
+.hero .sub{margin:26px 0 0}
+.hero-fig{display:flex;justify-content:center}
+.hero-fig img{width:100%;max-width:600px;height:auto;display:block}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;text-align:center;min-height:auto;padding-top:64px}
+  .hero-copy{order:2}
+  .hero .kicker,.hero h1,.hero .sub{margin-left:auto;margin-right:auto}
+  .hero-fig{order:1;margin-bottom:8px}
+  .hero-fig img{max-width:340px}
+}
+.hero .kicker{font-size:11px;letter-spacing:2.8px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-bottom:28px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.4vw,64px);font-weight:600;line-height:1.08;letter-spacing:-.02em;max-width:22ch;margin:0 auto;color:var(--text);text-wrap:balance}
+.hero .sub{color:var(--muted);font-size:clamp(16px,1.9vw,20px);max-width:48ch;margin:26px auto 0;line-height:1.55}
+.hero .read{display:inline-flex;align-items:center;gap:12px;margin-top:44px;background:var(--green);color:var(--green-ink);
+  font-size:14px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;padding:21px 50px;border-radius:99px;text-decoration:none;transition:gap .2s,background .2s}
+.hero .read:hover{gap:17px;background:#17211c}
+.hero .meta{margin-top:22px;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--faint)}
+.gated{display:none}
+
+/* layout: centered column + floating sidebar */
+.layout{max-width:880px;margin:0 auto;padding:clamp(48px,7vh,88px) clamp(20px,5vw,40px)}
+.toc{display:none}
+@media(min-width:1280px){
+  .toc{display:block;position:fixed;top:118px;left:calc(50vw - 628px);width:188px;background:var(--bg);border-radius:12px;padding:6px 10px;z-index:15;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease}
+  .toc.show{opacity:1;visibility:visible}
+  .toc-h{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);font-weight:700;margin-bottom:16px}
+  .toc a{display:block;font-size:13.5px;line-height:1.4;color:var(--muted);padding:9px 0 9px 16px;border-left:2px solid var(--line);transition:color .2s,border-color .2s}
+  .toc a:hover{color:var(--text)}
+  .toc a.on{color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+  .toc a .tn{color:var(--accent-soft);font-weight:700;margin-right:8px}
+}
+
+/* article */
+.wrap{max-width:800px;margin:0 auto;padding:0}
+.lead{font-size:clamp(19px,2.2vw,23px);line-height:1.5;color:var(--text);font-weight:500;letter-spacing:-.005em}
+.lead::first-letter{font-family:'Cormorant Garamond',serif;float:left;font-size:3.6em;line-height:.76;font-weight:600;
+  color:var(--green);margin:.06em .12em -.04em 0}
+.lead+p{margin-top:24px}
+.wrap p{font-size:18px;line-height:1.78;color:#312b25;margin-top:22px}
+.wrap p b{font-weight:600;color:var(--text)}
+.accent{color:var(--accent-ink);font-weight:600}
+/* authorial aphorism: avatar + quote, placed where it belongs in the flow */
+.aph{display:flex;gap:clamp(16px,2.5vw,22px);align-items:center;margin:clamp(34px,5vh,54px) 0;max-width:44ch}
+.aph img{flex:none;width:clamp(60px,8vw,78px);height:clamp(60px,8vw,78px);border-radius:50%;
+  object-fit:cover;box-shadow:0 3px 12px rgba(23,19,16,.14)}
+.aph p{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.7vw,30px);line-height:1.26;
+  font-weight:600;color:var(--text);letter-spacing:-.01em;margin:0}
+
+.qnum{display:flex;align-items:baseline;gap:16px;margin-top:clamp(56px,8vh,88px);scroll-margin-top:88px}
+.qnum .n{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,64px);font-weight:600;color:var(--accent-soft);line-height:.9;font-variant-numeric:lining-nums}
+.qnum h2{font-family:'Cormorant Garamond',serif;font-size:clamp(25px,3.4vw,38px);font-weight:600;line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.qnum + p{margin-top:22px}
+
+/* pull quote */
+.pull{margin:clamp(40px,6vh,64px) 0;padding-left:clamp(30px,5vw,52px);position:relative}
+.pull::before{content:'\201C';position:absolute;left:-6px;top:-18px;font-family:'Cormorant Garamond',serif;
+  font-size:84px;line-height:1;color:var(--accent-soft)}
+.pull p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.9vw,32px);line-height:1.3;
+  color:var(--text);margin:0;max-width:32ch}
+.pull .who{margin-top:16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;font-style:normal}
+
+/* full-bleed quote (peak theses) */
+.fullq{width:100vw;margin-inline:calc(50% - 50vw);margin-top:clamp(52px,8vh,96px);margin-bottom:clamp(52px,8vh,96px);
+  background:#0c0c0d;background-image:radial-gradient(120% 90% at 50% 0%,#1b1b1e 0%,#0c0c0d 62%);
+  color:var(--green-ink);padding:clamp(52px,8vh,92px) clamp(24px,7vw,44px);text-align:center}
+.fullq p{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;
+  font-size:clamp(25px,3.4vw,40px);line-height:1.24;letter-spacing:-.01em;max-width:30ch;margin:0 auto;color:var(--green-ink)}
+.fullq .who{margin-top:24px;font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:var(--accent-soft);font-weight:700;font-style:normal}
+
+/* four-reasons diagram */
+.diagram{margin:clamp(44px,7vh,72px) 0}
+.dg-title{text-align:center;font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:30px}
+.dg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.dg-cell{background:var(--surface);border:1px solid var(--border-light);border-radius:14px;padding:24px 22px;box-shadow:0 2px 10px rgba(23,19,16,.05);align-self:start}
+.dg-cell .dn{font-size:11px;letter-spacing:2px;color:var(--accent-ink);font-weight:700}
+.dg-cell h4{font-size:17px;font-weight:700;line-height:1.2;letter-spacing:-.01em;margin:8px 0 14px;color:var(--text)}
+.dg-cell ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px 10px}
+.dg-cell li{font-size:13px;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+.dg-core{grid-column:1/-1;background:var(--green);color:var(--green-ink);border-radius:16px;padding:34px 28px;text-align:center;order:5}
+@media(max-width:480px){.dg-grid{grid-template-columns:1fr}}
+.dg-core .ct{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.4vw,32px);font-weight:600;line-height:1.08;letter-spacing:-.01em}
+.dg-core .cd{color:var(--green-muted);font-size:14.5px;margin-top:12px;max-width:42ch;margin-inline:auto;line-height:1.6}
+@media(min-width:720px){
+  .dg-grid{grid-template-columns:1fr 1.15fr 1fr;grid-template-rows:auto auto;gap:16px}
+  .dg-cell:nth-child(1){grid-column:1;grid-row:1}
+  .dg-cell:nth-child(2){grid-column:3;grid-row:1}
+  .dg-cell:nth-child(4){grid-column:1;grid-row:2}
+  .dg-cell:nth-child(5){grid-column:3;grid-row:2}
+  .dg-core{grid-column:2;grid-row:1/3;order:0;display:flex;flex-direction:column;justify-content:center}
+}
+
+/* final CTA */
+.final{background:#0c0c0d;background-image:radial-gradient(120% 82% at 50% 0%,#1b1b1e 0%,#0c0c0d 62%);color:var(--green-ink);
+  padding:clamp(60px,10vh,110px) clamp(20px,5vw,40px);text-align:center;margin-top:clamp(56px,8vh,88px)}
+.final .k{font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:20px}
+.final h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,44px);font-weight:600;line-height:1.08;letter-spacing:-.02em;max-width:20ch;margin:0 auto;text-wrap:balance}
+.final p{color:var(--green-body);font-size:16px;max-width:50ch;margin:22px auto 0;line-height:1.65}
+.final .btn{display:inline-flex;align-items:center;gap:11px;margin-top:36px;background:#a3684a;color:#fff;
+  font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:19px 34px;border-radius:99px;transition:background .25s,gap .25s}
+.final .btn:hover{background:#8f5a3e;gap:16px}
+/* reading progress */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:40;transition:width .1s linear}
+
+/* comparison (q3) */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:clamp(32px,5vh,48px) 0}
+@media(max-width:560px){.vs{grid-template-columns:1fr}}
+.vs-col{border-radius:14px;padding:26px 24px}
+.vs-a{background:var(--surface);border:1px solid var(--border-light)}
+.vs-b{background:var(--green);color:var(--green-ink)}
+.vs-col .vh{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.vs-a .vh{color:var(--muted)}
+.vs-b .vh{color:var(--accent-soft)}
+.vs-col .vbig{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,28px);font-weight:600;line-height:1.14;margin-bottom:14px}
+.vs-b .vbig{color:var(--green-ink)}
+.vs-col ul{list-style:none}
+.vs-col li{font-size:14px;line-height:1.5;padding:8px 0;border-top:1px solid var(--line)}
+.vs-a li{color:var(--muted)}
+.vs-b li{color:var(--green-body);border-color:rgba(255,255,255,.12)}
+.vs-col li:first-child{border-top:none}
+
+/* method chain (q4) */
+.chain{margin:clamp(32px,5vh,48px) 0}
+.chain-step{position:relative;display:grid;grid-template-columns:42px 1fr;gap:18px;padding:0 0 24px}
+.chain-step:last-child{padding-bottom:0}
+.chain-step::before{content:'';position:absolute;left:20px;top:46px;bottom:-2px;width:2px;background:var(--line)}
+.chain-step:last-child::before{display:none}
+.chain-step .cs-n{width:42px;height:42px;border-radius:50%;background:var(--surface);border:1px solid var(--border-light);
+  display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:21px;
+  font-weight:600;color:var(--accent-ink);line-height:1;position:relative;z-index:1}
+.chain-step .cs-t{font-size:16.5px;font-weight:600;color:var(--text);padding-top:10px}
+.chain-step .cs-d{font-size:14.5px;color:var(--muted);line-height:1.55;margin-top:4px}
+
+/* section heading without number (bridge) */
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(25px,3.4vw,38px);font-weight:600;line-height:1.1;
+  letter-spacing:-.01em;margin-top:clamp(56px,8vh,88px);text-wrap:balance;scroll-margin-top:88px}
+.sec-h + p{margin-top:22px}
+
+/* numbered thin-divider list (mistakes, reasons) */
+.mlist{list-style:none;margin:clamp(28px,4vh,42px) 0}
+.mlist li{position:relative;padding:22px 0 22px 46px;border-top:1px solid var(--line)}
+.mlist li:first-child{border-top:none}
+.mlist li::before{content:counter(mi);counter-increment:mi;position:absolute;left:0;top:20px;
+  font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:var(--accent-soft);line-height:1}
+.mlist{counter-reset:mi}
+.mlist .mt{font-size:16.5px;font-weight:600;color:var(--text);line-height:1.35}
+.mlist .md{font-size:15px;color:var(--muted);line-height:1.62;margin-top:6px}
+
+/* concept chart */
+.chart{margin:clamp(38px,6vh,64px) 0}
+.chart-t{text-align:center;font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:20px}
+.chart svg,.berg svg{display:block;width:100%;height:auto}
+.chart-cap{text-align:center;font-size:13.5px;color:var(--faint);margin-top:12px;font-style:italic;max-width:48ch;margin-inline:auto}
+/* iceberg figure (q4) */
+.berg{margin:clamp(38px,6vh,64px) 0}
+.berg svg{border-radius:14px}
+.berg-cap{margin-top:20px;display:grid;gap:12px;max-width:60ch}
+.berg-cap p{font-size:15px;line-height:1.55;color:var(--muted);margin:0}
+.berg-cap b{color:var(--text);font-weight:600}
+/* flow diagram: wrong path vs right path */
+.flowdiag{margin:clamp(38px,6vh,64px) auto;max-width:700px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,72px)}
+@media(max-width:600px){.flowdiag{grid-template-columns:1fr;gap:40px}}
+.flow-h{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;line-height:1.35;margin-bottom:20px;display:flex;gap:8px;min-height:2.7em}
+.flow-h.wrong{color:var(--muted)} .flow-h.right{color:var(--accent-ink)}
+.flow-h .mk{flex:none;font-weight:700}
+.flow-h.wrong .mk{color:var(--muted)} .flow-h.right .mk{color:var(--green)}
+.step{border-radius:10px;padding:12px 14px;text-align:center;font-size:14px;font-weight:600;letter-spacing:-.01em}
+.step.w{background:var(--surface);border:1px solid var(--border-light);color:var(--muted)}
+.step.r{background:var(--green);color:var(--green-ink);border:1px solid var(--green)}
+.step.fail{background:var(--accent);color:#fff;border:1px solid var(--accent)}
+.flow-a{text-align:center;color:var(--accent-soft);font-size:13px;line-height:1;margin:6px 0}
+.flow-a.l{text-align:left;padding-left:12px}
+.fstep{display:flex;align-items:center;gap:14px;padding:9px 2px;font-size:15.5px;font-weight:600;color:var(--text);letter-spacing:-.01em}
+.fi{flex:none;width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;color:var(--green)}
+.flow-tools{text-align:center;font-size:12px;color:var(--faint);margin-top:12px;line-height:1.6}
+.flow-cap{grid-column:1/-1;text-align:center;font-size:13px;color:var(--faint);font-style:italic;margin-top:22px;max-width:50ch;margin-inline:auto;line-height:1.5}
+/* intrigue map: visual table of contents at the start (light, editorial) */
+.map{width:100vw;margin-inline:calc(50% - 50vw);margin-top:clamp(4px,1vh,14px);margin-bottom:clamp(44px,6vh,78px);
+  padding:0 clamp(20px,5vw,40px)}
+.map-in{max-width:1120px;margin:0 auto}
+.map-k{text-align:center;font-size:11px;letter-spacing:2.6px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-bottom:14px}
+.map-h{text-align:center;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.4vw,36px);font-weight:600;line-height:1.12;letter-spacing:-.01em;max-width:24ch;margin:0 auto clamp(28px,4.5vh,40px);color:var(--text)}
+.map-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media(max-width:640px){.map-grid{grid-template-columns:1fr}}
+.bpanel{background:var(--bg);padding:34px 32px;display:flex;flex-direction:column;gap:9px;min-height:300px}
+.bpanel .bn{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--accent-soft);line-height:1}
+.bpanel .bt{font-size:21px;font-weight:700;color:var(--text);line-height:1.15;letter-spacing:-.01em}
+.bpanel .bs{font-size:13.5px;color:var(--muted);line-height:1.35}
+.bpanel .bb{margin-top:16px}
+.b2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.bch{font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:12px}
+.bch.g{color:var(--accent-ink)}
+.bflow{display:flex;flex-direction:column;align-items:flex-start;gap:2px;font-size:15px;color:#3c342c;line-height:1.3}
+.bflow i{color:var(--accent-soft);font-style:normal;font-size:11px;line-height:1;margin:2px 0}
+.bflow .fail{color:#fff;background:var(--accent);border-radius:6px;padding:3px 13px;font-weight:600;font-size:13px;margin-top:6px}
+.bflow .g{color:var(--green);font-weight:600}
+.blist{font-size:15px;color:#3c342c;line-height:1.95}
+.blist .g{color:var(--green);font-weight:600}
+.bnote{font-size:12px;color:var(--faint);font-style:italic;margin-top:14px;line-height:1.4}
+.bq{font-size:15px;color:#3c342c;line-height:1.3;padding:10px 0;display:flex;gap:12px;border-top:1px solid var(--line)}
+.bq:first-child{border-top:none;padding-top:0}
+.bq .qn{color:var(--accent-soft);font-weight:700;flex:none;font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.2}
+.bq b{color:var(--text);font-weight:600;display:block}
+.bmini{margin-top:auto}
+.bmini svg{width:100%;max-width:400px;height:auto;stroke:#1f2d27;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;display:block}
+.bmlab{display:flex;justify-content:space-between;gap:16px;font-size:12px;color:var(--muted);margin-top:14px;line-height:1.4}
+.btraj{font-size:12.5px;color:var(--muted);margin-top:16px;line-height:1.5}
+.map-note{text-align:center;font-size:13px;color:var(--faint);font-style:italic;margin-top:clamp(22px,4vh,32px);max-width:58ch;margin-inline:auto;line-height:1.55}
+
+/* quiet inline story block (jurist example) */
+.story{margin:clamp(28px,4vh,40px) 0;background:var(--surface);border:1px solid var(--border-light);
+  border-radius:14px;padding:clamp(24px,3.5vw,32px)}
+.story .sl{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-bottom:14px}
+.story p{font-size:16px;line-height:1.62;color:#312b25;margin-top:12px}
+.story p:first-of-type{margin-top:0}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+html{scroll-behavior:smooth;overflow-x:clip}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="hero-copy">
+    <div class="kicker">Стратегия публичности</div>
+    <h1>Медийные трущобы</h1>
+    <p class="sub">Что важно понять предпринимателю до того, как строить личный бренд.</p>
+    <a class="read" href="#start" onclick="openArticle(event)">Читать статью <span>↓</span></a>
+    <div class="meta">15 минут чтения</div>
+  </div>
+  <div class="hero-fig"><img src="trushoby-hero.png" alt="Медийные трущобы: башня из телефонов, книг и экранов, собранная без плана"></div>
+</header>
+
+<div class="layout gated" id="start">
+<nav class="toc" aria-label="Содержание">
+  <div class="toc-h">Пять вопросов</div>
+  <a href="#q1"><span class="tn">1</span>Зачем</a>
+  <a href="#q2"><span class="tn">2</span>Что теряете</a>
+  <a href="#q3"><span class="tn">3</span>Почему не так</a>
+  <a href="#q4"><span class="tn">4</span>Как строить</a>
+  <a href="#q5"><span class="tn">5</span>Что меняется</a>
+</nav>
+
+<article class="wrap">
+
+  <div class="map">
+    <div class="map-in">
+      <div class="map-k">Карта статьи</div>
+      <div class="map-h">Восемь идей, которые меняют подход к публичности</div>
+      <div class="map-grid">
+        <div class="bpanel"><div class="bn">1</div><div class="bt">С чего начинается</div><div class="bs">Правильный порядок против привычного</div>
+          <div class="bb b2">
+            <div><div class="bch g">Правильно</div><div class="bflow"><span>Замысел</span><i>↓</i><span>Цель</span><i>↓</i><span>Стратегия</span><i>↓</i><span>Позиционирование</span><i>↓</i><span>Контент</span><i>↓</i><span>Каналы</span></div></div>
+            <div><div class="bch">Наоборот</div><div class="bflow"><span>Telegram</span><i>↓</i><span>Reels</span><i>↓</i><span>YouTube</span><i>↓</i><span>Контент</span><i>↓</i><span>???</span><span class="fail">Разочарование</span></div></div>
+          </div>
+        </div>
+        <div class="bpanel"><div class="bn">2</div><div class="bt">Архитектор или плиточник</div><div class="bs">Два подхода к стройке</div>
+          <div class="bb b2">
+            <div><div class="bch g">Архитектор</div><div class="bflow"><span>Жизнь</span><i>↓</i><span>Проект</span><i>↓</i><span>Фундамент</span><i>↓</i><span>Стены</span><i>↓</i><span>Плитка</span></div></div>
+            <div><div class="bch">Плиточник</div><div class="bflow"><span>Telegram</span><i>↓</i><span>Reels</span><i>↓</i><span>PR</span><i>↓</i><span>???</span><span class="fail">Дом ✕</span></div></div>
+          </div>
+        </div>
+        <div class="bpanel"><div class="bn">3</div><div class="bt">Капитал или блог</div><div class="bs">В чём разница</div>
+          <div class="bb b2">
+            <div><div class="bch">Блог</div><div class="blist">Подписчики<br>Просмотры<br>Лайки<br>Контент</div><div class="bnote">Уходит, если вы пропали</div></div>
+            <div><div class="bch g">Капитал личности</div><div class="blist"><span class="g">Доверие<br>Вес<br>Доступ<br>Влияние</span></div><div class="bnote">Растёт, даже когда молчите</div></div>
+          </div>
+        </div>
+        <div class="bpanel"><div class="bn">4</div><div class="bt">Пять вопросов</div><div class="bs">Логика сильной стратегии</div>
+          <div class="bb">
+            <div class="bq"><span class="qn">1</span><b>Зачем?</b></div>
+            <div class="bq"><span class="qn">2</span><b>Что теряю?</b></div>
+            <div class="bq"><span class="qn">3</span><b>Что делаю не так?</b></div>
+            <div class="bq"><span class="qn">4</span><b>Как строить?</b></div>
+            <div class="bq"><span class="qn">5</span><b>Что изменится?</b></div>
+          </div>
+        </div>
+        <div class="bpanel"><div class="bn">5</div><div class="bt">До и после</div><div class="bs">Два разных мира</div>
+          <div class="bb b2">
+            <div><div class="bch">Было</div><div class="blist">Доказываю<br>Ищу клиентов<br>Прошу<br>Убеждаю</div></div>
+            <div><div class="bch g">Стало</div><div class="blist"><span class="g">Приглашают<br>Рекомендуют<br>Доверяют<br>Открывают двери</span></div></div>
+          </div>
+        </div>
+        <div class="bpanel"><div class="bn">6</div><div class="bt">Айсберг</div><div class="bs">Видимое это только вершина</div>
+          <div class="bb bmini"><svg viewBox="0 0 200 92"><path d="M0 34h200" stroke-dasharray="3 4" stroke="#b9c2b9"/><path d="M86 34l14-23 14 23Z"/><path d="M58 34h84l-18 34-20 16-24-12-22-38Z" fill="#1f2d27" stroke="none"/></svg>
+            <div class="bmlab"><span>Над водой: каналы, контент</span><span>Под водой: стратегия, замысел</span></div>
+          </div>
+        </div>
+        <div class="bpanel"><div class="bn">7</div><div class="bt">Накопительный эффект</div><div class="bs">Каждое действие в капитал</div>
+          <div class="bb b2">
+            <div><div class="bch">Действия</div><div class="blist">Пост<br>Статья<br>Выступление<br>Интервью</div></div>
+            <div><div class="bch g">Капитал</div><div class="bflow"><span class="g">Имя</span><i>↓</i><span class="g">Репутация</span><i>↓</i><span class="g">Доверие</span><i>↓</i><span class="g">Влияние</span></div></div>
+          </div>
+        </div>
+        <div class="bpanel"><div class="bn">8</div><div class="bt">Траектория</div><div class="bs">Путь длиной в жизнь</div>
+          <div class="bb bmini"><svg viewBox="0 0 200 82"><path d="M8 74L40 62 72 50 104 38 136 26 176 8"/><circle cx="40" cy="62" r="2.2" fill="#1f2d27" stroke="none"/><circle cx="72" cy="50" r="2.2" fill="#1f2d27" stroke="none"/><circle cx="104" cy="38" r="2.2" fill="#1f2d27" stroke="none"/><circle cx="136" cy="26" r="2.2" fill="#1f2d27" stroke="none"/><circle cx="176" cy="8" r="4" fill="#b67454" stroke="none"/></svg>
+            <div class="btraj">Контент → известность → доверие → вес → люди → проекты → наследие</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-note">Всё это разобрано дальше по шагам. А начинается с того, что большинство строит публичность не с того конца.</div>
+    </div>
+  </div>
+
+  <p class="lead">Почти все начинают строить публичность с одного вопроса: где вести канал. А его стоит задавать последним.</p>
+
+  <p>Это как проектировать дом, начав с выбора плитки. YouTube, Telegram, подкасты, сцена: спорят про каналы, форматы и частоту постов. А канал выбирают в самом конце.</p>
+
+  <p>Сначала стоит ответить на пять вопросов. Каждый следующий рождается из ответа на предыдущий. Вместе они решают не «где мне вести блог», а «стоит ли вообще браться и ради чего». Это одновременно и план статьи, и порядок, в котором предприниматель на самом деле принимает решение.</p>
+
+  <div class="flowdiag">
+    <div class="flowcol">
+      <div class="flow-h right">С чего начинается личный бренд</div>
+      <div class="fstep"><svg class="fi" viewBox="0 0 24 24"><path d="M9.5 17.5h5"/><path d="M10 20.5h4"/><path d="M12 3.5a5.5 5.5 0 0 1 3.5 9.7c-.6.5-.9 1.1-1 2.3H9.5c-.1-1.2-.4-1.8-1-2.3A5.5 5.5 0 0 1 12 3.5Z"/></svg><span>Замысел</span></div>
+      <div class="flow-a l">↓</div>
+      <div class="fstep"><svg class="fi" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg><span>Цель</span></div>
+      <div class="flow-a l">↓</div>
+      <div class="fstep"><svg class="fi" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 10h16M10 4v16"/></svg><span>Стратегия</span></div>
+      <div class="flow-a l">↓</div>
+      <div class="fstep"><svg class="fi" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg><span>Позиционирование</span></div>
+      <div class="flow-a l">↓</div>
+      <div class="fstep"><svg class="fi" viewBox="0 0 24 24"><path d="M4 20l1.2-4.2L15.5 5.5l3 3L8.2 18.8 4 20Z"/><path d="M13.5 7.5l3 3"/></svg><span>Контент</span></div>
+      <div class="flow-a l">↓</div>
+      <div class="fstep"><svg class="fi" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M8.2 8.2a5.5 5.5 0 0 0 0 7.6M15.8 8.2a5.5 5.5 0 0 1 0 7.6"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg><span>Каналы</span></div>
+      <div class="flow-tools" style="text-align:left;padding-left:40px">Telegram · YouTube · СМИ</div>
+    </div>
+    <div class="flowcol">
+      <div class="flow-h wrong">Большинство делает наоборот</div>
+      <div class="step w">Telegram</div>
+      <div class="flow-a">↓</div>
+      <div class="step w">Reels</div>
+      <div class="flow-a">↓</div>
+      <div class="step w">YouTube</div>
+      <div class="flow-a">↓</div>
+      <div class="step w">Контент</div>
+      <div class="flow-a">↓</div>
+      <div class="step w">???</div>
+      <div class="flow-a">↓</div>
+      <div class="step fail">Разочарование</div>
+    </div>
+    <div class="flow-cap">Инструменты становятся очевидными только после того, как понятны цель и стратегия.</div>
+  </div>
+
+  <div class="qnum" id="q1"><span class="n">1</span><h2>Зачем успешному предпринимателю публичность?</h2></div>
+
+  <p>Ответ не «чтобы про меня узнали». Известность сама по себе ничего не приносит. Начнём с того, что проще всего измерить, с влияния на бизнес, и постепенно дойдём до причин, которые посчитать труднее, но которые часто и оказываются главными.</p>
+
+  <p><b>Она усиливает существующий бизнес.</b> Причём не ускоряет его. <span class="accent">Снижает трение</span>. Это разные вещи. Когда за именем стоит вес, вам доверяют быстрее, сделки идут легче, сильных людей нанимать проще, продавать дешевле. Ничего не разгоняется искусственно. Просто исчезает сопротивление, которое раньше съедало время и деньги.</p>
+
+  <p><b>Публичность становится частью бизнес-модели.</b> Для части предпринимателей книга, выступления, консалтинг, образовательные продукты это уже не витрина, а источник выручки наравне с основным делом.</p>
+
+  <p><b>Она открывает доступ.</b> К людям, не к подписчикам. К партнёрствам, капиталу, проектам, закрытым сообществам, куда не заходят по объявлению.</p>
+
+  <p><b>Наконец, она позволяет браться за большие замыслы.</b> За те, где одних денег уже мало и нужны доверие, авторитет, общественный вес, способность собирать людей вокруг идеи.</p>
+
+  <div class="diagram">
+    <div class="dg-title">Почему предпринимателю нужна публичность</div>
+    <div class="dg-grid">
+      <div class="dg-cell"><div class="dn">01</div><h4>Усиление бизнеса</h4><ul><li>доверие</li><li>сделки</li><li>найм</li><li>продажи</li></ul></div>
+      <div class="dg-cell"><div class="dn">02</div><h4>Часть бизнес-модели</h4><ul><li>книги</li><li>выступления</li><li>консалтинг</li><li>образование</li></ul></div>
+      <div class="dg-core">
+        <div class="ct">Имя предпринимателя как актив</div>
+        <div class="cd">Капитал личности, который работает на вас и ваши цели</div>
+      </div>
+      <div class="dg-cell"><div class="dn">03</div><h4>Доступ</h4><ul><li>партнёры</li><li>инвесторы</li><li>сообщества</li><li>возможности</li></ul></div>
+      <div class="dg-cell"><div class="dn">04</div><h4>Большие замыслы</h4><ul><li>влияние</li><li>институты</li><li>общественные проекты</li><li>наследие</li></ul></div>
+    </div>
+  </div>
+
+  <p>Тут есть тонкость, которую видно не сразу. То, что предприниматель называет целью, обычно оказывается средством. Он говорит: «мне нужна известность» или «хочу накопить социальный капитал». Но стоит спросить, зачем ему социальный капитал, и начинается самое важное. Чтобы собрать вокруг себя сильных людей. Чтобы запускать инициативы, к которым сразу подключаются. Чтобы браться за проекты, которые не поднять одними деньгами.</p>
+
+  <p>Известность, репутация, доступ это язык, которым описывают решение. За ним стоит вопрос покрупнее: ради какого замысла всё это. И <span class="accent">стратегию задаёт замысел. Не список инструментов</span>. Причины у всех разные, а делают одно и то же: <b>превращают своё имя в актив.</b> Дальше вся статья про это.</p>
+
+  <div class="qnum" id="q2"><span class="n">2</span><h2>Что предприниматель теряет, оставаясь непубличным?</h2></div>
+
+  <p>Это цена, которую не видно в отчёте. Непубличный предприниматель не теряет деньги напрямую. Он теряет медленно и незаметно.</p>
+
+  <p>Сделки идут дольше, потому что каждый раз приходится доказывать, кто ты. Двери, за которыми сидят нужные люди, остаются закрытыми, потому что тебя туда просто не знают. Сильных людей вокруг себя собрать труднее, они идут к тем, чьё имя уже что-то значит. Большие идеи остаются без поддержки. А сам бизнес держится на одной компании: пропадёт она, и не остаётся ничего.</p>
+
+  <p>Непубличность это не нейтральное состояние. У неё есть цена, просто платят её не разом, а годами.</p>
+
+  <div class="qnum" id="q3"><span class="n">3</span><h2>Почему большинство строит публичность неправильно?</h2></div>
+
+  <p>Потому что строят не то. Строят контент, блог, личный бренд, охваты. Гонятся за просмотрами и подписчиками, как за целью.</p>
+
+  <p>А охваты это не капитал. Можно набрать сто тысяч подписчиков и не получить с них ни одной сделки, ни одного партнёрства, ни одного нужного знакомства. Потому что подписчик и человек, который принимает решения, это разные аудитории.</p>
+
+  <div class="pull">
+    <p>Большинство строит блог. А строить нужно капитал личности. Это не одно и то же, и путают их постоянно.</p>
+    <div class="who">Суть третьего вопроса</div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-col vs-a">
+      <div class="vh">Что строит большинство</div>
+      <div class="vbig">Блог и охваты</div>
+      <ul>
+        <li>Подписчики</li>
+        <li>Просмотры и лайки</li>
+        <li>Регулярный контент</li>
+        <li>Узнаваемость</li>
+      </ul>
+    </div>
+    <div class="vs-col vs-b">
+      <div class="vh">Что строить нужно</div>
+      <div class="vbig">Капитал личности</div>
+      <ul>
+        <li>Доступ к нужным людям</li>
+        <li>Доверие до первой встречи</li>
+        <li>Вес в переговорах</li>
+        <li>Имя, которое работает само</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chart">
+    <div class="chart-t">Что накапливается со временем</div>
+    <svg viewBox="0 0 760 380" role="img" aria-label="График: охваты выходят на плато, капитал личности растёт по нарастающей">
+      <line x1="60" y1="330" x2="720" y2="330" stroke="#e6e1da" stroke-width="1.5"/>
+      <path d="M60,315 C240,305 380,275 500,205 C600,150 672,95 716,52 L716,330 L60,330 Z" fill="#1f2d27" opacity="0.06"/>
+      <path d="M60,308 C150,250 245,196 335,186 C470,172 600,180 716,178" fill="none" stroke="#b67454" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <path d="M60,315 C240,305 380,275 500,205 C600,150 672,95 716,52" fill="none" stroke="#1f2d27" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="716" cy="178" r="4.5" fill="#b67454"/>
+      <circle cx="716" cy="52" r="5" fill="#1f2d27"/>
+      <g font-family="'Instrument Sans',sans-serif">
+        <line x1="60" y1="34" x2="86" y2="34" stroke="#1f2d27" stroke-width="3" stroke-linecap="round"/>
+        <text x="94" y="39" font-size="14.5" font-weight="600" fill="#171310">Капитал личности</text>
+        <line x1="60" y1="58" x2="86" y2="58" stroke="#b67454" stroke-width="2.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+        <text x="94" y="63" font-size="14.5" fill="#6b6158">Охваты</text>
+        <text x="716" y="354" font-size="11.5" letter-spacing="1.4" fill="#6f665c" text-anchor="end">ВРЕМЯ →</text>
+      </g>
+    </svg>
+    <div class="chart-cap">Охват заканчивается вместе с размещением. Доверие и связи продолжают работать после него.</div>
+  </div>
+
+  <p>Но дело не только в путанице между блогом и капиталом. Всё, что мешает, сводится к трём корневым ошибкам.</p>
+
+  <ol class="mlist">
+    <li><div class="mt">Строят видимость вместо капитала</div><div class="md">Гонятся за охватами и подписчиками, копируют чужие каналы, смотрят на поверхность успешных и повторяют за ней. А видимость и капитал личности это разные результаты.</div></li>
+    <li><div class="mt">Выбирают инструмент раньше задачи</div><div class="md">Хватаются за всё сразу или намертво держатся за первый формат, вкладывают в продвижение раньше, чем собрана конструкция. Инструмент выбирают до того, как поняли, зачем он.</div></li>
+    <li><div class="mt">Отдают стратегическое решение исполнителю</div><div class="md">Надеются, что стратегию придумает агентство, поручают ассистенту «заняться личным брендом», ищут специалиста по конкретному каналу. И незаметно отдают ему не задачу, а право решить, каким вообще будет их путь.</div></li>
+  </ol>
+
+  <div class="pull">
+    <p>Это как смотреть, как играет Месси, и думать, что сыграешь так же. Или увидеть идеально приготовленную пасту и решить, что повторишь её, раз знаешь ингредиенты.</p>
+    <div class="who">Про первую ошибку</div>
+  </div>
+
+  <p>У всех трёх один корень: сначала действие, потом смысл. Инструмент и подрядчика выбирают раньше, чем отвечают, зачем они нужны. И тут стоит остановиться на третьей ошибке, потому что она самая дорогая.</p>
+
+  <h2 class="sec-h" id="bridge">Архитектор или плиточник</h2>
+
+  <p>Представьте, что вы решили построить дом и первым делом наняли плиточника. Неделю выбирали керамогранит. Потом оттенок затирки. Потом тёплый пол. И только потом спросили: а какой дом мы вообще строим?</p>
+
+  <p>Абсурдно. Но именно так строят публичность. Сначала находят специалиста по Telegram, Reels или PR. А потом поручают ему, по сути, спроектировать весь дом.</p>
+
+  <div class="aph"><img src="avatar-vage.png" alt="Вагэ Хачатрян" width="156" height="156"><p>Человеку, которого наняли уложить плитку, незаметно отдают проектирование всего дома.</p></div>
+
+  <p>У любого специалиста есть естественное ограничение: он видит мир через свою компетенцию. Плиточник видит плитку. PR-консультант видит PR. Продюсер видит контент. Маркетолог видит воронку. Каждый по-своему прав, но решение ищет внутри своей поляны.</p>
+
+  <p><b>Хороший архитектор проектирует не дом. Он проектирует жизнь, которую этот дом должен сделать возможной.</b> Дом это инструмент для жизни, а не цель. С публичностью так же: сначала жизнь и задача, потом уже материал. Как это выглядит по шагам, дальше.</p>
+
+  <div class="qnum" id="q4"><span class="n">4</span><h2>Как строить публичность правильно?</h2></div>
+
+  <p>В обратном порядке. Не от инструмента к цели, а от цели к инструменту.</p>
+
+  <p>Сначала замысел, потом капитал, и только в самом конце каналы. Порядок такой:</p>
+
+  <div class="chain">
+    <div class="chain-step"><div class="cs-n">1</div><div><div class="cs-t">Замысел</div><div class="cs-d">Чего вы хотите добиться и какой для этого нужен вес.</div></div></div>
+    <div class="chain-step"><div class="cs-n">2</div><div><div class="cs-t">Необходимый капитал</div><div class="cs-d">Какой капитал личности требуется под этот замысел.</div></div></div>
+    <div class="chain-step"><div class="cs-n">3</div><div><div class="cs-t">Позиционирование</div><div class="cs-d">На каких сильных сторонах он строится и как вы отличаетесь.</div></div></div>
+    <div class="chain-step"><div class="cs-n">4</div><div><div class="cs-t">Смыслы</div><div class="cs-d">Через какие идеи и темы вас будут слышать и запоминать.</div></div></div>
+    <div class="chain-step"><div class="cs-n">5</div><div><div class="cs-t">Инструменты</div><div class="cs-d">Сцена, медиа, книга, контент. Выбираются под стратегию, а не наоборот.</div></div></div>
+    <div class="chain-step"><div class="cs-n">6</div><div><div class="cs-t">Накопление капитала</div><div class="cs-d">Имя постепенно набирает вес и начинает работать само.</div></div></div>
+  </div>
+
+  <p>Звучит просто, а на практике почти никто так не делает. Собрать это в систему в одиночку тяжело: слишком много решений, которые влияют друг на друга. Чтобы пройти этот путь, держат в уме ещё и ближайший горизонт, исходные активы, ограничения и внешнюю среду. <span class="accent">Именно с этого начинается работа над стратегией публичности</span>: сначала замысел, активы и цель складываются в план, и только потом выбираются инструменты.</p>
+
+  <div class="aph"><img src="avatar-vage.png" alt="Вагэ Хачатрян" width="156" height="156"><p>Хорошая стратегия не тратит ресурсы. Она создаёт новые.</p></div>
+
+  <p>Каждый следующий шаг даёт навыки, связи и репутацию, на которых становится возможен следующий: стратегия не заканчивается результатом, а открывает следующий уровень.</p>
+
+  <p>Причина, по которой так почти никто не идёт, в том, что видимая часть публичности это меньшая её часть.</p>
+
+  <div class="berg">
+    <svg viewBox="0 0 720 440" role="img" aria-label="Айсберг: над водой инструменты, под водой стратегия">
+      <rect x="0" y="182" width="720" height="258" fill="#e9edea"/>
+      <!-- underwater mass -->
+      <polygon points="266,182 452,182 548,306 452,398 356,432 250,392 176,290" fill="#1f2d27"/>
+      <polygon points="356,214 452,182 548,306 452,398 356,432" fill="#26342d"/>
+      <line x1="266" y1="182" x2="452" y2="182" stroke="#324039" stroke-width="1.5"/>
+      <!-- above-water tip -->
+      <polygon points="316,182 361,96 373,182" fill="#f1ede4"/>
+      <polygon points="361,96 405,182 373,182" fill="#e3dccd"/>
+      <!-- waterline -->
+      <line x1="0" y1="182" x2="720" y2="182" stroke="#b9c2b9" stroke-width="1.5" stroke-dasharray="3 7"/>
+      <g font-family="'Instrument Sans',sans-serif">
+        <!-- above label -->
+        <line x1="470" y1="150" x2="410" y2="150" stroke="#c8beb2" stroke-width="1.5"/>
+        <text x="482" y="140" font-size="11" letter-spacing="1.6" font-weight="700" fill="#9c5c3d">НАД ВОДОЙ</text>
+        <text x="482" y="164" font-size="20" font-weight="600" fill="#171310">Инструменты</text>
+        <!-- below label -->
+        <text x="360" y="300" font-size="11" letter-spacing="1.6" font-weight="700" fill="#d9b8a4" text-anchor="middle">ПОД ВОДОЙ</text>
+        <text x="360" y="328" font-size="24" font-weight="600" fill="#f4efe4" text-anchor="middle">Стратегия</text>
+      </g>
+    </svg>
+    <div class="berg-cap">
+      <p><b>Над водой: инструменты.</b> Площадки, форматы, частота, контент. То, с чего все начинают разговор и что видно со стороны.</p>
+      <p><b>Под водой: стратегия.</b> Замысел, ценности, сильные стороны, необходимый капитал, образ будущего. То, что на самом деле определяет результат.</p>
+    </div>
+  </div>
+
+  <p>Когда человек меняет площадки, форматы и подрядчиков, но не трогает основание, он пытается решить стратегическую задачу тактическими средствами. Меняется верхушка, основание остаётся прежним.</p>
+
+  <p>А в основании на самом деле не одна стратегия, а две.</p>
+
+  <div class="vs">
+    <div class="vs-col vs-a">
+      <div class="vh">Про бизнес</div>
+      <div class="vbig">Бизнес-стратегия</div>
+      <ul>
+        <li>Цели бизнеса</li>
+        <li>Площадки и каналы</li>
+        <li>Как каналы сочетаются</li>
+        <li>Маркетинговая система</li>
+      </ul>
+    </div>
+    <div class="vs-col vs-b">
+      <div class="vh">Про человека</div>
+      <div class="vbig">Личная стратегия</div>
+      <ul>
+        <li>Зачем ему публичность</li>
+        <li>Какое будущее он строит</li>
+        <li>Его ценности и стиль</li>
+        <li>Какую роль играет имя</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>Большинство работает только с первой. А сила появляется там, где обе стратегии смотрят в одну сторону. Если их не свести, правильный по учебнику инструмент может бить мимо цели.</p>
+
+  <div class="story">
+    <div class="sl">Как это выглядит на практике</div>
+    <p>Юридическая компания с большим опытом и тысячами клиентов решает развивать публичность. С точки зрения маркетинга напрашивается очевидное: запустить Reels, набрать охваты, получить поток входящих заявок.</p>
+    <p>Но собственница не хотела больше массовых клиентов. Наоборот, она уходила от судов к работе с небольшим числом премиальных клиентов и к стратегическому сопровождению бизнеса. Инструмент выбран верно для маркетинга и неверно для человека. Reels тянули её ровно туда, откуда она хотела уйти.</p>
+  </div>
+
+  <p>Поэтому инструмент сам по себе не бывает хорошим или плохим. Он должен совпасть сразу с несколькими вещами: с целями бизнеса, с характером и сильными сторонами человека, с тем будущим, которое он строит. <b>Публичность это не выбор каналов. Это согласование личной и бизнес-стратегии, и только потом выбор инструментов, которые работают на обе.</b></p>
+
+  <div class="aph"><img src="avatar-vage.png" alt="Вагэ Хачатрян" width="156" height="156"><p>Не нужно впихивать человека в стратегию. Нужно искать стратегию для человека.</p></div>
+
+  <p>У личной стратегии есть слой, который пропускают чаще всего. Она отвечает не только на вопрос, какое будущее человек строит, но и на вопрос, каким способом он согласен его строить. Двое могут хотеть одного и того же. Один говорит: готов работать по четырнадцать часов, мне нужен высокий темп и вызов. Второй: мне важнее спокойная жизнь и время с семьёй, буду двигаться постепенно. Дай им одну и ту же стратегию публичности, и первого она разгонит, а второго сломает.</p>
+
+  <p>Поэтому ценности это не украшение стратегии. Это её ограничения и ориентиры. Они отсекают пути, которые человеку не подходят, даже если те ведут прямо к цели.</p>
+
+  <div class="fullq">
+    <p>Стратегия отвечает сразу на два вопроса: какое будущее вы строите и каким способом согласны его строить.</p>
+    <div class="who">Второй слой личной стратегии</div>
+  </div>
+
+  <div class="qnum" id="q5"><span class="n">5</span><h2>Что меняется, когда имя становится активом?</h2></div>
+
+  <p>Пока имя не стало активом, предприниматель всё тянет сам. Инициирует, доказывает, объясняет, просится. Каждую сделку доверие приходится строить заново. Каждый новый проект начинается с нуля. И всё держится на одной компании: не станет её, не останется ничего.</p>
+
+  <p>Когда имя стало активом, положение переворачивается. Его приглашают, ему предлагают. Доверие переносится с проекта на проект. Компания усиливает имя, а имя усиливает компанию. Новое дело запускается не с чистого листа, а с уже накопленного веса. Вокруг появляется поле возможностей, которого раньше просто не было.</p>
+
+  <p>Это не «стало легче». Это другой режим существования.</p>
+
+  <div class="fullq">
+    <p>Пока имя не стало активом, каждый новый проект начинается с нуля. Когда стало, следующий начинается с уже накопленного доверия.</p>
+    <div class="who">Что меняется в итоге</div>
+  </div>
+
+  <p>Отсюда и ответ, кого звать, чтобы всё это собрать.</p>
+
+  <div class="aph"><img src="avatar-vage.png" alt="Вагэ Хачатрян" width="156" height="156"><p>Хороший стратег влюблён не в решение. Он влюблён в задачу.</p></div>
+
+  <p>Эксперт ценен тем, что знает, как реализовать решение. Стратег тем, что способен определить, какое решение вообще нужно. Он не привязан ни к одному инструменту: если человек уже уверен, что ответ это Reels, он ищет не лучшее решение, а оправдание выбранному.</p>
+
+  <p>И тут кроется неочевидная ловушка. Когда вы ищете того, кто уже делал Telegram для юридической компании, вы выбираете не человека. Вы выбираете Telegram. Готовый кейс это готовый инструмент, надетый на вашу задачу ещё до того, как её разобрали.</p>
+
+  <p>Хороший стратег вообще не обязан рекомендовать публичность. Иногда полезнее книга, несколько выступлений или десять точных знакомств, а не ежедневный блог.</p>
+
+  <p>Проверить стратегию просто: она реализуема с тем, что есть сейчас, в ней заранее убраны барьеры, и собрана она под конкретного человека, а не под рынок. Есть и ещё один признак, узнавание: человек видит не красивую чужую конструкцию, а маршрут, в котором узнаёт себя.</p>
+
+  <p>Поэтому <b>не ищите того, кто уже решал такую задачу. Ищите того, кто способен понять, какая задача перед вами стоит на самом деле.</b> С этого и можно начать разговор.</p>
+
+</article>
+</div>
+
+<section class="final gated">
+  <div class="k">С чего начать</div>
+  <h2>Начать не с инструмента, а с задачи</h2>
+  <p>Если не хотите начинать с Telegram, Reels или PR, начните с самой задачи. За 60 минут разберём, какую задачу должна решать ваша публичность, какой капитал под неё нужен и какие инструменты точно не стоит запускать сейчас. Без презентаций и продаж.</p>
+  <a class="btn" href="https://t.me/vage_vage" target="_blank">Написать в Telegram <span>→</span></a>
+</section>
+
+<script>
+function openArticle(e){
+  if(e) e.preventDefault();
+  document.querySelectorAll('.gated').forEach(function(el){ el.classList.remove('gated'); });
+  var t=document.getElementById('start');
+  if(t){ requestAnimationFrame(function(){ t.scrollIntoView({behavior:'smooth'}); }); }
+}
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  if(!links.length) return;
+  var sections=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));});
+  var ticking=false;
+  function update(){
+    ticking=false;
+    var line=160, active=0;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i] && sections[i].getBoundingClientRect().top<=line) active=i;
+    }
+    links.forEach(function(a,k){ a.classList.toggle('on', k===active); });
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } },{passive:true});
+  update();
+})();
+
+// reading progress bar
+(function(){
+  var bar=document.getElementById('progress');
+  if(!bar) return;
+  var t=false;
+  function upd(){
+    t=false;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?Math.min(100,window.scrollY/h*100):0)+'%';
+  }
+  window.addEventListener('scroll',function(){ if(!t){ t=true; requestAnimationFrame(upd); } },{passive:true});
+  upd();
+})();
+
+// show sidebar menu only after the cover AND the intrigue board are scrolled past
+(function(){
+  var toc=document.querySelector('.toc');
+  var gate=document.querySelector('.map')||document.querySelector('.hero');
+  if(!toc||!gate) return;
+  var t=false;
+  function upd(){ t=false; toc.classList.toggle('show', gate.getBoundingClientRect().bottom < 100); }
+  window.addEventListener('scroll',function(){ if(!t){ t=true; requestAnimationFrame(upd); } },{passive:true});
+  upd();
+})();
+</script>
+
+</body>
+</html>

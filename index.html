@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вагэ Хачатрян · стратег публичности</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<meta name="theme-color" content="#1f2d27">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3efe9; --text:#171310; --muted:#6b6158; --faint:#6f665c;
+  --line:#e6e1da; --accent:#b67454; --accent-ink:#9c5c3d; --accent-soft:#d9b8a4;
+  --green:#1f2d27; --green-ink:#f4efe4; --green-muted:#a7b1a3; --green-body:#bcc4b7;
+  --dark:#14100d; --dark2:#1a1511; --dark-line:#322d2a; --dark-ink:#efe7dd; --dark-muted:#9d9186; --dark-accent:#ca9072;
+  --surface:#ffffff; --border-light:#e4dcd0; --text3:#6b6158;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{overflow-wrap:break-word;text-wrap:pretty;background:var(--bg);color:var(--text);font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+@media(max-width:720px){.wrap{padding:0 22px}}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(249,247,244,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.nav-brand{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;text-decoration:none;cursor:pointer}
+.nav-brand:hover{color:var(--accent)}
+.nav-links{display:flex;gap:26px}
+.nav-links a{padding:14px 2px;margin:-14px 0;font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);text-decoration:none;font-weight:600;transition:color .15s;cursor:pointer}
+.nav-links a:hover{color:var(--accent)}
+@media(max-width:820px){
+  .nav-links{gap:18px}
+  .nav-links a[data-nav="about"],.nav-links a[data-nav="expertise"],
+  .nav-links a[data-nav="results"]{display:none}
+}
+@media(max-width:420px){.nav-brand{font-size:12px}.nav-links{gap:14px}}
+
+/* PAGES (router) */
+.on-green .eyebrow,.on-green .c-role{color:#c9836a}
+.on-green .c-lead{color:#a8a29c}
+.on-green .c-val{color:#f2efeb}
+.on-green.foot{color:var(--green-muted)}
+.on-green .c-soc:hover .c-val{color:var(--accent-soft)}
+a{text-decoration:none}
+.deck{margin-top:34px;background:var(--surface);border:1px solid var(--border-light);border-radius:14px;overflow:hidden;
+  box-shadow:0 2px 12px rgba(23,19,16,.05);display:grid;grid-template-columns:1.05fr .95fr;align-items:center}
+@media(max-width:900px){.deck{grid-template-columns:1fr}}
+.deck-left{padding:clamp(20px,2.2vw,28px);border-right:1px solid var(--border-light)}
+@media(max-width:900px){.deck-left{border-right:none;border-bottom:1px solid var(--border-light)}}
+.deck-stage{position:relative;background:#0c0c0d;padding:0;overflow:hidden;border-radius:8px}
+.deck-book{position:relative;width:100%;aspect-ratio:16/9;cursor:pointer}
+.dslide{position:absolute;inset:0;overflow:hidden;background:#000;
+  transition:transform .62s cubic-bezier(.3,.72,.24,1),opacity .42s ease}
+.dslide img{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.dcover{display:flex;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(120% 82% at 50% 0%,#1b1b1e 0%,#0c0c0d 62%)}
+.dcover-in{max-width:86%}
+.dcover-tag{font-size:10.5px;letter-spacing:2.6px;text-transform:uppercase;color:#c9836a;font-weight:700;margin-bottom:clamp(14px,2vw,22px)}
+.dcover-t{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4.2vw,54px);font-weight:600;line-height:1.05;
+  letter-spacing:-.02em;color:#f2efeb;margin-bottom:clamp(16px,2.4vw,26px)}
+.dcover-who{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.9vw,23px);font-weight:500;color:#e2d3c4}
+.dcover-role{font-size:clamp(11px,1.15vw,14px);color:#8a857f;margin-top:6px;line-height:1.5}
+.dnav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:none;z-index:40;
+  background:rgba(12,12,13,.72);color:#f2efeb;font-size:26px;line-height:1;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(6px)}
+.dnav:hover{background:rgba(163,104,74,.92)}
+.dnav.prev{left:8px}.dnav.next{right:8px}
+.dnav[disabled]{opacity:.26;cursor:default}
+.dcount{position:absolute;top:14px;right:18px;z-index:40;font-size:11px;letter-spacing:1.4px;color:rgba(242,239,235,.62);
+  background:rgba(12,12,13,.6);padding:6px 11px;border-radius:99px;backdrop-filter:blur(6px)}
+.deck-dots{display:flex;justify-content:center;gap:7px;padding:14px 0 0;flex-wrap:wrap}
+.deck-dots button{width:7px;height:7px;border-radius:50%;border:none;background:var(--border-light);cursor:pointer;padding:0;transition:background .25s,width .25s}
+.deck-dots button.on{background:var(--accent);width:22px;border-radius:99px}
+.deck-body{padding:clamp(26px,2.8vw,38px) clamp(28px,3vw,40px)}
+.deck-body .hc-eyebrow{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.deck-body .hc-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.2vw,28px);font-weight:600;line-height:1.15;color:var(--text);margin:9px 0 0}
+.deck-body p{font-size:14.5px;color:var(--muted);line-height:1.7;margin:12px 0 0;max-width:66ch}
+.deck-btn{display:inline-flex;align-items:center;gap:10px;margin-top:22px;background:#a3684a;color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:16px 28px;border-radius:99px;
+  transition:background .25s,gap .25s}
+.deck-btn:hover{background:#8f5a3e;gap:15px}
+.deck-hint{text-align:center;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--faint);padding:10px 0 0}
+@media(max-width:600px){.dnav{width:38px;height:38px;font-size:21px}}
+@media (prefers-reduced-motion: reduce){.dslide{transition:none}}
+.finale{text-align:center;padding:clamp(88px,11vh,124px) 0;display:flex;flex-direction:column;align-items:center}
+.finale .eyebrow{margin-bottom:18px}
+.finale .title{margin-bottom:22px}
+.fin-lead{color:#a8a29c;font-size:16px;line-height:1.72;max-width:48ch;margin:0 auto 40px}
+.fin-btn{display:inline-flex;align-items:center;gap:11px;background:#a3684a;color:#fff;font-family:'Instrument Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:20px 34px;border-radius:99px;transition:background .25s,gap .25s,box-shadow .25s}
+.fin-btn span{font-size:16px;letter-spacing:0}
+.fin-btn:hover{background:#8f5a3e;gap:16px;box-shadow:0 10px 26px rgba(163,104,74,.34)}
+.fin-foot{margin-top:clamp(56px,7vh,76px);padding-top:clamp(30px,4vh,38px);border-top:1px solid #26262a;width:100%;max-width:640px}
+.fin-note{color:#8a857f;font-size:14px;line-height:1.7;max-width:52ch;margin:0 auto 24px}
+.finale .c-socials{display:flex;gap:44px;justify-content:center;flex-wrap:wrap}
+section[id]{scroll-margin-top:82px}
+.sec{padding:clamp(80px,10vh,116px) 0 0}
+.sec:last-of-type{padding-bottom:clamp(80px,10vh,116px)}
+#method-teaser{padding:clamp(80px,10vh,104px) 0}
+#contacts{padding:0}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:3px}
+.section-dark :focus-visible,.method-dark :focus-visible,.cta:focus-visible{outline-color:#d9b8a4}
+.page{display:none}
+.page.active{display:block;animation:pgin .45s cubic-bezier(.22,.7,.3,1)}
+@keyframes pgin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* sections */
+section{padding:96px 0}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:18px}
+h2.title{text-wrap:balance;overflow-wrap:break-word;font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.4vw,52px);font-weight:600;line-height:1.04;letter-spacing:-.01em}
+.rule{width:44px;height:2px;background:var(--accent);margin:22px 0 24px}
+.lead{text-wrap:pretty;color:var(--muted);font-size:15px;line-height:1.7;max-width:26em}
+.split{display:grid;grid-template-columns:0.85fr 1.6fr;gap:70px}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:36px}}
+
+/* numbered list */
+.nlist{display:flex;flex-direction:column}
+.nrow{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:22px 0;border-top:1px solid var(--line)}
+.nrow:last-child{border-bottom:1px solid var(--line)}
+.nrow .n{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--accent-soft);font-variant-numeric:oldstyle-nums}
+.nrow .nt{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.15;margin-bottom:5px}
+.nrow .nd{color:var(--muted);font-size:14px;line-height:1.55}
+.section-dark .nrow{border-color:var(--dark-line)}
+.section-dark .nrow .nt{color:var(--dark-ink)}
+.section-dark .nrow .nd{color:var(--dark-muted)}
+
+/* HERO */
+.hero{background:#0c0c0d;background-image:radial-gradient(120% 80% at 22% 0%,#1b1b1e 0%,#0c0c0d 62%);color:#f2efeb}
+.hero-in{max-width:1180px;margin:0 auto;padding:110px 40px 96px;display:grid;grid-template-columns:340px 1fr;gap:60px;align-items:center}
+@media(max-width:860px){.hero-in{grid-template-columns:1fr;gap:34px;padding:70px 22px}}
+.hero-photo{aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:#0d0a07;max-width:340px}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero .eyebrow{color:var(--dark-accent);margin-bottom:22px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.2vw,64px);font-weight:600;line-height:1.06;letter-spacing:-.02em;color:#f2efeb;margin-bottom:26px;text-wrap:balance}
+.hero .lead{color:#bdb7b0;max-width:46ch;font-size:17px;line-height:1.65;margin-bottom:0}
+
+/* STATS strip */
+.stats{border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);gap:24px;padding-top:38px}
+@media(min-width:861px){.stats-3{grid-template-columns:repeat(3,1fr)}.stats-4{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr);gap:30px 20px}}
+.stat .v{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4.2vw,52px);font-weight:600;color:var(--accent);line-height:1;font-variant-numeric:oldstyle-nums}
+.stat .l{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);margin-top:12px;line-height:1.4}
+
+/* DARK */
+.section-dark{background:var(--dark);color:var(--dark-ink)}
+.section-dark h2.title{color:var(--dark-ink)}
+.section-dark .lead{color:var(--dark-muted)}
+.section-dark .eyebrow{color:var(--dark-muted)}
+
+/* quote */
+.quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3vw,38px);line-height:1.3;color:var(--dark-ink);max-width:30em;border-left:1px solid var(--border-light);padding-left:26px;margin:44px 0 10px}
+.quote-a{padding-left:28px;margin-top:16px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dark-accent);font-weight:600}
+.quote-b{padding-left:28px;margin-top:20px;color:var(--dark-muted);font-size:15px;line-height:1.7;max-width:64ch}
+.quote-b b{color:var(--dark-ink);font-weight:600}
+
+/* rev numbers */
+.rev-wide{display:grid;grid-template-columns:repeat(4,1fr);margin:52px 0 8px;padding:36px 0 6px;border-top:1px solid var(--dark-line);gap:30px}
+@media(max-width:720px){.rev-wide{grid-template-columns:repeat(2,1fr);gap:30px 16px}}
+.rv b{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);font-weight:600;color:var(--dark-accent);font-variant-numeric:oldstyle-nums;line-height:1;display:block}
+.rv .ry{margin-top:14px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-muted);line-height:1.5}
+
+/* matrix minimal */
+.mxx{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.mxx>div{background:var(--bg);padding:30px 28px;min-height:150px}
+.mxx .k{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--faint);font-weight:600}
+.mxx .t{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin:10px 0 6px}
+.mxx .d{color:var(--muted);font-size:13.5px;line-height:1.5}
+.mxx .hot{background:var(--green)}
+.mxx .hot .k{color:#c9836a}
+.mxx .hot .t{color:var(--green-ink)}
+.mxx .hot .d{color:var(--green-muted)}
+@media(max-width:640px){.mxx{grid-template-columns:1fr}}
+.ax{display:flex;justify-content:space-between;margin-top:12px;font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--faint)}
+
+/* assessment bars (light) */
+.assess{display:grid;grid-template-columns:1fr 1fr;gap:34px 60px;margin-top:44px}
+@media(max-width:760px){.assess{grid-template-columns:1fr}}
+.acat .act{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text);font-weight:600;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.arow{display:grid;grid-template-columns:130px 1fr 24px;gap:14px;align-items:center;margin-bottom:10px}
+.arow .an{font-size:13px;color:var(--muted)}
+.atrk{height:6px;border-radius:0;background:#ece7dd;overflow:hidden}
+.afill{height:100%;}
+.arow .av{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--text);text-align:right;font-variant-numeric:oldstyle-nums}
+.f-g{background:var(--accent)} .f-p{background:var(--accent-soft)} .f-r{background:#d9958a}
+.alegend{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px;font-size:12px;color:var(--muted)}
+.alegend i{display:inline-block;width:12px;height:6px;margin-right:8px;vertical-align:2px}
+
+/* timeline */
+.tl{display:flex;flex-direction:column}
+.tl-row{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.tl-row:last-child{border-bottom:1px solid var(--line)}
+.tl-row .yr{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--accent);font-variant-numeric:oldstyle-nums;line-height:1.2}
+.tl-row .tt{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:4px}
+.tl-row .td{color:var(--muted);font-size:14px}
+.teach{margin-top:34px;font-size:14px;color:var(--muted);border-left:1px solid var(--border-light);padding-left:16px;line-height:1.7;max-width:68ch}
+.teach b{color:var(--text)}
+
+/* talks (featured cases with photos) */
+.talks{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:760px){.talks{grid-template-columns:1fr}}
+.talk{display:block;text-decoration:none;color:inherit}
+.talk-thumb{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#1d1611;border:1px solid var(--line)}
+.talk-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.talk-t{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-top:16px;line-height:1.2}
+.talk-d{color:var(--muted);font-size:13.5px;margin-top:3px}
+
+/* case rows */
+/* method dark-green band */
+.method-dark{background:#1f2d27;color:#e9e3d7;position:relative;box-shadow:0 0 0 100vmax #1f2d27;clip-path:inset(0 -100vmax)}
+.method-dark .title{color:#f4efe4}
+.method-dark .lead{color:#a7b1a3}
+.method-dark .lead b{color:#f4efe4 !important}
+.method-dark .rule{background:var(--accent)}
+.method-dark .mstep{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1)}
+.method-dark .mstep .ms-n{color:var(--accent-soft)}
+.method-dark .mstep .ms-t{color:#f4efe4}
+.method-dark .mstep .ms-d{color:#a7b1a3}
+.method-dark .mxx{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14)}
+.method-dark .mxx>div{background:#1f2d27}
+.method-dark .mxx .k{color:#9fac9f;font-size:10px}
+.method-dark .mxx .t{font-size:19px;font-weight:600;letter-spacing:-.01em;color:#f4efe4;margin:8px 0 6px}
+.method-dark .mxx .d{color:#bcc4b7;font-size:13px}
+.method-dark .mxx .hot{background:linear-gradient(155deg,#7a4529,#a3684a)}
+.method-dark .mxx .hot .k{color:rgba(255,255,255,.92)}
+.method-dark .mxx .hot .t,.method-dark .mxx .hot .d{color:#fff}
+.method-dark .ax{color:#8b978c}
+.method-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,5vw,72px);align-items:center;margin-top:clamp(36px,5vh,54px)}
+@media(max-width:820px){.method-grid{grid-template-columns:1fr;gap:36px}}
+.msteps-v{display:flex;flex-direction:column}
+.mstep-v{display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:baseline;padding:20px 0;border-top:1px solid rgba(255,255,255,.1)}
+.mstep-v:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
+.mstep-v .n{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;font-variant-numeric:oldstyle-nums;color:var(--accent);line-height:1;font-variant-numeric:normal;padding-top:3px}
+.mstep-v .t{font-size:18px;font-weight:600;color:var(--text);line-height:1.2;letter-spacing:-.01em}
+.mstep-v .d{color:var(--muted);font-size:13.5px;line-height:1.55;margin-top:4px}
+.method-cap{color:var(--muted);font-size:13px;margin-top:16px;line-height:1.55}
+.method-cap b{color:var(--accent-ink);font-weight:600}
+.method-link{text-decoration:none;display:inline-flex;align-items:center;gap:10px;margin-top:30px;cursor:pointer;color:var(--accent-ink);font-weight:700;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;border:1px solid var(--accent-soft);border-radius:99px;padding:15px 26px;transition:background .25s,border-color .25s,color .25s,gap .25s}
+.method-link:hover{background:var(--accent);border-color:var(--accent);color:#fff;gap:14px}
+.suntzu{position:relative;display:flex;align-items:center;gap:clamp(30px,4.5vw,64px);margin-top:clamp(44px,6vh,72px);padding:clamp(52px,8vh,96px) 0;min-height:46vh;border-top:1px solid rgba(255,255,255,.13);border-bottom:1px solid rgba(255,255,255,.13)}
+@media(max-width:640px){.suntzu{flex-direction:column;text-align:center}}
+.suntzu::before{content:"\201C";position:absolute;right:0;top:-6px;font-family:'Cormorant Garamond',serif;font-size:clamp(190px,20vw,300px);color:var(--accent);opacity:.09;line-height:.8;pointer-events:none}
+.stz-ph{flex-shrink:0;width:clamp(112px,13vw,168px);height:clamp(112px,13vw,168px);border-radius:50%;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.stz-ph img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.suntzu p{position:relative;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(25px,3.4vw,44px);line-height:1.26;color:#f4efe4;max-width:19em}
+.suntzu .stz-a{margin-top:26px;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-soft);font-weight:700}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+@media(max-width:720px){.res-grid{grid-template-columns:1fr}}
+.res{background:var(--surface);border:1px solid var(--border-light);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .3s,transform .3s,border-color .3s}
+.res:hover{box-shadow:0 18px 44px rgba(23,19,16,.09);transform:translateY(-3px);border-color:var(--accent-soft)}
+.res-viz{position:relative;height:210px;display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--accent);border-bottom:1px solid var(--border-light);
+  background:radial-gradient(circle at 1px 1px, rgba(182,116,84,.11) 1px, transparent 0) -1px -1px/18px 18px, linear-gradient(180deg,#fbf7f3,#ffffff)}
+.res-viz img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.res:hover .res-viz img{transform:scale(1.045)}
+.res-viz.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,19,16,0) 55%,rgba(23,19,16,.42) 100%);pointer-events:none}
+.res-viz img.logo{object-fit:contain;background:#fff;padding:20px 24px}
+.res:hover .res-viz img.logo{transform:none}
+.res-fig{position:relative;z-index:2;text-align:center;line-height:1}
+.res-fig .cu{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;color:var(--accent);font-variant-numeric:oldstyle-nums;display:block}
+.res-fig .cu-cap{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:7px}
+.res-spark{position:absolute;left:0;bottom:0;width:100%;height:60px}
+.res-spark path.area{fill:rgba(182,116,84,.10)}
+.res-spark path.line{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.4s cubic-bezier(.3,.7,.2,1) .25s}
+.res-grid.in .res-spark path.line{stroke-dashoffset:0}
+.res-body{padding:24px 28px 28px}
+.res .r-cat{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-bottom:12px}
+.res .r-txt{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;line-height:1.28;color:var(--text)}
+.res .r-txt b{color:var(--accent);font-weight:600}
+.res .r-sub{margin-top:13px;font-size:14.5px;line-height:1.6;color:var(--muted)}
+.res-link{display:inline-flex;align-items:center;gap:9px;margin-top:20px;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;color:var(--accent-ink);text-decoration:none;cursor:pointer;border:1px solid var(--accent-soft);border-radius:99px;padding:11px 20px;transition:background .25s,color .25s,border-color .25s,gap .25s}
+.res-link:hover{background:var(--accent);border-color:var(--accent);color:#fff;gap:13px}
+.svc-list{margin-top:48px;border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:88px 1fr;gap:36px;align-items:baseline;padding:38px 8px;border-bottom:1px solid var(--line);transition:background .3s,padding .3s}
+.svc:hover{background:var(--surface);padding-left:20px;padding-right:20px}
+.svc .svc-n{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5vw,60px);font-weight:600;line-height:.9;color:#b6866b;font-variant-numeric:oldstyle-nums;transition:color .3s}
+.svc:hover .svc-n{color:var(--accent)}
+.svc-body{display:grid;grid-template-columns:1.1fr 1.4fr;gap:40px;align-items:baseline}
+@media(max-width:820px){.svc{grid-template-columns:56px 1fr;gap:22px}.svc-body{grid-template-columns:1fr;gap:10px}}
+.svc-body h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.1}
+.svc-body p{color:var(--muted);font-size:16px;line-height:1.72;max-width:52ch}
+.svc-body p b{color:var(--text);font-weight:600}
+.works{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:820px){.works{grid-template-columns:1fr}}
+.wlink{display:flex;flex-direction:column;color:inherit;text-decoration:none;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s cubic-bezier(.16,1,.3,1),border-color .4s}
+.wlink:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(23,19,16,.12);border-color:var(--accent-soft)}
+.wthumb{aspect-ratio:3/4;overflow:hidden;background:#0c0c0d}
+.wthumb img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.wlink:hover .wthumb img{transform:scale(1.045)}
+.wmeta{padding:22px 24px 24px;position:relative;display:flex;flex-direction:column;align-items:flex-start}
+.wkind{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.wt{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600;line-height:1.08;color:var(--text);margin:7px 0 6px;padding-right:28px}
+.wd{color:var(--muted);font-size:14px;line-height:1.55;max-width:46ch}
+.warr{position:absolute;top:24px;right:24px;color:var(--accent-ink);font-size:17px;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.wlink:hover .warr{transform:translate(4px,-4px)}
+@media(prefers-reduced-motion:reduce){.wlink,.wthumb img,.warr{transition:none}.wlink:hover{transform:none}.wlink:hover .wthumb img{transform:none}}
+.pubs{margin-top:44px;border-top:1px solid var(--line)}
+.pub{display:flex;flex-direction:column;align-items:flex-start;padding:26px 8px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:background .3s,padding .3s}
+.pub:hover{background:var(--surface);padding-left:16px;padding-right:16px}
+.pkind{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.pt{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;line-height:1.1;margin:7px 0 4px;color:var(--text)}
+.pm{color:var(--muted);font-size:15px}
+.matsdark{background:#171310;color:var(--dark-ink);position:relative;box-shadow:0 0 0 100vmax #171310;clip-path:inset(0 -100vmax)}
+.matsdark .title{color:var(--dark-ink)}
+.matsdark .rule{background:var(--accent)}
+.matsdark .lead{color:var(--dark-muted)}
+.mats{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:760px){.mats{grid-template-columns:1fr}}
+.mat{display:flex;flex-direction:column;padding:46px 44px 40px;border:1px solid var(--dark-line);border-radius:20px;background:rgba(255,255,255,.02);color:inherit;text-decoration:none;transition:background .4s cubic-bezier(.16,1,.3,1),transform .4s cubic-bezier(.16,1,.3,1),border-color .4s}
+.mat:hover{background:rgba(255,255,255,.055);transform:translateY(-5px);border-color:var(--dark-accent)}
+.mfig{color:var(--dark-accent);margin-bottom:30px}
+.mfig svg{width:94px;height:94px;display:block}
+.mat .mk{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dark-accent);font-weight:700}
+.mat .mt2{font-family:'Cormorant Garamond',serif;font-size:33px;font-weight:600;line-height:1.05;letter-spacing:-.01em;margin:9px 0 12px;color:var(--dark-ink)}
+.mat .mm{color:#cabeb0;font-size:15px;line-height:1.62;max-width:42ch;flex:1}
+.mat .mr{margin-top:26px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dark-accent);font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:gap .3s}
+.mat:hover .mr{gap:14px}
+@media(prefers-reduced-motion:reduce){.mat,.mat .mr{transition:none}}
+.slider{margin-top:44px;position:relative;border-radius:24px;overflow:hidden;box-shadow:0 24px 60px rgba(23,19,16,.14)}
+.track{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.slide{flex:0 0 100%;min-height:clamp(420px,52vh,520px);padding:clamp(40px,5vw,60px) clamp(74px,7vw,110px);display:flex;flex-direction:column;justify-content:space-between;background:var(--c);color:#f6f1ea;position:relative}
+.slide .s-k{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#eecdb9;font-weight:700}
+.slide .s-n{position:absolute;top:clamp(34px,4vw,54px);right:clamp(34px,4vw,54px);font-size:14px;letter-spacing:.1em;color:rgba(255,255,255,.5)}
+.slide .s-t{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4.4vw,54px);font-weight:600;line-height:1.03;letter-spacing:-.01em;margin:16px 0 18px;max-width:20ch}
+.slide .s-d{font-size:clamp(15px,1.5vw,18px);line-height:1.6;color:rgba(255,255,255,.85);max-width:54ch}
+.slide .s-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:32px;flex-wrap:wrap}
+.slide .s-cl{display:flex;align-items:center;gap:13px;font-size:14.5px;color:rgba(255,255,255,.8)}
+.slide .s-av{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.28);flex:none}
+.slide .s-av.logo{border-radius:11px;object-fit:contain;background:#fff;padding:9px;border-color:transparent}
+.slide .s-go{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#fff;border:1px solid rgba(255,255,255,.42);border-radius:99px;padding:13px 24px;text-decoration:none;transition:background .3s,border-color .3s,gap .3s;display:inline-flex;align-items:center;gap:9px}
+.slide .s-go:hover{background:rgba(255,255,255,.15);border-color:#fff;gap:14px}
+.s-prev,.s-next{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.08);color:#fff;font-size:23px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);transition:background .25s,border-color .25s;z-index:3}
+.s-prev:hover,.s-next:hover{background:rgba(255,255,255,.2);border-color:#fff}
+.s-prev{left:clamp(12px,1.4vw,22px)} .s-next{right:clamp(12px,1.4vw,22px)}
+.s-dots{position:absolute;bottom:clamp(30px,3.4vw,42px);left:50%;transform:translateX(-50%);display:flex;gap:9px;z-index:3}
+.s-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.32);border:none;cursor:pointer;padding:0;transition:background .25s,width .25s}
+.s-dot.on{background:#fff;width:26px;border-radius:5px}
+.slide.video{display:grid;grid-template-columns:1fr minmax(260px,342px);gap:clamp(28px,4vw,52px);align-items:center}
+.slide.video .s-main{display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.s-video{position:relative;display:block;border-radius:15px;overflow:hidden;aspect-ratio:16/9;box-shadow:0 16px 44px rgba(0,0,0,.4)}
+.s-video img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.s-video:hover img{transform:scale(1.05)}
+.s-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 42%,rgba(0,0,0,.42))}
+.s-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2}
+.s-play i{width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.95);color:#171310;display:flex;align-items:center;justify-content:center;font-size:19px;font-style:normal;padding-left:4px;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .3s}
+.s-video:hover .s-play i{transform:scale(1.1)}
+.s-vlabel{position:absolute;left:15px;bottom:13px;z-index:2;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#fff;font-weight:700;text-shadow:0 1px 5px rgba(0,0,0,.6)}
+@media(max-width:760px){.slide.video{grid-template-columns:1fr}}
+.slide.cover{display:grid;grid-template-columns:1fr minmax(340px,460px);gap:clamp(30px,4vw,54px);align-items:stretch}
+.slide.cover .s-main{display:flex;flex-direction:column;justify-content:space-between}
+.s-cover{position:relative;width:100%;aspect-ratio:16/9;align-self:center;border-radius:16px;overflow:hidden;box-shadow:0 16px 44px rgba(0,0,0,.36)}
+.s-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.slide.cover:hover .s-cover img{transform:scale(1.045)}
+.s-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 58%,rgba(0,0,0,.28))}
+.slide.cover .s-n{display:none}
+@media(max-width:760px){.slide.cover{grid-template-columns:1fr}.s-cover{min-height:200px}}
+@media(prefers-reduced-motion:reduce){.track{transition:none}}
+@media(max-width:600px){.s-dots{display:none}}
+.msteps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+@media(max-width:720px){.msteps{grid-template-columns:1fr 1fr}}
+.mstep{border:1px solid var(--border-light);border-radius:12px;padding:22px 20px;background:var(--surface);position:relative}
+.mstep .ms-n{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--accent-soft);line-height:1}
+.mstep .ms-t{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin-top:8px;line-height:1.1}
+.mstep .ms-d{color:var(--muted);font-size:12.5px;margin-top:5px;line-height:1.45}
+.mcap{color:var(--muted);font-size:13px;margin-top:16px;text-align:center}
+.clients{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:22px}
+.cli{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);transition:box-shadow .25s,transform .25s}
+.cli:hover{box-shadow:0 16px 40px rgba(23,19,16,.10);transform:translateY(-4px)}
+.cli-ph{width:100%;aspect-ratio:4/5;overflow:hidden;background:var(--bg)}
+.cli-ph img{width:100%;height:100%;object-fit:cover;object-position:center 16%;display:block;transition:transform .5s cubic-bezier(.22,.7,.3,1)}
+.cli:hover .cli-ph img{transform:scale(1.04)}
+.cli-mono{display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:700;color:var(--accent);background:linear-gradient(150deg,var(--accent-soft),var(--bg))}
+.cli-body{padding:20px 22px 24px}
+.cli-n{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.1;min-height:2.2em}
+.cli-r{color:var(--muted);font-size:13px;margin-top:8px;line-height:1.6}
+.cli-r b{color:var(--text);font-weight:600}
+.cli-r .hl{color:var(--accent-ink);font-weight:700}
+.subhead{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);font-weight:600;margin:44px 0 8px}
+.subhead:first-of-type{margin-top:0}
+.erow{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.erow:last-of-type{border-bottom:1px solid var(--line)}
+.erow .en{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--faint);font-variant-numeric:oldstyle-nums}
+.erow .et{font-size:15px;color:var(--text)}
+.erow .et .yy{color:var(--faint);font-size:13px;margin-left:8px}
+.erow .et b{color:var(--accent-ink);font-weight:600}
+.erow .etag{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dot.a{background:var(--accent)} .dot.b{background:#7a5a44} .dot.c{background:var(--faint)} .dot.d{background:#9aa38f}
+@media(max-width:600px){.erow{grid-template-columns:30px 1fr;gap:8px}.erow .etag{grid-column:2;margin-top:2px}}
+
+/* PRODUCT CARDS (catalog) */
+.fmt-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:8px}
+@media(max-width:900px){.fmt-grid{grid-template-columns:1fr}}
+a.fmt-card{position:relative;border:1px solid var(--dark-line);border-radius:14px;padding:32px 28px;background:var(--dark2);display:flex;flex-direction:column;text-decoration:none;transition:transform .25s ease, border-color .25s ease}
+a.fmt-card:hover{transform:translateY(-5px);border-color:#6a5340}
+a.fmt-card.fmt-hl{border-color:#6a5340;background:linear-gradient(165deg,rgba(192,99,63,.13),var(--dark2) 60%)}
+.fmt-badge{position:absolute;top:-11px;left:24px;background:var(--accent);color:#fff;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:5px 12px;border-radius:99px}
+.fmt-for{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dark-accent);font-weight:600;margin-bottom:14px}
+.fmt-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.12;color:var(--dark-ink)}
+.fmt-card p{font-size:13.5px;color:var(--dark-muted);line-height:1.65;margin-top:14px}
+.fmt-card .more{margin-top:auto;padding-top:22px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-accent);font-weight:600;display:inline-flex;align-items:center;gap:8px}
+a.fmt-card:hover .more{gap:12px}
+
+/* small formats ladder */
+.subhead2{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dark-muted);font-weight:600;margin:60px 0 4px}
+.lad{margin-top:20px}
+.lad-stage{display:grid;grid-template-columns:210px 1fr;gap:34px;padding:30px 0;border-top:1px solid var(--dark-line)}
+.lad-stage:last-child{border-bottom:1px solid var(--dark-line)}
+@media(max-width:760px){.lad-stage{grid-template-columns:1fr;gap:14px}}
+.lad-k{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dark-accent);font-weight:600}
+.lad-k .ln{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--dark-accent);display:block;margin-bottom:6px;font-variant-numeric:oldstyle-nums}
+.lad-k .ld{display:block;color:var(--dark-muted);margin-top:6px;letter-spacing:.4px;text-transform:none;font-size:12.5px;line-height:1.5;font-weight:400}
+.lad-items{display:flex;flex-direction:column;gap:14px}
+.lad-p{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:baseline;padding:16px 20px;border:1px solid var(--dark-line);border-radius:10px;background:var(--dark2)}
+.lad-p .pt{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--dark-ink)}
+.lad-p .pd{font-size:13px;color:var(--dark-muted);margin-top:4px;line-height:1.55}
+.lad-p .pm{font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--dark-accent);white-space:nowrap;font-weight:600}
+@media(max-width:600px){.lad-p{grid-template-columns:1fr}.lad-p .pm{order:-1}}
+
+/* PRODUCT PAGE bits */
+.backlink{display:inline-flex;align-items:center;gap:8px;padding:12px 0;min-height:44px;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--dark-accent);font-weight:600;text-decoration:none;cursor:pointer;margin-bottom:30px;transition:gap .2s}
+.backlink:hover{gap:12px}
+.prod-top{padding-top:70px}
+
+/* blocks (producing) */
+.block{padding:30px 0;border-top:1px solid var(--line)}
+.block:last-of-type{border-bottom:1px solid var(--line)}
+.block-h{display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:baseline}
+.block-h .bn{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--accent-soft);font-variant-numeric:oldstyle-nums}
+.block-h .bt{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.1}
+.block ul{list-style:none;margin:14px 0 0 52px;display:flex;flex-direction:column;gap:9px}
+@media(max-width:600px){.block ul{margin-left:0}}
+.block li{position:relative;padding-left:20px;color:var(--muted);font-size:14px;line-height:1.55}
+.block li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--accent-soft)}
+
+/* result grid (producing) */
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:32px}
+.rgrid>div{background:var(--bg);padding:28px 24px}
+.rgrid .rk{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--accent);font-variant-numeric:oldstyle-nums;line-height:1}
+.rgrid .rt{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:10px 0 4px}
+.rgrid .rd{color:var(--muted);font-size:13px;line-height:1.5}
+@media(max-width:760px){.rgrid{grid-template-columns:1fr}}
+
+/* scope note */
+.scope{border:1px solid var(--dark-line);border-radius:12px;padding:22px 26px;margin-top:40px;max-width:640px}
+.scope .sk{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dark-accent);font-weight:600;margin-bottom:8px}
+.scope p{color:var(--dark-muted);font-size:14px;line-height:1.6}
+
+/* mini case (vystuplenie) */
+.mini-case{border-left:1px solid var(--border-light);padding:6px 0 6px 28px;margin-top:14px;max-width:68ch}
+.mc-eyebrow{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mc-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:8px 0 12px;line-height:1.15}
+.mini-case p{color:var(--muted);font-size:14.5px;line-height:1.7}
+.mc-metric{margin-top:16px;font-size:14px;color:var(--text)}
+.mc-metric b{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--accent);font-variant-numeric:oldstyle-nums;margin-right:6px}
+
+/* tg row */
+.tg-row{display:flex;align-items:center;gap:16px;margin-top:44px;padding:18px 20px;border:1px solid var(--dark-line);border-radius:12px;background:rgba(192,99,63,.06);text-decoration:none;transition:all .2s;max-width:560px}
+.tg-row:hover{border-color:#6a5340;background:rgba(192,99,63,.11);transform:translateY(-1px)}
+.tg-row-ic{width:44px;height:44px;border-radius:50%;flex-shrink:0;background:linear-gradient(155deg,#e0895f,#a3684a);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:13px}
+.tg-row-t{color:#efe7dd;font-size:15px;font-weight:600}
+.tg-row-d{color:var(--dark-muted);font-size:12.5px;margin-top:2px}
+.tg-row-ar{color:var(--dark-accent);font-size:18px;flex-shrink:0;margin-left:auto}
+
+/* contact */
+.contact-c{text-align:center;padding-top:10px}
+.c-lead{color:var(--dark-muted);font-size:15px;line-height:1.7;margin-top:18px}
+.c-socials{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;margin-top:44px}
+.c-soc{display:flex;gap:13px;text-align:left;align-items:flex-start;text-decoration:none}
+.c-role{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--dark-muted);font-weight:600}
+.c-val{color:var(--dark-ink);font-size:14.5px;margin-top:4px;transition:color .15s}
+.c-soc:hover .c-val{color:var(--dark-accent)}
+.foot{padding:30px 0 50px;text-align:center;color:var(--faint);font-size:11px;letter-spacing:1px}
+
+/* ===== CARD SYSTEM (reference) ===== */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border-light);border-radius:8px;padding:28px;transition:box-shadow .22s,transform .22s,border-color .22s}
+.card:hover{box-shadow:0 8px 30px rgba(23,19,16,.06)}
+.card .ico{font-size:22px;color:var(--accent);margin-bottom:16px;display:block;line-height:1}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.15;margin-bottom:8px;color:var(--text)}
+.card p{font-size:14.5px;line-height:1.72;color:var(--muted)}
+/* выделения в описаниях */
+.card p b,.lead b,.prod-li b,.viz-cap b,.proof-cap b,.l-d b,.page li b{color:var(--accent-ink);font-weight:600}
+.hb-sub b,.lquote-b b{color:var(--accent-soft);font-weight:600}
+.card ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.card li{position:relative;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.55}
+.card li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--accent-soft)}
+
+/* metric card */
+.metric{text-align:center;padding:34px 22px}
+.metric .val{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,4.6vw,56px);font-weight:700;color:var(--accent);line-height:1;font-variant-numeric:oldstyle-nums}
+.metric .lab{font-size:12px;color:var(--text3);margin-top:10px;font-weight:500;letter-spacing:.3px;line-height:1.4}
+
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1180px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.pgrid{grid-template-columns:1fr}}
+/* clickable product card (catalog) with line-art header */
+a.pcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border-light);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;position:relative;box-shadow:0 2px 10px rgba(23,19,16,.05);transition:box-shadow .22s,transform .22s,border-color .22s}
+a.pcard:hover{transform:translateY(-5px);box-shadow:0 16px 44px rgba(23,19,16,.09);border-color:var(--accent-soft)}
+.pcard-art{position:relative;height:168px;background:#eee9e0;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+/* крупная типографика вместо схем */
+.p-fig{position:relative;z-index:2;text-align:center;line-height:1}
+.p-fig .n{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(72px,8vw,96px);font-weight:600;color:#f4efe4;line-height:.9;font-variant-numeric:oldstyle-nums;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.p-fig .l{display:block;margin-top:16px;font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;color:var(--accent-soft)}
+.pcard:hover .p-fig .n{transform:translateY(-4px)}
+.wide-art .p-fig .n{font-size:clamp(72px,7vw,96px)}
+.pcard-art svg{width:78%;max-width:260px;height:auto;display:block;position:relative;z-index:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.pcard:hover .pcard-art svg{transform:scale(1.05)}
+a.pcard:hover .pcard-art svg{transform:scale(1.05)}
+.pcard-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
+.pcard .cat{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-bottom:12px}
+.pcard h3{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.14;color:var(--text);min-height:2.28em}
+.pcard p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:12px}
+.pcard .more{margin-top:auto;padding-top:22px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:gap .2s}
+a.pcard:hover .more{gap:13px}
+
+/* format row (light, tidy) */
+.fmts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+@media(max-width:760px){.fmts{grid-template-columns:1fr}}
+.frow{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;background:var(--surface);border:1px solid var(--border-light);border-radius:8px;padding:20px 22px;transition:border-color .2s,box-shadow .2s}
+.frow:hover{box-shadow:0 6px 20px rgba(23,19,16,.05)}
+.frow .ft{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--text)}
+.frow .fd{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+.frow .fm{font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;white-space:nowrap}
+.grp-label{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.6vw,30px);font-weight:600;letter-spacing:-.01em;text-transform:none;color:var(--text);border-top:1px solid var(--line);margin:clamp(72px,9vh,104px) 0 26px;padding-top:30px}
+.wide{display:grid;grid-template-columns:300px 1fr;gap:0;background:var(--surface);border:1px solid var(--border-light);border-radius:16px;box-shadow:0 2px 12px rgba(23,19,16,.05);overflow:hidden;text-decoration:none;transition:box-shadow .3s,transform .3s,border-color .3s}
+.wide:hover{box-shadow:0 20px 48px rgba(23,19,16,.09);transform:translateY(-3px);border-color:var(--accent-soft)}
+.wide-art{position:relative;background:#eee9e0;border-right:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;min-height:200px;overflow:hidden}
+.wide-art svg{width:74%;max-width:210px;height:auto;position:relative;z-index:1}
+.wide-body{padding:clamp(28px,3.4vw,44px)}
+.wide-body .cat{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;margin-bottom:12px}
+.wide-body h3{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,32px);font-weight:600;line-height:1.12;color:var(--text)}
+.wide-body p{font-size:15px;color:var(--muted);line-height:1.7;margin-top:14px;max-width:70ch}
+.wide-body .more{margin-top:22px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:gap .2s}
+.wide:hover .wide-body .more{gap:13px}
+@media(max-width:760px){.wide{grid-template-columns:1fr}.wide-art{min-height:150px}}
+
+/* light product hero + back */
+.prod-hero{padding:64px 0 0}
+.backlink{display:inline-flex;align-items:center;gap:8px;padding:12px 0;min-height:44px;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);font-weight:700;text-decoration:none;cursor:pointer;margin-bottom:34px;transition:gap .2s}
+.backlink:hover{gap:12px}
+
+/* light quote */
+.lquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.6vw,30px);line-height:1.34;color:var(--text);max-width:30em;border-left:1px solid var(--border-light);padding-left:26px;margin:36px 0 8px}
+.lquote-a{padding-left:28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.lquote-b{margin-top:22px;color:var(--muted);font-size:15px;line-height:1.7;max-width:66ch}
+.lquote-b b{color:var(--text);font-weight:600}
+
+/* highlighted case card */
+.hcard{display:block;margin-top:26px;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--border-light);border-radius:8px;padding:32px 34px;max-width:none;box-shadow:0 2px 10px rgba(23,19,16,.05);transition:box-shadow .25s,transform .25s,border-color .25s}
+a.hcard:hover{box-shadow:0 18px 44px rgba(23,19,16,.09);transform:translateY(-3px);border-color:var(--accent-soft)}
+.hcard .hc-eyebrow{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.hcard .hc-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:8px 0 14px;line-height:1.15;color:var(--text)}
+.hcard p{color:var(--muted);font-size:14.5px;line-height:1.7}
+.hcard .hc-metric{margin-top:18px;font-size:14px;color:var(--text)}
+.hcard .hc-metric b{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--accent);font-variant-numeric:oldstyle-nums;margin-right:6px;font-weight:700}
+
+/* light CTA row */
+/* финальный блок: закрывает страницу, в цвете системы */
+.cta{display:flex;align-items:center;gap:34px;margin-top:clamp(30px,4vh,44px);padding:clamp(44px,5.5vw,68px) clamp(34px,4vw,52px);border-radius:0;background:#1f2d27;position:relative;box-shadow:0 0 0 100vmax #1f2d27;clip-path:inset(0 -100vmax);text-decoration:none;max-width:none;transition:none}
+/* полоса статична: заливку держит тень, отклик отдан кнопке внутри */
+.cta-ic{display:none}
+.cta-t{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,34px);font-weight:600;line-height:1.15;color:#f6f2ea}
+.cta-d{color:rgba(246,242,234,.62);font-size:14.5px;line-height:1.6;margin-top:11px}
+.cta-ar{margin-left:auto;flex-shrink:0;display:inline-flex;align-items:center;gap:11px;white-space:nowrap;background:#a3684a;color:#fff;font-family:'Instrument Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:19px 32px;border-radius:99px;transition:background .25s,gap .25s,box-shadow .25s}
+.cta-ar span{font-size:16px;letter-spacing:0}
+.cta:hover .cta-ar{background:#8f5a3e;gap:16px;box-shadow:0 10px 26px rgba(163,104,74,.34)}
+.cta-d{max-width:68ch}
+@media(max-width:640px){.cta{flex-direction:column;align-items:flex-start;gap:24px}.cta-ar{margin-left:0}}
+
+/* section eyebrow big number heading */
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+@media(max-width:760px){.metric-row{grid-template-columns:repeat(2,1fr)}}
+.metric-row .metric{border:1px solid var(--border-light);border-radius:8px;background:var(--surface)}
+
+/* ===== CASE DEEP VISUALS ===== */
+.viz{background:var(--dark);border-radius:18px;padding:44px 46px;margin-top:32px}
+@media(max-width:600px){.viz{padding:30px 22px}}
+.viz svg{width:100%;height:auto;display:block}
+.viz-cap{color:var(--dark-muted);font-size:13px;margin-top:20px;line-height:1.6;max-width:66ch}
+/* доказательства: реальные скрины */
+.proof{margin-top:30px}
+.proof img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:14px;border:1px solid var(--border-light);box-shadow:0 12px 34px rgba(23,19,16,.08)}
+.proof-cap{font-size:13.5px;color:var(--muted);margin-top:15px;line-height:1.65;max-width:66ch}
+.proof-2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px;align-items:start}
+@media(max-width:760px){.proof-2{grid-template-columns:1fr}}
+.blist{margin-top:26px;border-top:1px solid var(--line)}
+.blist .bi{display:grid;grid-template-columns:26px 1fr;gap:18px;padding:20px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+.blist .bn{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;font-variant-numeric:oldstyle-nums;color:var(--accent-ink)}
+.blist .bt{font-size:16px;line-height:1.6;color:var(--text)}
+.blist .bt b{font-weight:600}
+.clientline{display:flex;align-items:baseline;gap:20px;margin-top:32px;padding-top:24px;border-top:1px solid var(--line);flex-wrap:wrap}
+.clientline .cl-l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+.clientline .cl-t{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;line-height:1.3;color:var(--text)}
+.vlbl{font-family:'Instrument Sans',sans-serif;font-size:12px;fill:#c9beb1;font-weight:600}
+.vlbl-a{fill:var(--dark-accent)}
+.vlbl-s{font-size:11px;fill:#8a7f73}
+/* dashboard */
+.dash-row{display:grid;grid-template-columns:150px 1fr 90px;gap:16px;align-items:center;margin-bottom:13px}
+@media(max-width:600px){.dash-row{grid-template-columns:1fr auto;gap:6px 10px}.dash-track{grid-column:1/-1}}
+.dash-row .dm{color:#c9beb1;font-size:13.5px}
+.dash-track{height:11px;background:#312a25;border-radius:6px;overflow:hidden}
+.dash-fill{height:100%;border-radius:6px;background:#b67454}
+.dash-fill.warn{background:#cf9a5f}.dash-fill.drop{background:#c56b5f}
+.dash-val{text-align:right;font-family:'Cormorant Garamond',serif;font-size:16px;color:#fff}
+.dash-flag{display:inline-block;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#e0968c;font-weight:700;margin-left:8px}
+
+/* ===== CASE STRUCTURE ===== */
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 40px;margin-top:26px}
+@media(max-width:760px){.case-grid{grid-template-columns:1fr;gap:18px}}
+.case-pt .cp-k{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--accent);margin-bottom:5px}
+.case-pt .cp-d{font-size:14px;color:var(--muted);line-height:1.6}
+.case-res{margin-top:28px;padding-top:22px;border-top:1px solid var(--border-light)}
+.case-res .cr-k{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+/* ===== 7 LAYERS STACK VISUAL ===== */
+.layers{margin-top:36px;display:flex;flex-direction:column;gap:9px}
+.layer{display:grid;grid-template-columns:60px 1fr;align-items:stretch;border:1px solid var(--border-light);border-radius:10px;overflow:hidden;background:var(--surface);transition:transform .2s,box-shadow .2s}
+.layer:hover{transform:translateX(4px);box-shadow:0 8px 24px rgba(23,19,16,.06)}
+.layer .l-n{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--dark-accent);background:var(--dark)}
+.layer .l-body{padding:16px 24px}
+.layer .l-t{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;line-height:1.1}
+.layer .l-d{color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:3px}
+.layer .l-n{background:var(--dark)}
+.layer.l7 .l-n{background:linear-gradient(135deg,#8a4f2f,#b67454);color:#fff}
+.layer.l7{border-color:var(--accent-soft);box-shadow:0 6px 22px rgba(182,116,84,.08)}
+
+/* ===== RADAR / ПАУТИНА (dark report panel) ===== */
+.report{background:var(--dark);border-radius:18px;padding:44px 46px;margin-top:40px}
+@media(max-width:600px){.report{padding:30px 24px}}
+.radar-wrap{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+@media(max-width:820px){.radar-wrap{grid-template-columns:1fr;gap:32px}}
+.radar-card{text-align:center}
+.radar-card svg{width:100%;max-width:420px;height:auto;display:block;margin:0 auto}
+.radar-score{margin-top:14px;font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--dark-accent);font-size:20px}
+.radar-lbl{font-family:'Instrument Sans',sans-serif;font-size:13px;fill:#e2d9cd;font-weight:600}
+.report .arow{grid-template-columns:150px 1fr 34px}
+.report .an{color:#c9beb1;font-size:13.5px}
+.report .atrk{background:#312a25;height:8px;border-radius:4px}
+.report .av{color:#fff;font-size:17px}
+.report .alegend{color:var(--dark-muted);margin-top:26px}
+.report-caption{color:var(--dark-muted);font-size:13px;margin-top:24px;text-align:center;max-width:66ch}
+
+/* ===== EDITORIAL LINE-ART BANNER ===== */
+.hb{background:var(--dark);border-radius:18px;padding:62px 58px;margin-top:40px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;overflow:hidden}
+@media(max-width:760px){.hb{grid-template-columns:1fr;padding:40px 30px;gap:20px}.hb-art{display:none}}
+.hb-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dark-accent);font-weight:700;margin-bottom:22px}
+.hb-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.8vw,60px);font-weight:600;line-height:1.02;color:var(--dark-ink);letter-spacing:-.01em}
+.hb-title em{font-style:italic;font-weight:500;color:var(--dark-accent)}
+.hb-sub{color:var(--dark-muted);font-size:15.5px;line-height:1.65;margin-top:22px;max-width:26em}
+.hb-by{color:var(--dark-muted);opacity:.7;font-size:13px;margin-top:16px}
+.hb-rule{height:1px;background:var(--dark-line);margin-top:38px}
+.hb-art{display:flex;justify-content:center;align-items:center}
+.hb-art svg{width:100%;max-width:360px;height:auto;display:block}
+
+/* ===== PRODUCT BANNERS ===== */
+.pbanner{position:relative;overflow:hidden;border-radius:16px;margin-top:40px}
+
+/* photo banner */
+.pbanner-photo{min-height:360px;display:flex;align-items:flex-end;background-size:cover;background-position:center 22%}
+.pbanner-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,13,.15) 0%,rgba(20,16,13,.55) 55%,rgba(20,16,13,.9) 100%)}
+.pbanner-photo .pb-in{position:relative;z-index:1;padding:46px 48px}
+@media(max-width:600px){.pbanner-photo .pb-in{padding:32px 26px}}
+.pb-eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dark-accent);font-weight:700;margin-bottom:14px}
+.pb-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.6vw,44px);font-weight:600;line-height:1.08;max-width:15em;color:#fff}
+
+/* accent statement banner */
+.pbanner-accent{background:linear-gradient(135deg,#1c1712 0%,#2a1d15 55%,#3a2418 100%);padding:52px 50px;position:relative}
+@media(max-width:600px){.pbanner-accent{padding:38px 28px}}
+.pbanner-accent .pb-watermark{position:absolute;right:30px;top:-20px;font-family:'Cormorant Garamond',serif;font-size:190px;font-weight:700;color:rgba(202,144,114,.10);line-height:1;pointer-events:none;font-variant-numeric:oldstyle-nums}
+.pbanner-accent .pb-eyebrow{color:var(--dark-accent)}
+.pbanner-accent .pb-big{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.2vw,40px);font-weight:600;line-height:1.14;color:var(--dark-ink);max-width:20em;position:relative;z-index:1}
+.pbanner-accent .pb-big b{color:var(--dark-accent);font-weight:600}
+
+/* process flow band */
+.flowband{background:var(--dark);border-radius:16px;padding:44px 40px;margin-top:40px}
+@media(max-width:600px){.flowband{padding:34px 24px}}
+.flowband .fb-eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dark-accent);font-weight:700;margin-bottom:26px}
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:14px 10px}
+.flow-step{flex:1;min-width:130px;text-align:center;padding:20px 14px;border:1px solid var(--dark-line);border-radius:10px;background:var(--dark2)}
+.flow-step .fs-n{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--dark-accent);line-height:1;margin-bottom:8px;font-variant-numeric:oldstyle-nums}
+.flow-step .fs-t{font-size:13px;color:var(--dark-ink);font-weight:600;line-height:1.35}
+.flow-arrow{color:var(--dark-accent);font-size:20px;flex-shrink:0}
+@media(max-width:600px){.flow-arrow{display:none}.flow-step{min-width:calc(50% - 7px)}}
+
+/* ===== MOTION ===== */
+@media print{.rvl{opacity:1!important;transform:none!important}.page{display:block!important}}
+.rvl{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.7,.3,1),transform .7s cubic-bezier(.22,.7,.3,1)}
+.rvl.in{opacity:1;transform:none}
+.afill{transition:width 1.1s cubic-bezier(.25,.8,.3,1)}
+.hero-photo{will-change:transform}
+.hero-photo img{transition:transform .2s linear;transform:translateY(var(--py,0))}
+.talk-thumb{transition:transform .25s ease, box-shadow .25s ease}
+.talk:hover .talk-thumb{transform:translateY(-4px);box-shadow:0 18px 44px rgba(23,19,16,.16)}
+.talk-thumb img{transition:transform .6s cubic-bezier(.22,.7,.3,1)}
+.talk:hover .talk-thumb img{transform:scale(1.045)}
+.mxx>div{transition:transform .25s ease}
+.mxx>div:hover{transform:translateY(-3px)}
+.nrow{transition:background .2s}
+.nrow:hover{background:rgba(182,116,84,.04)}
+.erow{transition:background .2s}
+.erow:hover{background:rgba(182,116,84,.05)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto}
+  .rvl{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav"><div class="nav-in">
+  <a class="nav-brand" href="#" data-home>Вагэ Хачатрян</a>
+  <div class="nav-links">
+    <a href="#about" data-nav="about">О Вагэ</a>
+    <a href="#expertise" data-nav="expertise">Экспертиза</a>
+        <a href="#results" data-nav="results">Кейсы</a>
+    <a href="#formats" data-nav="formats">Продукты</a>
+    <a href="#contacts" data-nav="contacts">Контакты</a>
+  </div>
+</div></nav>
+
+<!-- ================= HOME ================= -->
+<main id="home" class="page active">
+
+<!-- HERO -->
+<header class="hero" id="about"><div class="hero-in">
+  <div class="hero-photo"><img src="img2/dsc0044.jpg" alt="Вагэ Хачатрян" style="object-position:52% 20%" fetchpriority="high" decoding="async"></div>
+  <div>
+    <div class="eyebrow">Вагэ Хачатрян · стратег публичности для собственников</div>
+    <h1>Публичность собственника<br>как система</h1>
+    <p class="lead">Не разовые выступления и не контент ради контента. Стратегия строится на том, что у вас уже есть, и доводится до сцены и до клиентов.</p>
+
+  </div>
+</div></header>
+
+<!-- CLIENTS -->
+<section id="clients" ><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap">
+    <div><h2 class="title">С кем работаю</h2><div class="rule" style="margin-bottom:0"></div></div>
+  </div>
+  <div class="clients">
+    <div class="cli">
+      <div class="cli-ph"><img src="clients/denis.jpg" alt="Денис Кабалкин" loading="lazy" decoding="async"></div>
+      <div class="cli-body"><div class="cli-n">Денис Кабалкин</div><div class="cli-r"><b>CEO Vitamin.tools</b>, довёл выручку компании до <span class="hl">20 млрд ₽</span>. Входит в <b>топ-8 топ-менеджеров России</b> по версии «Коммерсанта». Член совета директоров Kokoc Group, автор бестселлера «Всё ты можешь!».</div></div>
+    </div>
+    <div class="cli">
+      <div class="cli-ph"><img src="clients/filipp.png" alt="Филипп Гузенюк" loading="lazy" decoding="async"></div>
+      <div class="cli-body"><div class="cli-n">Филипп Гузенюк</div><div class="cli-r"><b>Executive-коуч</b>, среди клиентов предприниматели из <span class="hl">списка Forbes</span>. 20+ лет практики, автор подхода <b>«Счастье в деятельности»</b>, готовит выход книги.</div></div>
+    </div>
+    <div class="cli">
+      <div class="cli-ph"><img src="clients/anzhelika.jpg" alt="Анжелика Вартересян" style="object-position:center top" loading="lazy" decoding="async"></div>
+      <div class="cli-body"><div class="cli-n">Анжелика Вартересян</div><div class="cli-r"><b>Основатель агентства премиальных свадеб и эксклюзивных ивентов</b>. Реализует проекты от закрытых торжеств до масштабных премий.</div></div>
+    </div>
+    <div class="cli">
+      <div class="cli-ph"><img src="clients/nastya.jpg" alt="Настя Анциферова" loading="lazy" decoding="async"></div>
+      <div class="cli-body"><div class="cli-n">Настя Анциферова</div><div class="cli-r"><b>Серийный предприниматель</b>. Построила ресторанную группу «Это по любви» и <span class="hl">клининговую компанию в 16 регионах</span>.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="expertise" ><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap">
+    <div><h2 class="title">Что я делаю</h2><div class="rule" style="margin-bottom:0"></div></div>
+    <p class="lead" style="max-width:32em;margin-bottom:4px">Связываю публичность с бизнесом. Три направления под задачу собственника.</p>
+  </div>
+  <div class="svc-list">
+    <div class="svc"><div class="svc-n" aria-hidden="true">01</div><div class="svc-body"><h3>Стратегия личного бренда</h3><p>Позиционирование на основе ваших активов: метаидея, отстройка, дорожная карта присутствия. <b>Не шаблон, а стратегия из того, что у вас уже есть.</b></p></div></div>
+    <div class="svc"><div class="svc-n" aria-hidden="true">02</div><div class="svc-body"><h3>Публичные выступления</h3><p>Сильные выступления и подготовка к сцене от идеи до репетиций. Публичность, которая даёт <b>статус, вес в индустрии и клиентов.</b></p></div></div>
+    <div class="svc"><div class="svc-n" aria-hidden="true">03</div><div class="svc-body"><h3>Продюсирование медийности</h3><p>Системное присутствие вдолгую: выступления, подкасты, контент и воронка, <b>которая приводит клиентов в ваш бизнес.</b></p></div></div>
+  </div>
+</div></section>
+
+<!-- ОБРАЗОВАНИЕ -->
+<style>
+#edu{padding:clamp(54px,7vw,90px) 0}
+#edu .eh{max-width:60ch}
+#edu h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,44px);font-weight:600;line-height:1.05;letter-spacing:-.01em;margin:0}
+#edu .elead{color:#6e6e73;font-size:clamp(15px,1.4vw,17px);line-height:1.6;margin-top:16px}
+#edu .feat{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,64px);margin-top:clamp(42px,4.5vw,64px)}
+#edu .mentor{display:flex;align-items:stretch;gap:30px}
+#edu .mentor > div{display:flex;flex-direction:column;flex:1;padding-top:6px}
+#edu .mentor img{width:190px;height:236px;border-radius:16px;object-fit:cover;object-position:50% 28%;flex:none;filter:grayscale(.08);box-shadow:0 14px 34px rgba(40,30,20,.14)}
+#edu .mentor .mn{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,2.5vw,34px);font-weight:600;line-height:1.05;color:#2b2b30}
+#edu .mentor .mr{color:#6e6e73;font-size:15.5px;line-height:1.55;margin-top:9px;max-width:32ch}
+#edu .mentor .prog{margin-top:auto;padding-top:16px;border-top:1px solid #ececf1}
+#edu .mentor .pl{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#a2a2a8;font-weight:700}
+#edu .mentor .pv{color:#2b2b30;font-size:16px;font-weight:500;line-height:1.4;margin-top:5px}
+#edu .rest{margin-top:clamp(40px,4.5vw,62px);padding-top:clamp(32px,3vw,42px);border-top:1px solid #e7e7ec;display:grid;grid-template-columns:1.7fr 1fr;gap:clamp(36px,5vw,72px)}
+#edu .rk{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#9a9aa0;font-weight:700;margin-bottom:14px}
+#edu .rest p{color:#3f3f45;font-size:clamp(15.5px,1.4vw,17px);line-height:1.75;margin:0}
+#edu .rest b{color:#2b2b30;font-weight:600}
+#edu .elist{margin:0;list-style:none;padding:0}
+#edu .elist li{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:12px 0;border-bottom:1px solid #ececf1}
+#edu .elist li:first-child{border-top:1px solid #ececf1}
+#edu .elist .n{color:#2b2b30;font-size:16px;font-weight:500;letter-spacing:-.005em}
+#edu .elist .t{color:#8f8f95;font-size:13px;text-align:right;flex:none}
+@media(max-width:720px){#edu .feat{grid-template-columns:1fr;gap:30px}#edu .rest{grid-template-columns:1fr;gap:28px}#edu .elist .t{font-size:12px}}
+</style>
+<section id="edu"><div class="wrap">
+  <div class="eh">
+    <h2>У кого учусь</h2>
+    <p class="elead">Стратегию публичности и работу с капиталом собираю не из воздуха — беру у тех, кто в этом сильнее меня, и переупаковываю под задачу клиента.</p>
+  </div>
+  <div class="feat">
+    <div class="mentor">
+      <img src="covers/alferova.webp" alt="Юлия Алфёрова" loading="lazy">
+      <div>
+        <div class="mn">Юлия Алфёрова</div>
+        <div class="mr">Основатель негосударственного института развития, экс-советник министра экономики, советник первых лиц</div>
+        <div class="prog"><div class="pl">Программа</div><div class="pv">GR&nbsp;— работа с&nbsp;государством и&nbsp;институтами</div></div>
+      </div>
+    </div>
+    <div class="mentor">
+      <img src="covers/fedorenko.jpeg" alt="Михаил Федоренко" loading="lazy">
+      <div>
+        <div class="mn">Михаил Федоренко</div>
+        <div class="mr">Исследователь дореволюционных купеческих династий</div>
+        <div class="prog"><div class="pl">Программа</div><div class="pv">«Практика&nbsp;масштаба»</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="rest">
+    <div class="rc">
+      <div class="rk">Менеджмент и стратегия</div>
+      <ul class="elist">
+        <li><span class="n">Михаил Дашкиев</span><span class="t">«Бизнес Молодость»</span></li>
+        <li><span class="n">«Стартап на миллиард»</span><span class="t">Дмитрий Спиридонов</span></li>
+        <li><span class="n">Александр Волчек</span><span class="t">экс-ген «Бизнес Молодости»</span></li>
+        <li><span class="n">Алекс Яновский</span><span class="t">школа бизнеса</span></li>
+        <li><span class="n">DNK</span><span class="t">Михаил Колмаков</span></li>
+        <li><span class="n">ATM Менеджмент</span><span class="t">управление</span></li>
+      </ul>
+    </div>
+    <div class="rc">
+      <div class="rk">Среда</div>
+      <p>Действующий член <b>«Клуба&nbsp;500»</b> — закрытого сообщества предпринимателей.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ОТЗЫВ МАРИЧЕВОЙ -->
+<style>
+#testi{padding:clamp(28px,4vw,50px) 0}
+#testi .tw{background:#1b1712;border-radius:26px;padding:clamp(34px,4.5vw,60px);display:flex;gap:clamp(30px,4.5vw,56px);align-items:center;flex-wrap:wrap;box-shadow:0 30px 66px rgba(30,22,14,.24)}
+#testi .ph{width:clamp(150px,16vw,190px);height:clamp(150px,16vw,190px);border-radius:20px;object-fit:cover;object-position:55% 14%;flex:none}
+#testi .phx{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:#8a7b64;background:#2a2419;border:1px solid #3a3324}
+#testi .tq{flex:1;min-width:300px}
+#testi .qm{font-family:'Cormorant Garamond',serif;font-size:64px;line-height:.4;color:#b08f4e;display:block;height:26px}
+#testi blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(23px,2.5vw,34px);line-height:1.3;color:#f3ede4;margin:14px 0 0;font-weight:500}
+#testi .who{margin-top:26px;padding-top:20px;border-top:1px solid #332d22}
+#testi .who .nm{color:#fff;font-weight:600;font-size:17px}
+#testi .who .rg{color:#b3a894;font-size:13.5px;margin-top:4px}
+#testi .who .st{color:#7e735f;font-size:12.5px;margin-top:9px;letter-spacing:.01em}
+@media(max-width:640px){#testi .tw{flex-direction:column;text-align:left;align-items:flex-start}}
+</style>
+<section id="testi"><div class="wrap">
+  <div class="tw">
+    <img class="ph" src="covers/maricheva.jpg" alt="Татьяна Маричева" loading="lazy">
+    <div class="tq">
+      <span class="qm">“</span>
+      <blockquote>Кто не знает Вагэ — он очень крутой. Господа эксперты, если Вагэ в&nbsp;поиске — то это один из&nbsp;лучших продюсеров, кого я&nbsp;знаю. Обратите внимание.</blockquote>
+      <div class="who">
+        <div class="nm">Татьяна Маричева</div>
+        <div class="rg">Основатель «Школы Продюсера» · лауреат премии GetAwards</div>
+        <div class="st">Эксперт круглых столов Госдумы по&nbsp;онлайн-образованию · 5000+ выпускников</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- МЕТОД -->
+<section id="method-teaser" class="method-dark"><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap">
+    <div><h2 class="title">Метод</h2><div class="rule" style="margin-bottom:0"></div></div>
+    <p class="lead" style="max-width:32em;margin-bottom:4px">Личный бренд: не эстетика, а стратегия на ваших активах.</p>
+  </div>
+
+  <blockquote class="suntzu">
+    <div class="stz-ph"><img src="clients/suntzu.jpg" alt="Сунь Цзы" loading="lazy" decoding="async"></div>
+    <div>
+      <p>В военном деле победу определяет не количество ресурсов, а умение ими распорядиться. Малая армия побеждает большую, если правильно использует свои преимущества.</p>
+      <div class="stz-a">Сунь Цзы · «Искусство войны»</div>
+    </div>
+  </blockquote>
+</div></section>
+
+<section id="method-steps" class="sec"><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap">
+    <div><h2 class="title">От активов к стратегии</h2><div class="rule" style="margin-bottom:0"></div></div>
+    <p class="lead" style="max-width:32em;margin-bottom:4px">Четыре шага: от того, что у вас уже есть, до плана, который доводится до дела.</p>
+  </div>
+
+  <div class="method-grid">
+    <div>
+      <div class="msteps-v">
+        <div class="mstep-v"><div class="n">1</div><div><div class="t">Активы и пассивы</div><div class="d">Собираем всё, что у вас есть: сильные и слабые стороны, связи, экспертизу.</div></div></div>
+        <div class="mstep-v"><div class="n">2</div><div><div class="t">Матрица активов</div><div class="d">Отделяем стратегическое: то, что устойчиво и трудно скопировать.</div></div></div>
+        <div class="mstep-v"><div class="n">3</div><div><div class="t">Стратегия</div><div class="d">Строим на сильных сторонах, а не по шаблону: позиционирование и метаидея.</div></div></div>
+        <div class="mstep-v"><div class="n">4</div><div><div class="t">Внедрение</div><div class="d">Доводим до дела: сцена, контент, присутствие, результат.</div></div></div>
+      </div>
+      <a class="method-link" href="#p/sprint" data-go="sprint">Подробнее о методе →</a>
+    </div>
+    <div>
+      <div class="mxx">
+        <div><div class="k">неустойчивые · трудноповторимые</div><div class="t serif">Стабилизировать</div><div class="d">Уникальные, но шаткие. Превращаем в устойчивые.</div></div>
+        <div class="hot"><div class="k">устойчивые · трудноповторимые</div><div class="t serif">Стратегические активы</div><div class="d">Устойчиво и сложно скопировать. На этом строится вся стратегия.</div></div>
+        <div><div class="k">неустойчивые · легкоповторимые</div><div class="t serif">Игнорировать</div><div class="d">Хайп и разовое. Не тратим фокус.</div></div>
+        <div><div class="k">устойчивые · легкоповторимые</div><div class="t serif">Поддерживать</div><div class="d">Стабильны, но легко скопировать.</div></div>
+      </div>
+      <div class="ax"><span>Трудноповторимость →</span><span>↑ Устойчивость</span></div>
+      <div class="method-cap">Сердцевина метода: <b>матрица активов</b>. Оставляем только то, что устойчиво и трудно скопировать, и на этом строим стратегию.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- RESULTS -->
+<section id="results" ><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap">
+    <div><h2 class="title">Результаты</h2><div class="rule" style="margin-bottom:0"></div></div>
+    <p class="lead" style="max-width:30em;margin-bottom:4px">Факты, а не обещания.</p>
+  </div>
+  <div class="res-grid">
+
+    <div class="res">
+      <div class="res-viz ph"><img src="ey.jpg" alt="Премия EY «Предприниматель года»" loading="lazy"></div>
+      <div class="res-body"><div class="r-cat">Признание</div><div class="r-txt">Проект получил премию <b>Ernst &amp; Young</b> за развитие женского предпринимательства</div>
+        <div class="r-sub">Клиент: Екатерина Пигалева, основатель бренда косметики Gloria. Собрал обучающий продукт на 2 500 студентов единовременно и сеть из 100+ учебных центров по СНГ. Премия вручена за развитие женского предпринимательства.</div>
+        <a class="res-link" href="#p/caseEY" data-go="caseEY">Смотреть кейс <span>→</span></a></div>
+    </div>
+
+    <div class="res">
+      <div class="res-viz ph"><img src="tedx.jpg" alt="Дамир Халилов на сцене TEDx" loading="lazy" style="object-position:center 42%"></div>
+      <div class="res-body"><div class="r-cat">Сцена</div><div class="r-txt">Вывел Дамира Халилова на сцену <b>TEDx</b></div>
+        <div class="r-sub">Подготовка спикера, продвижение и организация выступления на конференции TEDx.</div></div>
+    </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="pubs-sec" class="matsdark"><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap">
+    <div><h2 class="title">Полезные материалы</h2><div class="rule" style="margin-bottom:0"></div></div>
+    <p class="lead" style="max-width:32em;margin-bottom:4px">Разборы о стратегии и публичности — ценность до всякой продажи.</p>
+  </div>
+  <div class="mats">
+    <a class="mat" href="статья-стратегия.html" target="_blank">
+      <div class="mfig"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 47 L50 20 L84 47"/><path d="M25 42 V80 H75 V42"/><path d="M43 80 V61 H57 V80"/><line x1="11" y1="80" x2="89" y2="80"/></svg></div>
+      <div class="mk">Стратегия</div>
+      <div class="mt2">Сначала дом, потом плитка</div>
+      <div class="mm">Как строить публичность на своих активах, а не по шаблону — и почему социальный капитал умножает ресурсы.</div>
+      <div class="mr">Читать · 25 мин →</div>
+    </a>
+    <a class="mat" href="статья-публичность.html" target="_blank">
+      <div class="mfig"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="50" x2="92" y2="50" stroke-dasharray="3 6" opacity=".55"/><path d="M50 22 L66 50 H34 Z"/><path d="M34 50 L24 70 L40 87 L62 87 L78 68 L66 50 Z" fill="currentColor" fill-opacity=".14"/></svg></div>
+      <div class="mk">Публичность</div>
+      <div class="mt2">Пять вопросов о публичности</div>
+      <div class="mm">Что важно понять до того, как строить личный бренд: капитал личности, а не блог.</div>
+      <div class="mr">Читать · 15 мин →</div>
+    </a>
+  </div>
+</div></section>
+
+<section id="works-sec"><div class="wrap">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap">
+    <div><h2 class="title">Примеры работ</h2><div class="rule" style="margin-bottom:0"></div></div>
+  </div>
+  <div class="slider" id="wslider">
+    <div class="track" id="wtrack">
+      <div class="slide cover" style="--c:#22333b">
+        <div class="s-main">
+          <div><div class="s-k">Выступление</div><div class="s-n">01 / 05</div>
+            <h3 class="s-t">Подготовка спикера к сцене</h3>
+            <p class="s-d">Собрали выступление от идеи до сцены: сильная идея, структура, слайды, репетиции. Пример того, как готовится спикер под задачу.</p></div>
+          <div class="s-foot"><span class="s-cl"><img class="s-av" src="covers/avatar-nastya.jpg" alt="" loading="lazy">Настя Анциферова</span><a class="s-go" href="vystuplenie-nastya.html" target="_blank">Смотреть слайды →</a></div>
+        </div>
+        <div class="s-cover"><img src="covers/nastya-poster.png" alt="Бизнес по любви или по расчёту" loading="lazy"></div>
+      </div>
+      <div class="slide cover" style="--c:#382640">
+        <div class="s-main">
+          <div><div class="s-k">Презентация</div><div class="s-n">02 / 05</div>
+            <h3 class="s-t">Продающий вебинар под запуск</h3>
+            <p class="s-d">Вебинарная презентация на 200 слайдов — от захвата внимания до оффера, разложенная по шагам продающей логики.</p></div>
+          <div class="s-foot"><span class="s-cl"><img class="s-av" src="covers/avatar-gorskaya.jpg" alt="" loading="lazy">Марина Горская</span><a class="s-go" href="неваляшка-презентация.html" target="_blank">Смотреть презентацию →</a></div>
+        </div>
+        <div class="s-cover"><img src="covers/cover-nevalyashka.jpg" alt="" loading="lazy" style="object-position:72% center"></div>
+      </div>
+      <div class="slide cover" style="--c:#6e3b2b">
+        <div class="s-main">
+          <div><div class="s-k">Воронка</div><div class="s-n">03 / 05</div>
+            <h3 class="s-t">Продающий лонгрид-воронка</h3>
+            <p class="s-d">VSL-лонгрид, который ведёт читателя от первого касания до заявки: захват, прогрев, смыслы, оффер — в одном тексте.</p></div>
+          <div class="s-foot"><span class="s-cl"><img class="s-av" src="covers/avatar-afonina.jpg" alt="" loading="lazy">Наталья Афонина</span><a class="s-go" href="воронка-афонина.html" target="_blank">Смотреть воронку →</a></div>
+        </div>
+        <div class="s-cover"><img src="covers/afonina-metaperemen.png" alt="Система для Мета-перемен" loading="lazy"></div>
+      </div>
+      <div class="slide cover" style="--c:#3a2f24">
+        <div class="s-main">
+          <div><div class="s-k">Статья для клиента</div><div class="s-n">04 / 05</div>
+            <h3 class="s-t">Стратегия масштабирования на падающем рынке</h3>
+            <p class="s-d">Статья для бизнес-школы «Горки»: как компания растёт через смену бизнес-модели даже там, где рынок падает.</p></div>
+          <div class="s-foot"><span class="s-cl"><img class="s-av logo" src="covers/gorki-logo.png" alt="" loading="lazy">Бизнес-школа «Горки»</span><a class="s-go" href="https://scale.gorkybusiness.school/article" target="_blank">Читать статью →</a></div>
+        </div>
+        <div class="s-cover"><img src="covers/gorki-butterfly.jpg" alt="Линейный рост → Масштабирование" loading="lazy"></div>
+      </div>
+      <div class="slide cover" style="--c:#2b3a30">
+        <div class="s-main">
+          <div><div class="s-k">Статья для клиента</div><div class="s-n">05 / 05</div>
+            <h3 class="s-t">Как разорвать круг повторяющихся сценариев</h3>
+            <p class="s-d">Статья для эксперта о психологии повторяющихся сценариев — как человек застревает в них и как выходит.</p></div>
+          <div class="s-foot"><span class="s-cl"><img class="s-av" src="covers/avatar-afonina.jpg" alt="" loading="lazy">Наталья Афонина</span><a class="s-go" href="статья-сепарация.html" target="_blank">Читать статью →</a></div>
+        </div>
+        <div class="s-cover"><img src="covers/yt-afonina.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <button class="s-prev" id="wprev" type="button" aria-label="Назад">‹</button>
+    <button class="s-next" id="wnext" type="button" aria-label="Вперёд">›</button>
+    <div class="s-dots" id="wdots"></div>
+  </div>
+</div></section>
+
+<section id="formats" ><div class="wrap">
+  <h2 class="title">Как со мной работать</h2>
+  <div class="rule"></div>
+  <p class="lead">Три флагмана под разные задачи: <b>от одного сильного выступления</b> до системной медийности вдолгую. </p>
+
+  <div class="pgrid" style="margin-top:48px">
+    <a class="pcard" href="#p/sprint" data-go="sprint">
+      <div class="pcard-art"><svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#5d6b60" stroke-width="2" stroke-linecap="round"><path d="M32 30 L146 75"/><path d="M32 60 L146 75"/><path d="M32 90 L146 75"/><path d="M32 120 L146 75"/></g>
+  <g fill="#5d6b60"><circle cx="32" cy="30" r="5"/><circle cx="32" cy="60" r="5"/><circle cx="32" cy="90" r="5"/><circle cx="32" cy="120" r="5"/></g>
+  <circle cx="150" cy="75" r="27" stroke="#a3684a" stroke-width="2.4"/>
+  <circle cx="150" cy="75" r="7.5" fill="#a3684a"/>
+  <path d="M177 75 L266 75" stroke="#a3684a" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M255 65 L269 75 L255 85" stroke="#a3684a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
+      <div class="pcard-body">
+        <div class="cat">Стратегия · разово</div>
+        <h3>Стратегический спринт</h3>
+        <p>Личный бренд, выступления, цена и аудитория собираются <b>в одну систему</b> на основе одного метода. Матрица активов, 36 параметров, дорожная карта и годовой план.</p>
+        <span class="more">Подробнее →</span>
+      </div>
+    </a>
+    <a class="pcard" href="#p/producing" data-go="producing">
+      <div class="pcard-art"><svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M36 75 L258 75" stroke="#5d6b60" stroke-width="2"/>
+  <circle cx="36" cy="75" r="11" stroke="#5d6b60" stroke-width="2"/>
+  <circle cx="110" cy="75" r="16" stroke="#5d6b60" stroke-width="2"/>
+  <circle cx="186" cy="75" r="21" stroke="#5d6b60" stroke-width="2"/>
+  <circle cx="258" cy="75" r="28" stroke="#a3684a" stroke-width="2.4"/>
+  <circle cx="258" cy="75" r="8.5" fill="#a3684a"/>
+</svg></div>
+      <div class="pcard-body">
+        <div class="cat">Медийность · ретейнер</div>
+        <h3>Спикерское продюсирование</h3>
+        <p>Системная медийность за 6 месяцев: выступления на крупных площадках, подкасты, рилсы и воронка, которая приводит лидов в продукты.</p>
+        <span class="more">Подробнее →</span>
+      </div>
+    </a>
+    <a class="pcard" href="#p/vystuplenie" data-go="vystuplenie">
+      <div class="pcard-art"><svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M84 18 L232 18" stroke="#5d6b60" stroke-width="2" stroke-linecap="round"/><path d="M84 36 L232 36" stroke="#5d6b60" stroke-width="2" stroke-linecap="round"/><path d="M84 54 L232 54" stroke="#5d6b60" stroke-width="2" stroke-linecap="round"/><path d="M84 72 L232 72" stroke="#5d6b60" stroke-width="2" stroke-linecap="round"/><path d="M84 90 L232 90" stroke="#5d6b60" stroke-width="2" stroke-linecap="round"/><path d="M84 108 L232 108" stroke="#5d6b60" stroke-width="2" stroke-linecap="round"/><path d="M84 126 L232 126" stroke="#a3684a" stroke-width="2.4" stroke-linecap="round"/><circle cx="84" cy="18" r="4" fill="#5d6b60"/><circle cx="84" cy="36" r="4" fill="#5d6b60"/><circle cx="84" cy="54" r="4" fill="#5d6b60"/><circle cx="84" cy="72" r="4" fill="#5d6b60"/><circle cx="84" cy="90" r="4" fill="#5d6b60"/><circle cx="84" cy="108" r="4" fill="#5d6b60"/><circle cx="84" cy="126" r="6.5" fill="#a3684a"/>
+  <text x="248" y="136" fill="#a3684a" font-family="Cormorant Garamond, serif" font-size="40" font-weight="600">7</text>
+</svg></div>
+      <div class="pcard-body">
+        <div class="cat">Выступление · проект</div>
+        <h3>Выступление под ключ</h3>
+        <p>Одно сильное выступление от идеи до монетизации по методу «7 слоёв»: то, <b>что запомнят</b> и после чего приходят клиенты.</p>
+        <span class="more">Подробнее →</span>
+      </div>
+    </a>
+    
+    <a class="pcard" href="#p/checkup" data-go="checkup">
+      <div class="pcard-art"><svg viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#5d6b60" stroke-width="1.6" opacity=".85">
+    <path d="M150 16 L206 42 L219 100 L182 138 L118 138 L81 100 L94 42 Z"/>
+    <path d="M150 44 L188 62 L196 100 L171 125 L129 125 L104 100 L112 62 Z"/>
+  </g>
+  <g stroke="#5d6b60" stroke-width="1.2" opacity=".55">
+    <path d="M150 77 L150 16"/><path d="M150 77 L206 42"/><path d="M150 77 L219 100"/><path d="M150 77 L182 138"/><path d="M150 77 L118 138"/><path d="M150 77 L81 100"/><path d="M150 77 L94 42"/>
+  </g>
+  <path d="M150 28 L196 52 L202 104 L172 122 L124 116 L96 96 L106 54 Z" stroke="#a3684a" stroke-width="2.4" fill="rgba(163,104,74,.14)" stroke-linejoin="round"/>
+  <g fill="#a3684a"><circle cx="150" cy="28" r="4"/><circle cx="196" cy="52" r="4"/><circle cx="202" cy="104" r="4"/><circle cx="172" cy="122" r="4"/><circle cx="124" cy="116" r="4"/><circle cx="96" cy="96" r="4"/><circle cx="106" cy="54" r="4"/></g>
+</svg></div>
+      <div class="pcard-body">
+        <div class="cat">Диагностика · разово</div>
+        <h3>Чекап выступления</h3>
+        <p>Для тех, кто уже выступает. Пришлите видео, получите оценку <b>по 36 параметрам</b>, паутину сильных сторон и зон роста.</p>
+        <span class="more">Подробнее →</span>
+      </div>
+    </a>
+
+  </div>
+
+  
+</div></section>
+
+<!-- CASE -->
+
+<section class="section-dark on-green" id="contacts" style="background:#0c0c0d;background-image:radial-gradient(120% 80% at 78% 0%,#1b1b1e 0%,#0c0c0d 62%)"><div class="wrap">
+  <div class="finale">
+    <div class="eyebrow">С чего начать</div>
+    <h2 class="title serif">Экспертный час</h2>
+    <p class="fin-lead">60 минут: разбираем вашу задачу и публичность, уходите с понятным первым шагом. Без презентаций и продаж.</p>
+    <a class="fin-btn" href="https://t.me/vage_vage" target="_blank">Написать в Telegram <span>→</span></a>
+    <div class="fin-foot">
+      <div class="fin-note">Выступление, подготовка спикера, стратегия личного бренда или запуск. Отвечаю быстро.</div>
+      <div class="c-socials">
+        <a class="c-soc" href="https://t.me/vage_vage" target="_blank"><div><div class="c-role">Telegram</div><div class="c-val">@vage_vage</div></div></a>
+        <a class="c-soc" href="https://www.instagram.com/vagevage_/" target="_blank"><div><div class="c-role">Instagram</div><div class="c-val">@vagevage_</div></div></a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<div class="section-dark on-green foot" style="background:#1f2d27">Вагэ Хачатрян · Ереван · 2026</div>
+
+</main>
+
+<!-- ================= PRODUCT: СПРИНТ ================= -->
+<main id="p-sprint" class="page">
+  <section class="prod-hero"><div class="wrap">
+    <a class="backlink" href="#formats" data-back>← Все продукты</a>
+    <div class="eyebrow">Флагманский продукт · стратегия</div>
+    <h2 class="title">Стратегический спринт</h2>
+    <div class="rule"></div>
+    <p class="lead" style="max-width:36em">Первый этап работы: превратить неопределённость в ясную стратегию и план. Дальше я эту стратегию воплощаю.</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val">6–8</div><div class="lab">недель на этап<br>разработки стратегии</div></div>
+      <div class="metric"><div class="val">6</div><div class="lab">вопросов, на которые<br>отвечает стратегия</div></div>
+      <div class="metric"><div class="val">2</div><div class="lab">этапа: стратегия,<br>затем реализация</div></div>
+    </div>
+
+    <div class="hb">
+      <div>
+        <div class="hb-eyebrow">Принцип работы</div>
+        <div class="hb-title">Собираем ваше<br>в <em>систему</em></div>
+        <div class="hb-sub">Не навязываю чужое. Разрозненные активы, компетенции и ресурсы сводим в один стратегический вектор.</div>
+        <div class="hb-rule"></div>
+      </div>
+      <div class="hb-art">
+        <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#5f544a" stroke-width="1.3">
+            <path d="M24 34 L250 140"/><path d="M24 87 L250 140"/><path d="M24 140 L250 140"/><path d="M24 193 L250 140"/><path d="M24 246 L250 140"/>
+          </g>
+          <g fill="#3a332e"><circle cx="24" cy="34" r="3.5"/><circle cx="24" cy="87" r="3.5"/><circle cx="24" cy="140" r="3.5"/><circle cx="24" cy="193" r="3.5"/><circle cx="24" cy="246" r="3.5"/></g>
+          <circle cx="250" cy="140" r="25" stroke="#ca9072" stroke-width="1.5"/>
+          <circle cx="250" cy="140" r="6" fill="#ca9072"/>
+          <path d="M275 140 L376 140" stroke="#ca9072" stroke-width="1.5"/>
+          <path d="M366 132 L380 140 L366 148" stroke="#ca9072" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:70px"><div class="wrap">
+    <div class="eyebrow">Кому это</div>
+    <h2 class="title">Когда пора собрать всё в систему</h2>
+    <div class="rule"></div>
+    <p class="lead">Четыре ситуации, с которыми приходят на спринт. Общее одно: ясности нет, а решения принимать надо.</p>
+    <div class="svc-list" style="margin-top:40px">
+      <div class="svc"><div class="svc-n" aria-hidden="true">01</div><div class="svc-body"><h3>Есть гипотеза, но нет уверенности</h3><p>Примерно понятно, куда двигаться, но нет опоры, чтобы вложиться деньгами и временем.</p></div></div>
+      <div class="svc"><div class="svc-n" aria-hidden="true">02</div><div class="svc-body"><h3>Непонятно, что делать вообще</h3><p>Публичность нужна, но с чего начать и в каком порядке, неясно.</p></div></div>
+      <div class="svc"><div class="svc-n" aria-hidden="true">03</div><div class="svc-body"><h3>Пробовали, не получилось</h3><p>Была попытка, результат не устроил. Хочется иначе, но как именно, непонятно.</p></div></div>
+      <div class="svc"><div class="svc-n" aria-hidden="true">04</div><div class="svc-body"><h3>Сделано много, но вразнобой</h3><p>Выступления, контент, связи есть, но всё по отдельности. Нужно собрать в единую стратегию.</p></div></div>
+    </div>
+
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="eyebrow">Что получаете</div>
+    <h2 class="title">Стратегия отвечает на шесть вопросов</h2>
+    <div class="rule"></div>
+    <p class="lead">Не отчёт в стол, а рабочее пространство в Claude: стратегия и план, с которыми продолжаем работать.</p>
+    <div class="g2" style="margin-top:40px">
+      <div class="card"><h3>Что делаем</h3><p>Конкретные направления публичности под вашу цель.</p></div>
+      <div class="card"><h3>Зачем делаем</h3><p>Как каждое действие работает на бизнес, а не на охваты.</p></div>
+      <div class="card"><h3>Как делаем</h3><p>Метод и логика, а не набор разрозненных активностей.</p></div>
+      <div class="card"><h3>Кто делает</h3><p>Что беру на себя я, что остаётся на вашей стороне.</p></div>
+      <div class="card"><h3>Сроки</h3><p>Дорожная карта по этапам, а не «когда-нибудь».</p></div>
+      <div class="card"><h3>Бюджет</h3><p>Смета под план: сколько и на что.</p></div>
+    </div>
+  </div></section>
+
+  <section id="method" style="padding-top:0"><div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Метод · шаг 1</div>
+        <h2 class="title">Матрица активов</h2>
+        <div class="rule"></div>
+        <p class="lead">Все ресурсы раскладываем по двум осям и отделяем главное. Стратегия строится только на том, что <b>устойчиво и трудно скопировать</b>.</p>
+      </div>
+      <div>
+        <div class="mxx">
+          <div><div class="k">неустойчивые · трудноповторимые</div><div class="t serif">Стабилизировать</div><div class="d">Уникальные, но шаткие. Превращаем в устойчивые.</div></div>
+          <div class="hot"><div class="k">устойчивые · трудноповторимые</div><div class="t serif">Стратегические активы</div><div class="d">Устойчиво и сложно скопировать. На этом строится вся стратегия.</div></div>
+          <div><div class="k">неустойчивые · легкоповторимые</div><div class="t serif">Игнорировать</div><div class="d">Хайп и разовое. Не тратим фокус.</div></div>
+          <div><div class="k">устойчивые · легкоповторимые</div><div class="t serif">Поддерживать</div><div class="d">Стабильны, но легко скопировать.</div></div>
+        </div>
+        <div class="ax"><span>Трудноповторимость →</span><span>↑ Устойчивость</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:96px">
+      <div class="eyebrow">Метод · шаг 2</div>
+      <h2 class="title">Бланк оценки спикера</h2>
+      <div class="rule"></div>
+      <p class="lead">Выступление разбираю по 36 параметрам в 6 группах, каждый от 1 до 10. Сразу видно, где сила, а что тянет вниз и <b>мешает продавать</b>.</p>
+
+      <div class="assess">
+        <div class="acat"><div class="act">Голос</div>
+          <div class="arow"><div class="an">Громкость</div><div class="atrk"><div class="afill f-p" style="width:70%"></div></div><div class="av">7</div></div>
+          <div class="arow"><div class="an">Тембр</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+          <div class="arow"><div class="an">Темп речи</div><div class="atrk"><div class="afill f-p" style="width:50%"></div></div><div class="av">5</div></div>
+          <div class="arow"><div class="an">Паузы</div><div class="atrk"><div class="afill f-r" style="width:40%"></div></div><div class="av">4</div></div>
+          <div class="arow"><div class="an">Интонация</div><div class="atrk"><div class="afill f-p" style="width:60%"></div></div><div class="av">6</div></div>
+          <div class="arow"><div class="an">Артикуляция</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+        </div>
+        <div class="acat"><div class="act">Язык тела</div>
+          <div class="arow"><div class="an">Жесты</div><div class="atrk"><div class="afill f-p" style="width:60%"></div></div><div class="av">6</div></div>
+          <div class="arow"><div class="an">Поза</div><div class="atrk"><div class="afill f-p" style="width:70%"></div></div><div class="av">7</div></div>
+          <div class="arow"><div class="an">Перемещение</div><div class="atrk"><div class="afill f-r" style="width:40%"></div></div><div class="av">4</div></div>
+          <div class="arow"><div class="an">Мимика</div><div class="atrk"><div class="afill f-p" style="width:50%"></div></div><div class="av">5</div></div>
+          <div class="arow"><div class="an">Зрительный контакт</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+          <div class="arow"><div class="an">Энергетика</div><div class="atrk"><div class="afill f-p" style="width:70%"></div></div><div class="av">7</div></div>
+        </div>
+        <div class="acat"><div class="act">Структура</div>
+          <div class="arow"><div class="an">Логика</div><div class="atrk"><div class="afill f-g" style="width:90%"></div></div><div class="av">9</div></div>
+          <div class="arow"><div class="an">Аргументация</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+          <div class="arow"><div class="an">Примеры</div><div class="atrk"><div class="afill f-p" style="width:60%"></div></div><div class="av">6</div></div>
+          <div class="arow"><div class="an">Переходы</div><div class="atrk"><div class="afill f-p" style="width:50%"></div></div><div class="av">5</div></div>
+          <div class="arow"><div class="an">Тайминг</div><div class="atrk"><div class="afill f-p" style="width:70%"></div></div><div class="av">7</div></div>
+          <div class="arow"><div class="an">Ключевые мысли</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+        </div>
+        <div class="acat"><div class="act">Работа с залом</div>
+          <div class="arow"><div class="an">Вовлечение</div><div class="atrk"><div class="afill f-p" style="width:50%"></div></div><div class="av">5</div></div>
+          <div class="arow"><div class="an">Ответы на вопросы</div><div class="atrk"><div class="afill f-p" style="width:70%"></div></div><div class="av">7</div></div>
+          <div class="arow"><div class="an">Импровизация</div><div class="atrk"><div class="afill f-r" style="width:40%"></div></div><div class="av">4</div></div>
+          <div class="arow"><div class="an">Считывание зала</div><div class="atrk"><div class="afill f-r" style="width:30%"></div></div><div class="av">3</div></div>
+          <div class="arow"><div class="an">Управление вниманием</div><div class="atrk"><div class="afill f-p" style="width:60%"></div></div><div class="av">6</div></div>
+          <div class="arow"><div class="an">Возражения</div><div class="atrk"><div class="afill f-p" style="width:50%"></div></div><div class="av">5</div></div>
+        </div>
+        <div class="acat"><div class="act">Визуалы</div>
+          <div class="arow"><div class="an">Дизайн слайдов</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+          <div class="arow"><div class="an">Читаемость</div><div class="atrk"><div class="afill f-g" style="width:90%"></div></div><div class="av">9</div></div>
+          <div class="arow"><div class="an">Уместность</div><div class="atrk"><div class="afill f-p" style="width:70%"></div></div><div class="av">7</div></div>
+          <div class="arow"><div class="an">Синхронность</div><div class="atrk"><div class="afill f-p" style="width:50%"></div></div><div class="av">5</div></div>
+          <div class="arow"><div class="an">Минимализм</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+          <div class="arow"><div class="an">Акценты</div><div class="atrk"><div class="afill f-p" style="width:60%"></div></div><div class="av">6</div></div>
+        </div>
+        <div class="acat"><div class="act">Эмоции</div>
+          <div class="arow"><div class="an">Искренность</div><div class="atrk"><div class="afill f-g" style="width:90%"></div></div><div class="av">9</div></div>
+          <div class="arow"><div class="an">Уверенность</div><div class="atrk"><div class="afill f-p" style="width:70%"></div></div><div class="av">7</div></div>
+          <div class="arow"><div class="an">Энтузиазм</div><div class="atrk"><div class="afill f-g" style="width:80%"></div></div><div class="av">8</div></div>
+          <div class="arow"><div class="an">Эмпатия</div><div class="atrk"><div class="afill f-p" style="width:60%"></div></div><div class="av">6</div></div>
+          <div class="arow"><div class="an">Сторителлинг</div><div class="atrk"><div class="afill f-p" style="width:50%"></div></div><div class="av">5</div></div>
+          <div class="arow"><div class="an">Призыв к действию</div><div class="atrk"><div class="afill f-r" style="width:40%"></div></div><div class="av">4</div></div>
+        </div>
+      </div>
+      <div class="alegend"><span><i class="f-g"></i>8–10 сильная сторона</span><span><i class="f-p"></i>5–7 зона внимания</span><span><i class="f-r"></i>1–4 нужно усилить</span></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap" style="border-top:1px solid var(--line);padding-top:70px">
+    <div class="eyebrow">Как начать</div>
+    <h2 class="title">Сначала результат, потом решение</h2>
+    <div class="rule"></div>
+    <p class="lead" style="margin-bottom:32px">Формат: <b>около 6 стратсессий</b> по 90 минут. Наполнение индивидуальное под вашу цель. Годовое сопровождение обсуждаем отдельно.</p>
+    <a class="cta" href="https://t.me/vage_vage" target="_blank">
+      <div class="cta-ic">TG</div>
+      <div><div class="cta-t">Обсудить стратегический спринт</div><div class="cta-d">На экспертном часе разберём ваши активы и цель, покажу, что спринт даст именно вам. 60 минут.</div></div>
+      <div class="cta-ar">Написать в Telegram <span>→</span></div>
+    </a>
+  </div></section>
+</main>
+
+<!-- ================= PRODUCT: ПРОДЮСИРОВАНИЕ ================= -->
+<main id="p-producing" class="page">
+  <section class="prod-hero"><div class="wrap">
+    <a class="backlink" href="#formats" data-back>← Все продукты</a>
+    <div class="eyebrow">Продукт · ретейнер</div>
+    <h2 class="title">Спикерское продюсирование</h2>
+    <div class="rule"></div>
+    <p class="lead" style="max-width:34em">Системная медийность за полгода: выхожу с вами на крупные площадки с выступлениями, которые <b>генерируют лидов</b> в твои продукты.</p>
+
+    <div class="metric-row">
+      <div class="metric"><div class="val">6</div><div class="lab">месяцев системной работы</div></div>
+      <div class="metric"><div class="val">3–5</div><div class="lab">выступлений на крупных площадках</div></div>
+      <div class="metric"><div class="val">5–8</div><div class="lab">подкастов с целевой аудиторией</div></div>
+      <div class="metric"><div class="val">∞</div><div class="lab">рилсы и воронка с лидогенерацией</div></div>
+    </div>
+
+    <div class="hb">
+      <div>
+        <div class="hb-eyebrow">Принцип работы</div>
+        <div class="hb-title">Медийность<br>как <em>поток</em></div>
+        <div class="hb-sub">Из хаотичных выходов получается <b>управляемая воронка</b>: выступление ведёт к подкасту, подкаст к рилсам, рилсы к заявке.</div>
+        <div class="hb-rule"></div>
+      </div>
+      <div class="hb-art">
+        <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#5f544a" stroke-width="1.3">
+            <path d="M60 44 L340 44"/><path d="M96 104 L304 104"/><path d="M132 164 L268 164"/>
+            <path d="M60 44 L200 244"/><path d="M340 44 L200 244"/>
+          </g>
+          <g fill="#3a332e"><circle cx="60" cy="44" r="3.5"/><circle cx="340" cy="44" r="3.5"/></g>
+          <path d="M168 214 L232 214" stroke="#ca9072" stroke-width="1.5"/>
+          <circle cx="200" cy="244" r="9" stroke="#ca9072" stroke-width="1.5"/>
+          <circle cx="200" cy="244" r="3.5" fill="#ca9072"/>
+        </svg>
+      </div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:70px"><div class="wrap">
+    <div class="eyebrow">Что входит</div>
+    <h2 class="title">Три направления работы</h2>
+    <div class="rule"></div>
+
+    <div class="g3" style="margin-top:36px">
+      <div class="card"><div class="ico">⊞</div><h3>Спикерский трек</h3>
+        <ul>
+          <li>Аудит компетенций по 36 параметрам, зоны роста, при необходимости репетиторы.</li>
+          <li>Пресс-кит: интерактивный сайт вместо гугл-дока.</li>
+          <li>~10 идей выступлений и поиск стыков: идея × площадка × аудитория.</li>
+          <li>Площадки: конференции и клубы, переговоры со снижением стоимости.</li>
+        </ul>
+      </div>
+      <div class="card"><div class="ico">⊙</div><h3>Подкасты и контент</h3>
+        <ul>
+          <li>Подбор подкастеров с целевой аудиторией, договорённости, сценарии с точками под рилсы.</li>
+          <li>Нарезка рилсов из выступлений и подкастов, дистрибуция через посевы.</li>
+        </ul>
+      </div>
+      <div class="card"><div class="ico">⟳</div><h3>Воронка и продукты</h3>
+        <ul>
+          <li>Воронка с выступлений: выступление → лид-магнит → прогрев → заявка.</li>
+          <li>Продуктовая архитектура: группа, интенсив, клуб. Целостная картинка.</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="eyebrow">Итого</div>
+    <h2 class="title">Результат через 6 месяцев</h2>
+    <div class="rule"></div>
+    <div class="g3" style="margin-top:36px">
+      <div class="card"><div class="ico">◎</div><h3>Аудит · 36</h3><p>Параметры спикера и план развития</p></div>
+      <div class="card"><div class="ico">◈</div><h3>Пресс-кит</h3><p>Интерактивный сайт эксперта</p></div>
+      <div class="card"><div class="ico">◉</div><h3>3–5 выступлений</h3><p>Конференции и клубы</p></div>
+      <div class="card"><div class="ico">⊙</div><h3>5–8 подкастов</h3><p>С целевой аудиторией</p></div>
+      <div class="card"><div class="ico">▸</div><h3>Рилсы + воронка</h3><p>Контент, который приводит лидов</p></div>
+      <div class="card"><div class="ico">⬡</div><h3>Продукты</h3><p>Целостная картинка и воронки</p></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap" style="border-top:1px solid var(--line);padding-top:70px">
+    <div class="eyebrow">Формат и границы</div>
+    <h2 class="title">Прозрачные условия</h2>
+    <div class="rule"></div>
+    <p class="lead" style="margin-bottom:26px">Работаем помесячно, <b>минимум 3 месяца</b>, с чекпоинтом после третьего для сверки и корректировки. Еженедельные синхроны.</p>
+    <div class="card" style="border-left:1px solid var(--border-light);max-width:680px">
+      <div style="color:var(--accent);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:8px">Не входит</div>
+      <p>Продажи, обработка лидов, запуски и контент в Telegram. Бюджет на слоты конференций и репетиторов оплачивается отдельно. Это фокусирует работу на медийности и системе, а не на операционке.</p>
+    </div>
+    <a class="cta" href="https://t.me/vage_vage" target="_blank" style="margin-top:36px">
+      <div class="cta-ic">TG</div>
+      <div><div class="cta-t">Обсудить продюсирование</div><div class="cta-d">На экспертном часе посмотрим вашу медийность и воронку, соберём картину работы на полгода. 60 минут.</div></div>
+      <div class="cta-ar">Написать в Telegram <span>→</span></div>
+    </a>
+  </div></section>
+</main>
+
+<!-- ================= PRODUCT: ВЫСТУПЛЕНИЕ ПОД КЛЮЧ ================= -->
+<main id="p-vystuplenie" class="page">
+  <section class="prod-hero"><div class="wrap">
+    <a class="backlink" href="#formats" data-back>← Все продукты</a>
+    <div class="eyebrow">Продукт · проект</div>
+    <h2 class="title">Выступление под ключ</h2>
+    <div class="rule"></div>
+    <p class="lead" style="max-width:34em">Готовлю яркое, запоминающееся выступление: <b>от идеи до монетизации</b> аудитории. После такого растёт медийность, приходят клиенты и деньги.</p>
+    <div class="lquote" style="font-style:normal;font-size:clamp(19px,2.2vw,25px)">Если вы думаете, что в основе успешного выступления только красивая речь и крутая информация, <b style="color:var(--accent-ink)">нет.</b> Про такие выступления даже через час не вспомнят. Сила в слоях.</div>
+
+    <div class="hb">
+      <div>
+        <div class="hb-eyebrow">Метод «7 слоёв»</div>
+        <div class="hb-title">Как <em>торт</em>:<br>каждый слой важен</div>
+        <div class="hb-sub">Сильное выступление собирается послойно: идея, логика, эмоция, композиция, подача, визуал и воронка.</div>
+        <div class="hb-rule"></div>
+      </div>
+      <div class="hb-art">
+        <svg viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke-width="1.3">
+            <path d="M70 40 L330 40" stroke="#5f544a"/>
+            <path d="M70 74 L330 74" stroke="#5f544a"/>
+            <path d="M70 108 L330 108" stroke="#5f544a"/>
+            <path d="M70 142 L330 142" stroke="#5f544a"/>
+            <path d="M70 176 L330 176" stroke="#5f544a"/>
+            <path d="M70 210 L330 210" stroke="#5f544a"/>
+            <path d="M70 244 L330 244" stroke="#ca9072"/>
+          </g>
+          <g fill="#3a332e"><circle cx="70" cy="40" r="3"/><circle cx="70" cy="74" r="3"/><circle cx="70" cy="108" r="3"/><circle cx="70" cy="142" r="3"/><circle cx="70" cy="176" r="3"/><circle cx="70" cy="210" r="3"/></g>
+          <circle cx="70" cy="244" r="4.5" fill="#ca9072"/>
+          <text x="348" y="251" fill="#ca9072" font-family="Cormorant Garamond, serif" font-size="26" font-weight="700">7</text>
+        </svg>
+      </div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:70px"><div class="wrap">
+    <div class="eyebrow">Почему это важно</div>
+    <h2 class="title">Три корзины восприятия</h2>
+    <div class="rule"></div>
+    <p class="lead">Сейчас эпоха «караоке-спикеров»: имена разные, смыслы одни и те же. У зрителя в голове всегда <b>три корзины</b>, и попасть надо в третью.</p>
+    <div class="g3" style="margin-top:36px">
+      <div class="card"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#a8443a;font-weight:700;margin-bottom:12px">Опасно</div><h3>«Это караоке»</h3><p>Слышали сто раз. Скучно, хочется пролистать. Вы становитесь <b>радио на фоне</b>.</p></div>
+      <div class="card"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px">Так себе</div><h3>«Что-то похожее»</h3><p>Вроде ново, но не цепляет. <b>Забудется</b> через пять минут.</p></div>
+      <div class="card" style="border-color:var(--accent-soft);box-shadow:0 6px 22px rgba(182,116,84,.08)"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px">Цель</div><h3>«Чегооо?!»</h3><p>Живое, свежее, цепляет. Хочется сохранить, пересмотреть и <b>купить</b>.</p></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="eyebrow">Метод</div>
+    <h2 class="title">7 слоёв сильного выступления</h2>
+    <div class="rule"></div>
+    <p class="lead">Как торт: каждый слой важен. Прорабатываем <b>все семь</b>, поэтому выступление запоминают, ловят инсайты и переходят к вам.</p>
+
+    <div class="layers">
+      <div class="layer l1"><div class="l-n">1</div><div class="l-body"><div class="l-t">Идейный: пробуждающая идея</div><div class="l-d">Идея, через которую раскрываем тему небанально, это <b>50% успеха</b>. Задача попасть в корзину «такого я ещё не слышал».</div></div></div>
+      <div class="layer l2"><div class="l-n">2</div><div class="l-body"><div class="l-t">Аргументационный: железная логика</div><div class="l-d">Цепочка тезисов с сильными аргументами. Не согласились с одним: <b>теряем аудиторию</b>.</div></div></div>
+      <div class="layer l3"><div class="l-n">3</div><div class="l-body"><div class="l-t">Эмоциональный: струнки души</div><div class="l-d">Истории, метафоры, шутки: то, <b>что вспомнят через час</b>. Вплетённые в смысл, а не ради красоты.</div></div></div>
+      <div class="layer l4"><div class="l-n">4</div><div class="l-body"><div class="l-t">Композиционный: структура</div><div class="l-d">Начало, 10%: коннект. Середина, 80%: суть. Конец, 10%: послевкусие.</div></div></div>
+      <div class="layer l5"><div class="l-n">5</div><div class="l-body"><div class="l-t">Исполнительский: подача</div><div class="l-d">Акценты, интонация, взаимодействие с залом. <b>Репетиции до результата</b>.</div></div></div>
+      <div class="layer l6"><div class="l-n">6</div><div class="l-body"><div class="l-t">Визуальный: усиление</div><div class="l-d">Слайды, графики, видео: всё, что <b>усиливает сообщение</b>.</div></div></div>
+      <div class="layer l7"><div class="l-n">7</div><div class="l-body"><div class="l-t">Слой воронки: монетизация</div><div class="l-d">Две воронки: быстрая (чек-лист, подарок) и глубокая (связь, консультация) <b>для высоких чеков</b>.</div></div></div>
+    </div>
+  </div></section>
+
+  
+
+<section style="padding-top:0"><div class="wrap" style="border-top:1px solid var(--line);padding-top:70px">
+    <div class="eyebrow">Примеры работ</div>
+    <h2 class="title">Как это выглядит на практике</h2>
+    <div class="rule"></div>
+    <p class="lead">Выступление, собранное целиком: от идеи и провокации в завязке до доказательств и финала.</p>
+
+
+
+    <div class="deck">
+      <div class="deck-left">
+      <div class="deck-stage">
+        <div class="deck-book" id="deckTrack">
+          <figure class="dslide dcover">
+            <div class="dcover-in">
+              <div class="dcover-tag">Выступление · BUYBRAND</div>
+              <div class="dcover-t">Бизнес по любви<br>или по расчёту</div>
+              <div class="dcover-who">Анастасия Анциферова</div>
+              <div class="dcover-role">Основатель ресторанной группы «Это по любви»</div>
+            </div>
+          </figure>
+          <figure class="dslide"><img src="slides/s01.jpg" alt="Идея: вопрос, на который зал хочет ответить" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s02.jpg" alt="Знакомство без регалий: сразу человек" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s03.jpg" alt="Точка старта: 800 км от Москвы" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s04.jpg" alt="Шутка снимает дистанцию и держит внимание" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s05.jpg" alt="Самоирония: спикер смеётся над собой первым" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s06.jpg" alt="Обычный город как отправная точка" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s07.jpg" alt="Контраст: здесь построена миллиардная компания" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s08.jpg" alt="Пауза перед поворотом сюжета" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s09.jpg" alt="Прямое обращение в зал" loading="lazy" decoding="async"></figure>
+          <figure class="dslide"><img src="slides/s10.jpg" alt="Провокация: слушатель не может отвлечься" loading="lazy" decoding="async"></figure>
+        </div>
+        <button class="dnav prev" id="deckPrev" aria-label="Предыдущий слайд">&#8249;</button>
+        <button class="dnav next" id="deckNext" aria-label="Следующий слайд">&#8250;</button>
+        <div class="dcount"><span id="deckNum">1</span> / 11</div>
+      </div>
+
+      <div class="deck-dots" id="deckDots"></div>
+      <div class="deck-hint">Листайте страницы</div>
+      </div>
+
+      <div class="deck-body">
+        <div class="hc-eyebrow">Пример работы · Настя Анциферова</div>
+        <div class="hc-title">«Бизнес по любви или по расчёту»</div>
+        <p>Выступление на BUYBRAND для основателя ресторанной группы «Это по любви». Собрано по методу «7 слоёв»: от идеи и провокации в завязке до доказательств и финала. Здесь первые десять слайдов, в презентации их 90.</p>
+        <a class="deck-btn" href="vystuplenie-nastya.html">Посмотреть полностью <span>&#8594;</span></a>
+      </div>
+    </div>
+    <div style="margin-top:48px">
+      <div class="eyebrow">Формат</div>
+      <p class="lead" style="margin-bottom:32px">Вся подготовка идёт через созвоны, где реализуем слои: <b>от 20 до 24 часов</b> работы, 6–10 созвонов, включая репетиции.</p>
+    </div>
+
+
+  </div></section>
+
+<section style="padding-top:0"><div class="wrap" style="border-top:1px solid var(--line);padding-top:70px">
+    <div class="eyebrow">Ещё пример</div>
+    <h2 class="title">Когда площадка стоит дорого</h2>
+    <div class="rule"></div>
+    <div class="hcard">
+      <div class="hc-eyebrow">Олег Кобзев · маркетолог</div>
+      <div class="hc-title">Нестандартный формат вместо дорогого слота</div>
+      <p>У Олега не было прокачанной медийности, за слот на конференции пришлось бы заплатить <b>300к</b>. Мы придумали практическое выступление: он не читал контент, а пригласил желающего на сцену и в образе врача поставил ему диагноз <b>«малоклиентоз»</b> и выдал рекомендации.</p>
+      <div class="hc-metric"><b>50к</b> вместо 300к за слот. Выступление признали <b>одним из лучших</b>, а формат занял меньше времени.</div>
+    </div>
+
+    <a class="cta" href="https://t.me/vage_vage" target="_blank">
+      <div class="cta-ic">TG</div>
+      <div><div class="cta-t">Подготовить выступление</div><div class="cta-d">Расскажите про событие и цель, разберу задачу и скажу, что реально вытащить из этого выхода.</div></div>
+      <div class="cta-ar">Написать в Telegram <span>→</span></div>
+    </a>
+  </div></section>
+
+
+</main>
+
+<!-- ================= CASE: ТИМОЧКО (full) ================= -->
+
+<!-- ================= КЕЙС: ERNST & YOUNG ================= -->
+<main id="p-case-ey" class="page">
+  <section class="prod-hero"><div class="wrap">
+    <a class="backlink" href="#formats" data-back>← Все кейсы</a>
+    <div class="eyebrow">Продюсирование · разбор кейса</div>
+    <h2 class="title">Обучающий продукт<br>и сеть в 100 городах</h2>
+    <div class="rule"></div>
+    <p class="lead" style="max-width:66ch">Курс для мастеров, собранный под массовый поток: программа держала <b>2 500 студентов единовременно</b>, а продавала её партнёрская сеть из сотни учебных центров по СНГ. Проект получил премию <b>Ernst &amp; Young за развитие женского предпринимательства</b>.</p>
+
+    <div class="clientline">
+      <div class="cl-l">Клиент</div>
+      <div class="cl-t">Екатерина Пигалева, основатель бренда косметики <b>Gloria</b></div>
+    </div>
+
+    <div class="stats stats-3" style="margin-top:46px">
+      <div class="stat"><div class="v">2 500</div><div class="l">студентов<br>единовременно</div></div>
+      <div class="stat"><div class="v">100+</div><div class="l">аккредитованных<br>учебных центров по СНГ</div></div>
+      <div class="stat"><div class="v">100</div><div class="l">городов СНГ<br>в одном запуске</div></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:70px"><div class="wrap">
+    <div class="eyebrow">Что построено</div>
+    <h2 class="title">Не курс, а система дистрибуции</h2>
+    <div class="rule"></div>
+    <p class="lead">Сам продукт: только ядро. Деньги приносит то, что вокруг него: партнёрская сеть, единый стандарт и повторяемый способ продавать в каждом городе.</p>
+
+    <div class="blist">
+      <div class="bi"><div class="bn">01</div><div class="bt"><b>Продукт под массовый поток.</b> Программа выдерживала 2 500 студентов единовременно, без потери управляемости.</div></div>
+      <div class="bi"><div class="bn">02</div><div class="bt"><b>Партнёрская сеть.</b> Более 100 аккредитованных учебных центров по всему СНГ, каждый продаёт и обучает по единому стандарту.</div></div>
+      <div class="bi"><div class="bn">03</div><div class="bt"><b>Одновременный запуск в 100 городах.</b> Централизованный трафик и продающие оффлайн-семинары в сотне городов в одном окне, а не по очереди.</div></div>
+      <div class="bi"><div class="bn">04</div><div class="bt"><b>Обучение дистрибьюторов.</b> Система подготовки партнёров и проведения продающих семинаров во всех городах, чтобы качество не падало от точки к точке.</div></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="eyebrow">Продукт</div>
+    <h2 class="title">«Мастер на миллион»</h2>
+    <div class="rule"></div>
+    <p class="lead">Обучающий курс для мастеров под брендом Gloria: пошаговый путь мастера к своему первому миллиону за год.</p>
+    <div class="proof">
+      <img src="img2/c29/1.jpg" alt="Курс «Мастер на миллион», Gloria" loading="lazy">
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="eyebrow">Признание</div>
+    <h2 class="title">Премия Ernst &amp; Young<br>за развитие женского предпринимательства</h2>
+    <div class="rule"></div>
+    <p class="lead" style="max-width:66ch">Проект получил премию <b>Ernst &amp; Young</b> в номинации за развитие женского предпринимательства. Награду вручили на церемонии EY «Предприниматель года».</p>
+    <div class="proof">
+      <img src="ey.jpg" alt="Премия EY «Предприниматель года»" loading="lazy">
+      <div class="proof-cap">Церемония EY «Предприниматель года»: вручение награды и сцена с презентацией проекта.</div>
+    </div>
+
+    <a class="cta" href="https://t.me/vage_vage" target="_blank">
+      <div class="cta-ic">TG</div>
+      <div><div class="cta-t">Разобрать продукт и каналы</div><div class="cta-d">Посмотрим ваш продукт, дистрибуцию и точки роста, наметим первый шаг. 60 минут, без презентаций и продаж.</div></div>
+      <div class="cta-ar">Написать в Telegram <span>→</span></div>
+    </a>
+  </div></section>
+</main>
+
+<!-- ================= PRODUCT: ЧЕКАП ================= -->
+<main id="p-checkup" class="page">
+  <section class="prod-hero"><div class="wrap">
+    <a class="backlink" href="#formats" data-back>← Все продукты</a>
+    <div class="eyebrow">Диагностика · проект</div>
+    <h2 class="title">Профессиональный чекап</h2>
+    <div class="rule"></div>
+    <p class="lead" style="max-width:36em">Присылаете видео выступления, получаете <b>объективную картину</b> своего уровня и ясный путь развития как спикера. Оценка по 36 параметрам, паутина сильных сторон и зон роста, конкретные рекомендации.</p>
+
+    <div class="hb">
+      <div>
+        <div class="hb-eyebrow">Объективная картина</div>
+        <div class="hb-title">36 параметров<br>в одну <em>паутину</em></div>
+        <div class="hb-sub">Каждая сторона отвечает за свой аспект: от смысла и логики до голоса, жестов и финального оффера. Видно сразу, где сила, а что тянет вниз.</div>
+        <div class="hb-rule"></div>
+      </div>
+      <div class="hb-art">
+        <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#5f544a" stroke-width="1.2">
+            <path d="M150 40 L245 92 L245 168 L150 220 L55 168 L55 92 Z"/>
+            <path d="M150 70 L219 108 L219 152 L150 190 L81 152 L81 108 Z" opacity=".65"/>
+            <path d="M150 100 L193 124 L193 136 L150 160 L107 136 L107 124 Z" opacity=".4"/>
+          </g>
+          <g stroke="#5f544a" stroke-width="1" opacity=".5">
+            <path d="M150 130 L150 40"/><path d="M150 130 L245 92"/><path d="M150 130 L245 168"/><path d="M150 130 L150 220"/><path d="M150 130 L55 168"/><path d="M150 130 L55 92"/>
+          </g>
+          <path d="M150 58 L228 100 L212 160 L150 196 L78 156 L84 104 Z" stroke="#ca9072" stroke-width="1.8" fill="rgba(202,144,114,.13)" stroke-linejoin="round"/>
+          <g fill="#ca9072"><circle cx="150" cy="58" r="3.6"/><circle cx="228" cy="100" r="3.6"/><circle cx="212" cy="160" r="3.6"/><circle cx="150" cy="196" r="3.6"/><circle cx="78" cy="156" r="3.6"/><circle cx="84" cy="104" r="3.6"/></g>
+        </svg>
+      </div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:70px"><div class="wrap">
+    <div class="eyebrow">Путь развития</div>
+    <h2 class="title">Куда вы растёте</h2>
+    <div class="rule"></div>
+    <div class="g3" style="margin-top:36px">
+      <div class="card"><div class="ico">◔</div><h3>От начинающего<br>к уверенному</h3><p>Убираете грубые ошибки, находите опору и структуру.</p></div>
+      <div class="card"><div class="ico">◑</div><h3>От уверенного<br>к топовому</h3><p>Оттачиваете подачу, эмоцию и работу с залом.</p></div>
+      <div class="card"><div class="ico">●</div><h3>От топового<br>к выдающемуся</h3><p>Собираете выступление, которое запоминают и пересказывают.</p></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="eyebrow">Как проходит</div>
+    <h2 class="title">Четыре шага</h2>
+    <div class="rule"></div>
+    <div class="g2" style="margin-top:36px">
+      <div class="card"><div class="ico">①</div><h3>Заявка</h3><p>Оставляете заявку, я связываюсь для уточнения деталей и договариваемся о формате работы.</p></div>
+      <div class="card"><div class="ico">②</div><h3>Видео</h3><p>Присылаете запись выступления: мастер-класс, вебинар, живое выступление или запись в студии.</p></div>
+      <div class="card"><div class="ico">③</div><h3>Анализ</h3><p>Разбираю по 7 слоям и 36 параметрам: от идеи и логики до голоса, жестов и взаимодействия. Фиксирую сильные стороны и точки роста.</p></div>
+      <div class="card"><div class="ico">④</div><h3>Отчёт</h3><p>Созваниваемся, презентую подробный отчёт: показываю оценки, даю конкретные рекомендации и отвечаю на вопросы.</p></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="eyebrow">Пример результата</div>
+    <h2 class="title">Отчёт по 6 категориям</h2>
+    <div class="rule"></div>
+    <p class="lead">Каждый параметр оценивается <b>от 1 до 10</b>. Итог сводится в общий балл и наглядные категории с рекомендациями.</p>
+
+    <div class="report">
+    <div class="radar-wrap">
+      <div class="radar-card">
+        <svg viewBox="0 0 440 330" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#6a5f53" stroke-width="1" stroke-linejoin="round">
+            <path d="M220 50 L312.3 94.4 L335 194.3 L271.2 274.3 L168.8 274.3 L105 194.3 L127.7 94.4 Z"/>
+            <path d="M220 90.1 L280.9 119.4 L295.9 185.3 L253.8 238.2 L186.2 238.2 L144.1 185.3 L159.1 119.4 Z"/>
+            <path d="M220 129.1 L250.4 143.7 L257.9 176.7 L236.9 203.1 L203.1 203.1 L182.1 176.7 L189.6 143.7 Z"/>
+          </g>
+          <g stroke="#5f544a" stroke-width="1">
+            <path d="M220 168 L220 50"/><path d="M220 168 L312.3 94.4"/><path d="M220 168 L335 194.3"/><path d="M220 168 L271.2 274.3"/><path d="M220 168 L168.8 274.3"/><path d="M220 168 L105 194.3"/><path d="M220 168 L127.7 94.4"/>
+          </g>
+          <path d="M220 73.6 L277.2 122.4 L298.2 185.8 L259.9 250.9 L189.8 230.7 L146.4 184.8 L139.7 104 Z" fill="rgba(202,144,114,.20)" stroke="#ca9072" stroke-width="2.2" stroke-linejoin="round"/>
+          <g fill="#ca9072"><circle cx="220" cy="73.6" r="4.5"/><circle cx="277.2" cy="122.4" r="4.5"/><circle cx="298.2" cy="185.8" r="4.5"/><circle cx="259.9" cy="250.9" r="4.5"/><circle cx="189.8" cy="230.7" r="4.5"/><circle cx="146.4" cy="184.8" r="4.5"/><circle cx="139.7" cy="104" r="4.5"/></g>
+          <text class="radar-lbl" x="220" y="40" text-anchor="middle">Смысл</text>
+          <text class="radar-lbl" x="320" y="92" text-anchor="start">Позиция</text>
+          <text class="radar-lbl" x="343" y="198" text-anchor="start">Подача</text>
+          <text class="radar-lbl" x="277" y="293" text-anchor="start">Голос</text>
+          <text class="radar-lbl" x="163" y="293" text-anchor="end">Тело</text>
+          <text class="radar-lbl" x="97" y="198" text-anchor="end">Зал</text>
+          <text class="radar-lbl" x="120" y="92" text-anchor="end">Оффер</text>
+        </svg>
+        <div class="radar-score">Общий балл 7,2 / 10</div>
+      </div>
+      <div class="assess-single">
+        <div class="arow"><div class="an">Презентация и оффер</div><div class="atrk"><div class="afill f-g" style="width:87%"></div></div><div class="av">8,7</div></div>
+        <div class="arow"><div class="an">Голосовые характеристики</div><div class="atrk"><div class="afill f-p" style="width:78%"></div></div><div class="av">7,8</div></div>
+        <div class="arow"><div class="an">Структура информации</div><div class="atrk"><div class="afill f-p" style="width:73%"></div></div><div class="av">7,3</div></div>
+        <div class="arow"><div class="an">Подача информации</div><div class="atrk"><div class="afill f-p" style="width:64%"></div></div><div class="av">6,4</div></div>
+        <div class="arow"><div class="an">Взаимодействие с залом</div><div class="atrk"><div class="afill f-p" style="width:62%"></div></div><div class="av">6,2</div></div>
+        <div class="arow"><div class="an">Невербалика</div><div class="atrk"><div class="afill f-r" style="width:59%"></div></div><div class="av">5,9</div></div>
+      </div>
+    </div>
+      <div class="alegend"><span><i class="f-g"></i>сильная сторона</span><span><i class="f-p"></i>зона внимания</span><span><i class="f-r"></i>нужно усилить</span></div>
+    </div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap">
+    <div class="eyebrow">Что оцениваю</div>
+    <h2 class="title">36 параметров в 7 группах</h2>
+    <div class="rule"></div>
+    <div class="g3" style="margin-top:36px">
+      <div class="card"><div class="ico">◱</div><h3>Структура информации</h3><p>Суть · логика · аргументация · композиция</p></div>
+      <div class="card"><div class="ico">◈</div><h3>Самопрезентация</h3><p>Кто вы · личные смыслы · экспертность · свой / чужой</p></div>
+      <div class="card"><div class="ico">✦</div><h3>Подача информации</h3><p>Юмор · истории · энергетика · оригинальность · актёрское мастерство</p></div>
+      <div class="card"><div class="ico">◔</div><h3>Голосовые характеристики</h3><p>Голос · дикция · орфоэпия · дефекты речи · слова-паразиты · интонации</p></div>
+      <div class="card"><div class="ico">➛</div><h3>Невербалика</h3><p>Жесты · перемещение · позиция · метасообщение · конгруэнтность · мимика</p></div>
+      <div class="card"><div class="ico">⊙</div><h3>Взаимодействие с залом</h3><p>Захват внимания · удержание · динамика · контакт глаз · Q&amp;A · интерактив</p></div>
+    </div>
+    <div class="card" style="margin-top:18px"><div class="ico">⬡</div><h3>Предложение и презентация</h3><p>Понятность · ключевой оффер · кульминация · мотивация к действию · срочность · слайды · наглядность · дизайн</p></div>
+  </div></section>
+
+  <section style="padding-top:0"><div class="wrap" style="border-top:1px solid var(--line);padding-top:70px">
+    <div class="eyebrow">Отзыв</div>
+    <div class="lquote" style="margin-top:6px">«После аудита я понял, что терял внимание аудитории на логическом слое. Исправил структуру и получил <b>два новых приглашения</b> выступить.»</div>
+    <div class="lquote-a">Участник чекапа</div>
+
+    <a class="cta" href="https://t.me/vage_vage" target="_blank">
+      <div class="cta-ic">TG</div>
+      <div><div class="cta-t">Пройти чекап выступления</div><div class="cta-d">Пришлите видео, получите оценку по 36 параметрам, паутину сильных сторон и конкретные рекомендации.</div></div>
+      <div class="cta-ar">Написать в Telegram <span>→</span></div>
+    </a>
+  </div></section>
+</main>
+
+<script>
+(function(){
+  var pages={
+    home:document.getElementById('home'),
+    sprint:document.getElementById('p-sprint'),
+    producing:document.getElementById('p-producing'),
+    vystuplenie:document.getElementById('p-vystuplenie'),
+    checkup:document.getElementById('p-checkup'),
+    caseEY:document.getElementById('p-case-ey')
+  };
+  var lastKey=null;
+
+  // страховка: регистрируем ДО скрытия, чтобы падение ниже не оставило пустую страницу
+  var revealSafety=setTimeout(function(){
+    document.querySelectorAll('.rvl').forEach(function(el){el.classList.add('in');});
+  },1500);
+
+  // mark reveal targets
+  document.querySelectorAll('.page section .wrap > *, .hero-in > *').forEach(function(el){ el.classList.add('rvl'); });
+
+  function countUp(el){
+    if(el.dataset.done) return;
+    var txt=el.textContent.trim(); var m=txt.match(/^([\d\s]+)(\+?)$/); if(!m){el.dataset.done='1';return;}
+    var target=parseInt(m[1].replace(/\s/g,''),10); if(!target||target<2){el.dataset.done='1';return;}
+    el.dataset.done='1';
+    var suf=m[2]||''; var t0=null, dur=1200;
+    function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString('ru-RU')+suf; if(p<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  function growBarsIn(root){
+    root.querySelectorAll('.afill').forEach(function(f,i){
+      if(!f.dataset.w){ var m=(f.getAttribute('style')||'').match(/width:\s*([\d.]+%)/); f.dataset.w=m?m[1]:'0%'; }
+      f.style.width='0%';
+      setTimeout(function(){ f.style.width=f.dataset.w; }, 140+i*15);
+    });
+  }
+
+  // scroll-reveal only used on HOME (long page)
+  var io,ioN;
+  try{
+  io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}});},{threshold:.12});
+  var ioN=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){countUp(e.target); ioN.unobserve(e.target);}});},{threshold:.6});
+  }catch(e){ document.querySelectorAll('.rvl').forEach(function(el){el.classList.add('in');}); }
+
+  function observeHome(){
+    if(!io) return;
+    pages.home.querySelectorAll('.rvl').forEach(function(el){io.observe(el);});
+    pages.home.querySelectorAll('.stat .v, .res-fig .cu').forEach(function(el){ioN.observe(el);});
+  }
+
+  function activate(key){
+    if(!pages[key]) key='home';
+    Object.keys(pages).forEach(function(k){ pages[k].classList.toggle('active',k===key); });
+    var pg=pages[key];
+    if(key==='home'){
+      observeHome();
+    }else{
+      // product pages: reveal immediately, animate numbers + bars
+      pg.querySelectorAll('.rvl').forEach(function(el){el.classList.add('in');});
+      pg.querySelectorAll('.rv b').forEach(countUp);
+      growBarsIn(pg);
+    }
+    var titles={home:'Вагэ Хачатрян · стратег публичности',
+      sprint:'Стратегический спринт · Вагэ Хачатрян',
+      producing:'Спикерское продюсирование · Вагэ Хачатрян',
+      vystuplenie:'Выступление под ключ · Вагэ Хачатрян',
+      checkup:'Профессиональный чекап · Вагэ Хачатрян',
+      caseEY:'Кейс: премия Ernst & Young · Вагэ Хачатрян'};
+    document.title=titles[key]||titles.home;
+    if(key!==lastKey){
+      window.scrollTo({top:0,left:0,behavior:'auto'});
+      var h=pg.querySelector('h1,h2');
+      if(h && lastKey!==null){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+      lastKey=key;
+    }
+  }
+
+  function keyFromHash(){
+    var h=location.hash;
+    if(h.indexOf('#p/')===0){ var k=h.slice(3); return pages[k]?k:'home'; }
+    return 'home';
+  }
+  function route(){ activate(keyFromHash()); }
+  window.addEventListener('hashchange', route);
+
+  // product card "Подробнее"
+  document.querySelectorAll('[data-go]').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); location.hash='#p/'+this.getAttribute('data-go'); });
+  });
+  // back links
+  document.querySelectorAll('[data-back]').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault();
+      location.hash='';
+      activate('home');
+      var el=document.getElementById('formats');
+      if(el) setTimeout(function(){ el.scrollIntoView({behavior:smooth}); },60);
+    });
+  });
+  // nav anchors → go home then scroll
+  document.querySelectorAll('[data-nav]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var id=this.getAttribute('data-nav');
+      if(location.hash.indexOf('#p/')===0){ location.hash=''; }
+      activate('home');
+      var el=document.getElementById(id);
+      if(el) setTimeout(function(){ el.scrollIntoView({behavior:smooth}); },60);
+    });
+  });
+  // brand → home top
+  document.querySelectorAll('[data-home]').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); location.hash=''; activate('home'); window.scrollTo({top:0,behavior:smooth}); });
+  });
+
+  var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var smooth=reduceMotion?'auto':'smooth';
+
+  // hero parallax
+  var hp=document.querySelector('.hero-photo img');
+  if(hp && !reduceMotion){ window.addEventListener('scroll',function(){ var y=window.scrollY; if(y<900){ hp.style.setProperty('--py',(y*0.12)+'px'); } },{passive:true}); }
+
+  // листалка презентации
+  (function(){
+    var track=document.getElementById('deckTrack');
+    if(!track) return;
+    var slides=track.children, total=slides.length, cur=0;
+    var prev=document.getElementById('deckPrev'), next=document.getElementById('deckNext');
+    var num=document.getElementById('deckNum'), dots=document.getElementById('deckDots');
+    for(var d=0; d<total; d++){
+      var b=document.createElement('button');
+      b.setAttribute('aria-label','Слайд '+(d+1));
+      b.addEventListener('click',(function(k){return function(){go(k);};})(d));
+      dots.appendChild(b);
+    }
+    function go(i){
+      cur=Math.max(0,Math.min(total-1,i));
+      [].forEach.call(slides,function(sl,k){
+        sl.style.zIndex = total-k;
+        if(k < cur){
+          sl.style.transform='translateX(-124%) rotate(-7deg) scale(.92)';
+          sl.style.opacity='0';
+          sl.style.pointerEvents='none';
+        } else if(k === cur){
+          sl.style.transform='translateX(0) rotate(0deg) scale(1)';
+          sl.style.opacity='1';
+          sl.style.pointerEvents='';
+        } else {
+          sl.style.transform='translateY(16px) scale(.94)';
+          sl.style.opacity='0';
+          sl.style.pointerEvents='none';
+        }
+      });
+      num.textContent=cur+1;
+      prev.disabled=cur===0; next.disabled=cur===total-1;
+      [].forEach.call(dots.children,function(b,k){ b.className = k===cur?'on':''; });
+      for(var q=Math.max(0,cur-1); q<=Math.min(total-1,cur+1); q++){
+        var im=slides[q].querySelector('img'); if(im) im.loading='eager';
+      }
+    }
+    track.addEventListener('click',function(){ go(cur<total-1?cur+1:0); });
+    prev.addEventListener('click',function(e){e.stopPropagation();go(cur-1);});
+    next.addEventListener('click',function(e){e.stopPropagation();go(cur+1);});
+    track.addEventListener('keydown',function(e){
+      if(e.key==='ArrowLeft') go(cur-1);
+      if(e.key==='ArrowRight') go(cur+1);
+    });
+    var x0=null;
+    track.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      if(x0===null) return;
+      var dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>44) go(dx<0?cur+1:cur-1);
+      x0=null;
+    },{passive:true});
+    go(0);
+  })();
+
+  // init
+  route();
+
+  // safety fallback
+  setTimeout(function(){
+    var pg=document.querySelector('.page.active');
+    if(pg && pg.querySelectorAll('.rvl.in').length===0){
+      pg.querySelectorAll('.rvl').forEach(function(el){el.classList.add('in');});
+      pg.querySelectorAll('.stat .v, .rv b').forEach(countUp);
+      growBarsIn(pg);
+    }
+  }, 1500);
+})();
+
+/* слайдер «Примеры работ» */
+(function(){
+  var track=document.getElementById('wtrack');
+  if(!track) return;
+  var slides=[].slice.call(track.children), n=slides.length, i=0;
+  var dotsWrap=document.getElementById('wdots');
+  for(var k=0;k<n;k++){
+    var b=document.createElement('button');
+    b.className='s-dot'+(k===0?' on':'');
+    b.setAttribute('aria-label','Слайд '+(k+1));
+    (function(idx){ b.addEventListener('click',function(){go(idx);}); })(k);
+    dotsWrap.appendChild(b);
+  }
+  var dots=[].slice.call(dotsWrap.children);
+  function go(k){
+    i=(k+n)%n;
+    track.style.transform='translateX(-'+(i*100)+'%)';
+    dots.forEach(function(d,j){ d.classList.toggle('on', j===i); });
+  }
+  document.getElementById('wprev').addEventListener('click',function(){ go(i-1); });
+  document.getElementById('wnext').addEventListener('click',function(){ go(i+1); });
+  var x0=null;
+  track.addEventListener('touchstart',function(e){ x0=e.touches[0].clientX; },{passive:true});
+  track.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>44) go(i+(dx<0?1:-1));
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
