@@ -29,7 +29,7 @@ body{overflow-wrap:break-word;text-wrap:pretty;background:var(--bg);color:var(--
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:50;background:rgba(249,247,244,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:1180px;margin:0 auto;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.nav-in{max-width:1440px;margin:0 auto;padding:13px 64px;display:flex;justify-content:space-between;align-items:center;gap:20px}
 .nav-brand{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:600;text-decoration:none;cursor:pointer}
 .nav-brand:hover{color:var(--accent)}
 .nav-links{display:flex;gap:26px}
@@ -131,14 +131,17 @@ h2.title{text-wrap:balance;overflow-wrap:break-word;font-family:'Cormorant Garam
 .section-dark .nrow .nd{color:var(--dark-muted)}
 
 /* HERO */
-.hero{background:#0c0c0d;background-image:radial-gradient(120% 80% at 22% 0%,#1b1b1e 0%,#0c0c0d 62%);color:#f2efeb}
-.hero-in{max-width:1180px;margin:0 auto;padding:110px 40px 96px;display:grid;grid-template-columns:340px 1fr;gap:60px;align-items:center}
-@media(max-width:860px){.hero-in{grid-template-columns:1fr;gap:34px;padding:70px 22px}}
-.hero-photo{aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:#0d0a07;max-width:340px}
+.hero{background:#17171a;background-image:radial-gradient(120% 85% at 26% 4%,#232327 0%,#17171a 60%);color:#f2efeb;min-height:78vh;display:flex;align-items:center}
+.hero-in{max-width:1440px;margin:0 auto;padding:96px 64px 92px;display:grid;grid-template-columns:minmax(0,34%) 1fr;gap:82px;align-items:center;width:100%;min-width:0}
+@media(min-width:861px){.hero-in{grid-template-columns:minmax(360px,34%) 1fr}}
+@media(max-width:860px){}
+.hero-photo{position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden;background:#17171a;max-width:none}
+.hero-photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(23,23,26,.55) 0%,rgba(23,23,26,0) 22%),linear-gradient(to bottom,rgba(23,23,26,0) 72%,rgba(23,23,26,.5) 100%)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .hero .eyebrow{color:var(--dark-accent);margin-bottom:22px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.2vw,64px);font-weight:600;line-height:1.06;letter-spacing:-.02em;color:#f2efeb;margin-bottom:26px;text-wrap:balance}
-.hero .lead{color:#bdb7b0;max-width:46ch;font-size:17px;line-height:1.65;margin-bottom:0}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.4vw,56px);font-weight:600;line-height:1.08;letter-spacing:-.02em;color:#f2efeb;margin-bottom:26px;max-width:16ch;text-wrap:balance}
+.hero .lead{color:#a9a49d;max-width:52ch;font-size:17px;line-height:1.72;margin-bottom:0}
+.hero>.hero-in>div:last-child{max-width:720px}
 
 /* STATS strip */
 .stats{border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);gap:24px;padding-top:38px}
@@ -735,10 +738,10 @@ a.hcard:hover{box-shadow:0 18px 44px rgba(23,19,16,.09);transform:translateY(-3p
 <header class="hero" id="about"><div class="hero-in">
   <div class="hero-photo"><img src="vage-hero.jpg" alt="Вагэ Хачатрян" style="object-position:50% 22%" fetchpriority="high" decoding="async"></div>
   <div>
-    <div class="eyebrow">Вагэ Хачатрян · стратег публичности для собственников</div>
-    <h1>Публичность собственника<br>как система</h1>
-    <p class="lead">Не разовые выступления и не контент ради контента. Стратегия строится на том, что у вас уже есть, и доводится до сцены и до клиентов.</p>
-    <a class="res-link" href="https://vagekjan.github.io/vage/opyt.html" target="_blank" rel="noopener" style="margin-top:30px">Мой опыт в презентации <span>→</span></a>
+    <div class="eyebrow">Вагэ Хачатрян · стратег по коммуникациям</div>
+    <h1>Стать видимым для&nbsp;тех,<br>кто действительно важен.</h1>
+    <p class="lead">Строю для лидеров стратегии публичности и социального капитала под их замыслы.</p>
+    <a class="res-link" href="https://vagekjan.github.io/vage/opyt.html" target="_blank" rel="noopener" style="margin-top:32px;border-width:1.5px;letter-spacing:1.8px">Мой опыт в презентации <span>→</span></a>
 
   </div>
 </div></header>
@@ -862,6 +865,26 @@ a.hcard:hover{box-shadow:0 18px 44px rgba(23,19,16,.09);transform:translateY(-3p
 #testi .who .rg{color:#b3a894;font-size:13.5px;margin-top:4px}
 #testi .who .st{color:#7e735f;font-size:12.5px;margin-top:9px;letter-spacing:.01em}
 @media(max-width:640px){#testi .tw{flex-direction:column;text-align:left;align-items:flex-start}}
+
+/* hero: мобильная адаптация (в конце, чтобы перебить базовые правила) */
+@media(max-width:860px){
+  .hero{min-height:auto;display:block}
+  .hero-in{grid-template-columns:minmax(0,1fr);gap:34px;padding:64px 22px}
+  .hero-photo{max-width:100%!important;width:100%;aspect-ratio:4/5}
+  .hero-photo::after{background:none}
+  .hero h1{font-size:clamp(32px,8vw,42px);max-width:none}
+  .hero>.hero-in>div:last-child{max-width:none}
+}
+
+/* фикс горизонтального переполнения на узких экранах */
+html{overflow-x:clip}
+.track{width:100%}
+.slide{min-width:0;box-sizing:border-box}
+@media(max-width:860px){
+  .slide{padding:34px 22px}
+  .slide .s-t{max-width:none}
+  .slide .s-d{max-width:none}
+}
 </style>
 <section id="testi"><div class="wrap">
   <div class="tw">
