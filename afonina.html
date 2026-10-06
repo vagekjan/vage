@@ -659,6 +659,50 @@ img{max-width:100%;display:block}
 }
 @media (prefers-reduced-motion:reduce){.kc__exp{transition:none}.kc__pm::before,.kc__pm::after{transition:none}}
 @media print{.kc__exp{grid-template-rows:1fr!important}.kc__inner{overflow:visible}.kc__more,.kc__less{display:none!important}.ke{grid-template-columns:45% 30% 25%!important}}
+
+/* ═══ ФИНАЛ · CTA ═══ */
+.cta2{position:relative;background:var(--umber);color:var(--ink-d);overflow:hidden;
+  --ln:rgba(243,240,234,.16);--sc:var(--sec-d);--mt:var(--meta-d);
+  display:flex;align-items:center;min-height:100svh;padding-block:calc(var(--nav) + var(--sp-4)) var(--sp-4)}
+.cta2__glow{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(120% 90% at 100% 40%,rgba(224,205,170,.16) 0,rgba(224,205,170,0) 46%),
+  linear-gradient(100deg,rgba(16,12,10,.6) 0,rgba(16,12,10,0) 60%)}
+.cta2__in{position:relative;z-index:2;width:min(100% - var(--gut)*2,var(--max));margin-inline:auto}
+.cta2__eye{display:flex;align-items:center;gap:var(--sp-4);font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--mt);margin:0}
+.cta2__eye i{height:1px;width:clamp(60px,10vw,200px);background:var(--ln)}
+.cta2__h{font-family:var(--ser);font-weight:400;font-size:clamp(36px,4.9vw,72px);line-height:1.05;letter-spacing:-.01em;margin:clamp(14px,1.8vw,24px) 0 0;max-width:16ch}
+.cta2__h em{font-style:italic;color:var(--ox-l)}
+.cta2__sub{color:var(--sc);margin-top:var(--sp-4);max-width:42ch}
+.cta2__btn{display:inline-flex;align-items:center;gap:1.2em;background:var(--ox);color:#F3F0EA;text-decoration:none;
+  font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  padding:clamp(15px,1.4vw,20px) clamp(26px,2.4vw,40px);margin-top:var(--sp-4);transition:background-color .25s}
+.cta2__btn:hover{background:#7d3030}
+.cta2__contacts{display:flex;flex-wrap:wrap;gap:var(--sp-4) clamp(32px,4vw,64px);margin-top:var(--sp-4)}
+.cta2__ct{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;position:relative;padding-right:clamp(0px,2vw,34px)}
+.cta2__ct+.cta2__ct{border-left:1px solid var(--ln);padding-left:clamp(20px,2.4vw,40px)}
+.cta2__ic{flex:0 0 auto;width:26px;height:26px;color:var(--ox-l)}
+.cta2__ic svg{width:100%;height:100%}
+.cta2__ct b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mt);margin-bottom:3px}
+.cta2__ct span>:not(b),.cta2__ct span{font-size:15px}
+.cta2__fmt{margin-top:clamp(26px,3vw,44px);padding-top:var(--sp-3);border-top:1px solid var(--ln)}
+.cta2__fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gut);margin-top:var(--sp-3)}
+.cta2__f{padding-left:var(--sp-4);border-left:1px solid var(--ln)}
+.cta2__fn{font-family:var(--ser);font-size:clamp(22px,2vw,30px);color:var(--mt);font-weight:500;display:block;margin-bottom:8px}
+.cta2__ft{font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin:0}
+.cta2__fd{font-size:14px;color:var(--sc);margin:4px 0 0}
+.cta2__shot{position:absolute;right:var(--edge);bottom:var(--sp-3);z-index:2;font-size:11px;letter-spacing:.04em;color:rgba(243,240,234,.26);margin:0}
+@media (max-width:860px){
+  .cta2{min-height:auto;padding-block:calc(var(--nav) + var(--sp-5)) var(--sp-6)}
+  .cta2__fgrid{grid-template-columns:1fr 1fr;gap:var(--sp-4) var(--gut)}
+  .cta2__glow{background:linear-gradient(180deg,rgba(16,12,10,.4),rgba(16,12,10,0) 40%)}
+  .cta2__shot{display:none}
+}
+@media (max-width:560px){
+  .cta2__contacts{flex-direction:column;gap:var(--sp-3)}
+  .cta2__ct+.cta2__ct{border-left:0;padding-left:0}
+  .cta2__fgrid{grid-template-columns:1fr}
+}
+@media print{.cta2{min-height:0!important;padding-block:0!important}.cta2__glow{display:none}}
 </style>
 </head>
 <body>
@@ -831,27 +875,30 @@ img{max-width:100%;display:block}
     </div></div>
 </section>
 
-<!-- ГЛАВА 07 · CTA -->
-<section class="s s--umber s--edge chapter" id="invite">
-  <div class="spread spread--rev">
-    <div class="spread__img img">
-      <p class="img__n">Кадр 04 · финал</p>
-      <p class="img__b">Крупный портрет в момент речи либо кадр со сцены. Глубокий фон, силуэт в пространстве.</p>
+<!-- ГЛАВА 07 · ФИНАЛ -->
+<section class="s--umber cta2 chapter" id="invite">
+  <div class="cta2__glow" aria-hidden="true"></div>
+  <div class="wrap cta2__in rv">
+    <p class="cta2__eye"><span>Пригласить Наталью Афонину</span><i aria-hidden="true"></i></p>
+    <h2 class="cta2__h">Какой вопрос сейчас важен<br><em>вашей аудитории?</em></h2>
+    <p class="lead cta2__sub">Подберём тему и формат выступления под контекст вашего события.</p>
+    <a class="cta2__btn" href="mailto:natalia@afonina.ru">Обсудить выступление <span aria-hidden="true">&rarr;</span></a>
+    <div class="cta2__contacts">
+      <a class="cta2__ct" href="https://t.me/natalia_afonina" target="_blank" rel="noopener"><span class="cta2__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M21.5 3.5L2.5 11l6 2.2L18 6l-7 8.3V20l3-3.5 3.3 1.4z"/></svg></span><span><b>Telegram</b>@natalia_afonina</span></a>
+      <a class="cta2__ct" href="mailto:natalia@afonina.ru"><span class="cta2__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 6 8.5-6"/></svg></span><span><b>Email</b>natalia@afonina.ru</span></a>
+      <a class="cta2__ct" href="tel:+79991234567"><span class="cta2__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 3.5c1 0 1.6.4 2 1.5l1 2.5c.3.8.1 1.4-.5 2l-1 1c1 2 2.5 3.5 4.5 4.5l1-1c.6-.6 1.2-.8 2-.5l2.5 1c1.1.4 1.5 1 1.5 2v2c0 1.2-.9 2-2.2 1.9C10.5 20.4 3.6 13.5 3.1 5.7 3 4.4 3.8 3.5 5 3.5z"/></svg></span><span><b>Телефон</b>+7 999 123-45-67</span></a>
     </div>
-    <div class="spread__tx rv">
-      <h2 class="h1" style="max-width:min(8em,100%)">Пригласить Наталью Афонину</h2>
-      <p class="lbl mt-5">Форматы</p>
-      <p class="bd mt-2" style="max-width:46ch">Конференции · бизнес-клубы · закрытые встречи · корпоративные события · стратегические сессии · интервью и подкасты</p>
-      <hr class="hr mt-5" style="max-width:96px">
-      <p class="h2 mt-5" style="font-size:clamp(21px,2.1vw,29px)">Обсудить тему и формат выступления</p>
-      <div class="cta">
-        <div class="cta__r"><span class="cta__k">Менеджер</span><span class="ph">[ИМЯ · ТЕЛЕФОН]</span></div>
-        <div class="cta__r"><span class="cta__k">Telegram</span><span class="ph">[@USERNAME]</span></div>
-        <div class="cta__r"><span class="cta__k">Email</span><span class="ph">[EMAIL]</span></div>
-        <div class="cta__r"><span class="cta__k">Сайт</span><span class="ph">[САЙТ]</span></div>
+    <div class="cta2__fmt">
+      <p class="lbl">Форматы выступлений</p>
+      <div class="cta2__fgrid">
+        <div class="cta2__f"><span class="cta2__fn">01</span><p class="cta2__ft">Keynote</p><p class="cta2__fd">30–60 минут</p></div>
+        <div class="cta2__f"><span class="cta2__fn">02</span><p class="cta2__ft">Public talk</p><p class="cta2__fd">60–90 минут</p></div>
+        <div class="cta2__f"><span class="cta2__fn">03</span><p class="cta2__ft">Закрытая встреча</p><p class="cta2__fd">Камерный формат</p></div>
+        <div class="cta2__f"><span class="cta2__fn">04</span><p class="cta2__ft">Интервью / дискуссия</p><p class="cta2__fd">Сцена · podcast · panel</p></div>
       </div>
     </div>
   </div>
+  <p class="cta2__shot">[Кадр: тёмная архитектура со световым лучом справа]</p>
 </section>
 
 <script>
